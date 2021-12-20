@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+
+<html>
+<body>
+
+<head>  
+ <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>  
+
+<title>PTS tools help</title>
+
+<div class="navbar_div">
+	<iframe src="navbar.html?parent=split_by_chainage.html" class="navbar_iframe" name="contents" >
+	<p>Your browser does not seem to support iframes.</p>
+	</iframe>
+<div>
+
+<div class="main_div">
+        <h2 id="split_by_chainage">Split by Chainage</h2>
+		<p>Algorithm to split features into lengths of step.</p>
+		<p>Last part of input feature may be shorter</p>
+		<p> eg 25 m feature split into 10m will become 0-10m 10-20m,20-25m pieces.</p>
+		
+		<p>Creates new layer:</p>
+			<li>Containing 1 or more features per input feature</li>
+			<li>With additional fields start_chainage and end_chainage</li>
+		
+
+	<h3> Parameters:</h3>
+		<li>Input layer</li>
+		<li>Step:</li>
+		<li>Section length field: If set section length is treated as this,otherwise geometry length is used.</li>
+		<li>Output layer</li>
+
+	<h3>2D vs 3D geometry</h3>
+
+		<li> Split by chainage can work with 2D and 3D geometries.</li>
+		<li> Networks supplied by clients usually have 2D geometries(no altitude).</li>
+		<li> Section lengths calculated from 2D geometry will be shorter than the actual 3D length of the road.</li>
+		<li> Chainage measured along 3D road will be different to chainage calculated as the crow flies from 2D geometry.</li>
+
+</div>
+</body>
+</html>
