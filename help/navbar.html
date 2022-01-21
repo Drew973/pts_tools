@@ -1,0 +1,93 @@
+
+<!DOCTYPE html>
+
+<style>
+
+.sidenav {
+	height: 100%;
+	width: 300px;
+	position: fixed;
+	z-index: 1;
+	top: 0;
+	left: 0;
+	background-color: #b9d9eb;
+	overflow-x: hidden;
+	padding-top: 20px;
+	font-size: 20px;
+	list-style-type: none;
+
+}
+
+.sidenav a {
+  padding:  6px 6px 16px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+}
+
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+.active {
+    color:            #ffff00;
+    background-color: #00ff00;
+}
+</style>
+
+
+<div class="sidenav">
+<body>
+	<nav id=nav>
+		<ul style="list-style-type: none;margin-left: 0,padding-left: 0">
+			<li><a href="overview.html" target="_parent">Overview</a></li>
+			<li><a href="point_to_chainage.html" target="_parent">Point to chainage</a></li>
+			<li><a href="split_by_chainage.html" target="_parent">Split by Chainage</a></li>
+			<li><a href="to_examiner.html" target="_parent">To examiner</a></li>
+
+		</ul>
+
+	</nav>
+
+
+  <script>
+//this gets called every time page containing iframe loaded
+//no messages appear for errors. use debugger.
+	//var urlParams = new URLSearchParams(window.location.search);
+	//console.log(urlParams.get('parent'))//set parent GET parameter/query string in src of iframe
+
+
+	//console.log(new URLSearchParams(window.location.search).get('parent'))//set parent GET parameter/query string in src of iframe
+
+//'parent' parameter is passed from parent page
+	function getParent()
+		{
+		//return new URLSearchParams(window.location.search).get('parent');
+		t=new URLSearchParams(window.location.search).get('parent')
+		//return new URL(t).href
+		var link = document.createElement("a");
+		link.href = t
+		return link.href
+	}
+
+
+	links = document.getElementById("nav").getElementsByTagName('a')
+	console.log(links)
+
+	parent=getParent()
+	console.log(parent)
+
+	for (i = 0; i < links.length; i++) 
+		{
+		if (links[i].href===parent)
+			{
+			links[i].className='active'
+			}
+		}
+
+
+  </script>
+
+</body>
+<div>
