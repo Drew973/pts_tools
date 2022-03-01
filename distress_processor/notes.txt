@@ -1,0 +1,104 @@
+todo:
+
+test concatenate fields. doesn't seem to be working as?
+
+
+select fields
+
+
+
+select folder
+
+
+
+bulk joining dialog in qgis
+
+Distress Processor
+
+
+
+
+split network dialog:
+
+
+fit data dialog:
+
+
+	1 output per input data
+
+	select split network
+		
+	
+	select fields	
+	select folder.
+	
+	joins each csv containing required fields
+	
+	display csvs with and without required fields.
+	
+	
+	
+	tasks:
+		load split network to new sqlite database. geopackage?
+		
+		for each csv with correct fields:
+			load
+			join
+			export to destination based on filename
+			
+
+		
+ui 1st and get feedback/confirmation
+
+
+what should output be saved to?
+
+
+
+
+
+sqlite very buggy but probabaly better performance. but no progress displaying
+
+combine fields (field calculator?) have combine fields algorithm?
+
+2 intermediates
+
+add attribute indexes.
+
+then join by attributes
+
+
+
+join directly to network then add parts with no data?
+iterate over network features for this.
+
+
+
+
+uploading to geopackage:
+
+	gdal:convertformat
+
+	{ 'INPUT' : 'C:/Users/drew.bennett/AppData/Roaming/QGIS/QGIS3/profiles/default/python/plugins/distress_processor/test/example_data.csv', 'OPTIONS' : '', 'OUTPUT' : 'C:/Users/drew.bennett/AppData/Roaming/QGIS/QGIS3/profiles/default/python/plugins/distress_processor/test/test.gpkg' }
+
+
+	ogr2ogr -f "GPKG" C:/Users/drew.bennett/AppData/Roaming/QGIS/QGIS3/profiles/default/python/plugins/distress_processor/test/test.gpkg C:/Users/drew.bennett/AppData/Roaming/QGIS/QGIS3/profiles/default/python/plugins/distress_processor/test/example_data.csv example_data
+
+
+	ogr2ogr -f "GPKG" -lco -nln split C:/Users/drew.bennett/AppData/Roaming/QGIS/QGIS3/profiles/default/python/plugins/distress_processor/test/test.gpkg "C:/Users/drew.bennett/Documents/area 14 tool/network/network.shp" network
+
+
+
+
+	load data into existing database
+	gdal:convertformat
+
+
+	Input parameters:
+	{ 'INPUT' : 'C:/Users/drew.bennett/AppData/Roaming/QGIS/QGIS3/profiles/default/python/plugins/distress_processor/test/example_data.csv', 'OPTIONS' : '-nln data -update', 'OUTPUT' : 'C:/Users/drew.bennett/AppData/Roaming/QGIS/QGIS3/profiles/default/python/plugins/distress_processor/test/testdb.gpkg' }
+
+	GDAL command:
+	ogr2ogr -f "GPKG" -nln data -update C:/Users/drew.bennett/AppData/Roaming/QGIS/QGIS3/profiles/default/python/plugins/distress_processor/test/testdb.gpkg C:/Users/drew.bennett/AppData/Roaming/QGIS/QGIS3/profiles/default/python/plugins/distress_processor/test/example_data.csv example_data
+	GDAL command output:
+
+	ogr2ogr -f "GPKG" C:/Users/drew.bennett/AppData/Roaming/QGIS/QGIS3/profiles/default/python/plugins/distress_processor/test/testdb2.gpkg "C:/Users/drew.bennett/Documents/area 14 tool/network/network.shp" network

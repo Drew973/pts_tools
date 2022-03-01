@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>  
+ <link rel="stylesheet" type="text/css" href="styles.css"/>
+</head>  
+
+<title>PTS tools help</title>
+
+<body>
+
+<div class="navbar_div">
+	<iframe src="navbar.html?parent=point_to_chainage.html" class="navbar_iframe" name="contents" >
+	<p>Your browser does not seem to support iframes.</p>
+	</iframe>
+<div>
+
+<div class="main_div">
+    <body>
+        <h2 id="point_to_chainage">Point to Chainage</h2>
+
+	<p>Algorithm to find nearest section and chainage to points.Creates new layer:</p>
+	<ul>
+	<li>With same fields as input plus a text field named section and a double field named chainage.</li>
+	<li>Containing all features of input.</li>
+	<li>With null section and chainage where no section found.</li>
+	</ul>
+
+	<h3>Parameters:</h3>
+	<ul>
+	<li>Input layer: layer with points</li>
+	<li>Layer or data source with network: Defaults to L:\SharedDocs\HAPMS shapefile\latest_network.shp</li>
+	<li>Field with section label.</li>
+	<li>Maximum distance: Only sections within this distance to points are considered. Decreasing this results in faster fitting.</li>
+	<li>Section length field: If set chainages are scaled so that point at end of section is this value.</li>
+	<li>Output layer.</li>
+	</ul>
+		
+    </body>
+</div>
+
+</html>
