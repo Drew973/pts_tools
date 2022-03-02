@@ -1,104 +1,49 @@
 todo:
 
-test concatenate fields. doesn't seem to be working as?
 
-
-select fields
-
-
-
+allow for posibility of more fields
 select folder
 
+join attributes by field value is fast enough when field is not virtual. indexing field doesn't seem to speed it up.
+	test field exists and is not virtual with layer.dataProvider().fieldNameIndex(name)!=-1
 
-
-bulk joining dialog in qgis
-
-Distress Processor
-
-
-
-
-split network dialog:
-
-
-fit data dialog:
-
-
-	1 output per input data
-
-	select split network
-		
+	if necessary. not (field named combined and supports attribute indexing)
+		export data and split to tempuary layers and combine fields with vector table:field calculator
 	
-	select fields	
-	select folder.
+	create attribute index on combined fields?
+	then join attributes by field value. pass fields to lose combined columns.
 	
-	joins each csv containing required fields
-	
-	display csvs with and without required fields.
+	importing layers either way.
 	
 	
 	
-	tasks:
-		load split network to new sqlite database. geopackage?
-		
-		for each csv with correct fields:
-			load
-			join
-			export to destination based on filename
-			
-
-		
-ui 1st and get feedback/confirmation
+{ 'FIELD_LENGTH' : 0, 
+'FIELD_NAME' : 'combined',
+ 'FIELD_PRECISION' : 0,
+ 'FIELD_TYPE' : 2,
+ 'FORMULA' : 'concat( "SectionID" ,\'_\', "Sample Unit Id" )',
+ 'INPUT' : 'delimitedtext://file:///C:/Users/drew.bennett/AppData/Roaming/QGIS/QGIS3/profiles/default/python/plugins/pts_tools/tests/distress_processor/example_data/example_data.csv?type=csv&maxFields=10000&detectTypes=yes&geomType=none&subsetIndex=no&watchFile=no',
+ 'OUTPUT' : 'C:/Users/drew.bennett/AppData/Roaming/QGIS/QGIS3/profiles/default/python/plugins/pts_tools/tests/distress_processor/example_data/example_data.gpkg' }
 
 
-what should output be saved to?
+{ 'FIELD_LENGTH' : 0,
+ 'FIELD_NAME' : 'combined',
+ 'FIELD_PRECISION' : 0,
+ 'FIELD_TYPE' : 2,
+ 'FORMULA' : 'concat( "sect_label" ,\'_\', "subsection_id" )\r\n',
+ 'INPUT' : 'memory://MultiLineString?crs=EPSG:27700&field=class_name:string(50,0)&field=roa_number:string(10,0)&field=sect_label:string(20,0)&field=location:string(254,0)&field=start_date:date(10,0)&field=s_end_date:date(10,0)&field=sec_length:double(17,3)&field=funct_name:string(50,0)&field=area_name:string(50,0)&field=direc_code:string(4,0)&field=perm_lanes:double(17,6)&field=dual_name:string(50,0)&field=envir_name:string(50,0)&field=autho_name:string(50,0)&field=reference:string(254,0)&field=sbstemp1:string(254,0)&field=sbstemp2:date(10,0)&field=sbstemp3:date(10,0)&field=dsegrefekc:double(17,6)&field=dsegrefsd:double(17,6)&field=dsegrefed:double(17,6)&field=dsegrefslo:double(17,6)&field=dsegrefsro:double(17,6)&field=dsegrefelo:double(17,6)&field=dsegrefero:double(17,6)&field=source_id:integer(0,0)&field=start_chainage:double(0,0)&field=end_chainage:double(0,0)&field=subsection_id:integer(0,0)&uid={8eedc28a-259f-4e2f-8a28-8b2cfaeaff2a}',
+ 'OUTPUT' : 'C:/Users/drew.bennett/AppData/Roaming/QGIS/QGIS3/profiles/default/python/plugins/pts_tools/tests/split.gpkg' }
 
 
+Join attributes by field value
+{ 'DISCARD_NONMATCHING' : False,
+ 'FIELD' : 'combined',
+ 'FIELDS_TO_COPY' : [],
+ 'FIELD_2' : 'combined',
+ 'INPUT' : 'C:/Users/drew.bennett/AppData/Roaming/QGIS/QGIS3/profiles/default/python/plugins/pts_tools/tests/distress_processor/example_data/example_data.gpkg',
+ 'INPUT_2' : 'C:/Users/drew.bennett/AppData/Roaming/QGIS/QGIS3/profiles/default/python/plugins/pts_tools/tests/split.gpkg',
+ 'METHOD' : 0,
+ 'OUTPUT' : 'TEMPORARY_OUTPUT',
+ 'PREFIX' : '' }
 
 
-
-sqlite very buggy but probabaly better performance. but no progress displaying
-
-combine fields (field calculator?) have combine fields algorithm?
-
-2 intermediates
-
-add attribute indexes.
-
-then join by attributes
-
-
-
-join directly to network then add parts with no data?
-iterate over network features for this.
-
-
-
-
-uploading to geopackage:
-
-	gdal:convertformat
-
-	{ 'INPUT' : 'C:/Users/drew.bennett/AppData/Roaming/QGIS/QGIS3/profiles/default/python/plugins/distress_processor/test/example_data.csv', 'OPTIONS' : '', 'OUTPUT' : 'C:/Users/drew.bennett/AppData/Roaming/QGIS/QGIS3/profiles/default/python/plugins/distress_processor/test/test.gpkg' }
-
-
-	ogr2ogr -f "GPKG" C:/Users/drew.bennett/AppData/Roaming/QGIS/QGIS3/profiles/default/python/plugins/distress_processor/test/test.gpkg C:/Users/drew.bennett/AppData/Roaming/QGIS/QGIS3/profiles/default/python/plugins/distress_processor/test/example_data.csv example_data
-
-
-	ogr2ogr -f "GPKG" -lco -nln split C:/Users/drew.bennett/AppData/Roaming/QGIS/QGIS3/profiles/default/python/plugins/distress_processor/test/test.gpkg "C:/Users/drew.bennett/Documents/area 14 tool/network/network.shp" network
-
-
-
-
-	load data into existing database
-	gdal:convertformat
-
-
-	Input parameters:
-	{ 'INPUT' : 'C:/Users/drew.bennett/AppData/Roaming/QGIS/QGIS3/profiles/default/python/plugins/distress_processor/test/example_data.csv', 'OPTIONS' : '-nln data -update', 'OUTPUT' : 'C:/Users/drew.bennett/AppData/Roaming/QGIS/QGIS3/profiles/default/python/plugins/distress_processor/test/testdb.gpkg' }
-
-	GDAL command:
-	ogr2ogr -f "GPKG" -nln data -update C:/Users/drew.bennett/AppData/Roaming/QGIS/QGIS3/profiles/default/python/plugins/distress_processor/test/testdb.gpkg C:/Users/drew.bennett/AppData/Roaming/QGIS/QGIS3/profiles/default/python/plugins/distress_processor/test/example_data.csv example_data
-	GDAL command output:
-
-	ogr2ogr -f "GPKG" C:/Users/drew.bennett/AppData/Roaming/QGIS/QGIS3/profiles/default/python/plugins/distress_processor/test/testdb2.gpkg "C:/Users/drew.bennett/Documents/area 14 tool/network/network.shp" network

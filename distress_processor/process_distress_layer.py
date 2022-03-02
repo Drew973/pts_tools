@@ -37,7 +37,7 @@ class processDistressLayer(QgsProcessingAlgorithm):
         self.addParameter(QgsProcessingParameterField('splitLabelField', 'Split field with section label', type=QgsProcessingParameterField.Any, parentLayerParameterName='splitLayer', allowMultiple=False, defaultValue=None))
         self.addParameter(QgsProcessingParameterField('splitSubsectionField', 'split field with subsection', type=QgsProcessingParameterField.Any, parentLayerParameterName='splitLayer', allowMultiple=False, defaultValue=None))
        
-        op = QgsProcessingParameterVectorDestination('OUTPUT', 'OUTPUT', type=QgsProcessing.TypeVectorAnyGeometry, createByDefault=True, defaultValue='TEMPORARY_OUTPUT',optional=True)
+        op = QgsProcessingParameterVectorDestination('OUTPUT', 'OUTPUT', type=QgsProcessing.TypeVectorAnyGeometry, createByDefault=True, defaultValue='TEMPORARY_OUTPUT')
         self.addParameter(op,createOutput=True)
 
 
@@ -155,7 +155,7 @@ class processDistressLayer(QgsProcessingAlgorithm):
             con.execute(c.format(table=self.dataTable,col=self.dataSubsectionField,name='data2'))
             
             
-    #run join query geopackage and export to output
+    #run join query on geopackage and export to output. gdal:executesql uses ogr2ogr.
     def join(self,context,feedback):
         #names for split and data?
         q = 'select "{split}".*, "{data}".* from "{split}" left join "{data}" on "{split}"."{s1}"="{data}"."{d1}" and "{split}"."{s2}"="{data}"."{d2}"'
@@ -172,7 +172,7 @@ class processDistressLayer(QgsProcessingAlgorithm):
 
 
     def name(self):
-        return 'process distress layer'
+        return 'process_distress_layer'
 
     def displayName(self):
         return 'Process distress layer'

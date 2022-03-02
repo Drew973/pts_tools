@@ -4,35 +4,22 @@ from qgis.core import QgsProcessingAlgorithm
 from qgis.core import QgsProcessingMultiStepFeedback
 from qgis.core import QgsProcessingParameterField
 from qgis.core import QgsProcessingParameterFeatureSource
-from qgis.core import QgsProcessingParameterNumber
-from qgis.core import QgsProcessingParameterFeatureSink
 from qgis.core import QgsProcessingParameterFolderDestination
 from qgis.core import QgsProcessingOutputMultipleLayers
 from qgis.core import QgsProcessingParameterFile
 from qgis.core import QgsProcessingParameterString
-from qgis.core import QgsVectorLayer
-
-
-from qgis.core import QgsField
-from qgis.core import QgsExpression
+from qgis.core import QgsProcessingParameterBoolean
 
 import processing
-from PyQt5.QtCore import QVariant
 
 from . import getFiles
-from . import toolboxApproach
-from . import fieldToTextMapper
+#from . import fieldToTextMapper
 
 import os
 
 class distressProcessorAlg(QgsProcessingAlgorithm):
 
     def initAlgorithm(self, config=None):
- #       self.addParameter(QgsProcessingParameterField('splitFields', 'Fields to join by', parentLayerParameterName='split', allowMultiple=True))
-        
-        #self.addParameter(QgsProcessingParameterFeatureSource('data', 'Layer with distress data',types=[QgsProcessing.TypeVector], defaultValue=None))
-        #self.addParameter(QgsProcessingParameterField('dataFields', 'Field with section label', parentLayerParameterName='data', allowMultiple=True))
-        #self.addParameter(QgsProcessingParameterFeatureSink('ModelOutput', 'model output', type=QgsProcessing.TypeVectorAnyGeometry, createByDefault=True, supportsAppend=True, defaultValue=None))
 
         self.addParameter(QgsProcessingParameterFile('inputFolder', 'Input folder',behavior=QgsProcessingParameterFile.Folder,extension='.csv'))
        
@@ -46,10 +33,14 @@ class distressProcessorAlg(QgsProcessingAlgorithm):
         
         self.addParameter(QgsProcessingParameterField('splitSubsectionField', 'Field of split layer with subsection id', parentLayerParameterName='split',defaultValue='subsection_id'))
         self.addParameter(QgsProcessingParameterString('dataSubsectionField', 'CSV field with subsection id.'))
+       
+        self.addParameter(QgsProcessingParameterBoolean('loadOnCompletion', 'Open output files after running algorithm',defaultValue=True))
+
 
         #https://www.faunalia.eu/en/blog/2019-07-02-custom-processing-widget for custom widget.
 
-        self.addOutput(QgsProcessingOutputMultipleLayers('OUTPUT', 'Output layers'))#QgsProcessingOutputMultipleLayers
+        self.addOutput(QgsProcessingOutputMultipleLayers('OUTPUT', 'Output layers'))
+        self.addOutput(QgsProcessingOutputMultipleLayers('UNJOINED', 'Unjoined layers'))
 
       #  param = QgsProcessingParameterString('fields', 'fields')
       #  param.setMetadata({'widget_wrapper': {'class': fieldToTextMapper.fieldToTextWrapper}})
@@ -74,7 +65,7 @@ class distressProcessorAlg(QgsProcessingAlgorithm):
         self.dataLabelField = self.parameterAsFields(parameters,'dataLabelField',context)[0]
         self.dataSubsectionField = self.parameterAsFields(parameters,'dataSubsectionField',context)[0]
         
-        
+        self.loadOnCompletion = self.parameterAsBoolean(parameters,'loadOnCompletion',context)
         return True
 
 
@@ -82,7 +73,7 @@ class distressProcessorAlg(QgsProcessingAlgorithm):
      
         feedback = QgsProcessingMultiStepFeedback(len(self.csvs)+1, model_feedback)
 
-        results = {'OUTPUT':[]}
+        results = {'OUTPUT':[],'UNJOINED':[]}
 
         feedback.setProgress(0)
         feedback.setCurrentStep(0)
@@ -109,13 +100,18 @@ class distressProcessorAlg(QgsProcessingAlgorithm):
                 break
             
             try:
-                r = processing.run('PTS tools:process distress layer',p,feedback=feedback, is_child_algorithm=True)
+                r = processing.run('PTS tools:process_distress_layer',p,feedback=feedback, is_child_algorithm=True)
                 if 'OUTPUT' in r:
                     results['OUTPUT'].append(r['OUTPUT'])
-                    context.addLayerToLoadOnCompletion(r['OUTPUT'],QgsProcessingContext.LayerDetails(dest, QgsProject.instance(), ''))
+                    
+                    if self.loadOnCompletion:
+                        context.addLayerToLoadOnCompletion(r['OUTPUT'],QgsProcessingContext.LayerDetails(dest, QgsProject.instance(), ''))
+                    
+                else:
+                    results['UNJOINED'].append(f)
                     
             except Exception as e:
-                pass
+                results['UNJOINED'].append(f)
             
         return results
 
@@ -174,6 +170,10 @@ class distressProcessorAlg(QgsProcessingAlgorithm):
 def outputName(f,folder):
     a = os.path.splitext(os.path.basename(f))[0]
     return os.path.join(folder,a)+'.shp'
+
+def outputName2(f,folder):
+    a = os.path.splitext(os.path.basename(f))[0]
+    return os.path.join(folder,'outputs')+'.gpkg|layername={table}'.format(table=a)
 
 
 '''

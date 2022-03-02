@@ -176,7 +176,7 @@ class pointToChainageAlgorithm(QgsProcessingAlgorithm):
         lowercase alphanumeric characters only and no spaces or other
         formatting characters.
         """
-        return 'pointToChainage'
+        return 'point_to_chainage'
 
 
     def displayName(self):

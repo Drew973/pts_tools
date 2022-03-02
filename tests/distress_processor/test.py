@@ -10,4 +10,6 @@ params = { 'dataLabelField' : 'SectionID',
 'splitSubsectionField' : 'subsection_id'
 }
 
-processing.runAndLoadResults('PTS tools:process_distress_folder',params)
+r = processing.runAndLoadResults('PTS tools:process_distress_folder',params)
+print(r)
+

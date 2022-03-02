@@ -12,7 +12,8 @@ from qgis.core import QgsProcessingParameterVectorLayer
 from qgis.core import QgsProcessingParameterField
 from qgis.core import QgsProcessingParameterFeatureSink
 from qgis.core import QgsProcessingOutputVectorLayer
-
+from qgis.core import QgsProcessingParameterBoolean
+from qgis.core import QgsProcessingParameterVectorDestination
 
 import processing
 
@@ -29,9 +30,13 @@ class joinToNetworkAlgorithm(QgsProcessingAlgorithm):
         self.addParameter(QgsProcessingParameterField('endChainageField', 'Field with end chainage', type=QgsProcessingParameterField.Numeric, parentLayerParameterName='dataLayer', allowMultiple=False, defaultValue=None))
         self.addParameter(QgsProcessingParameterField('lengthField', 'Field with section length', type=QgsProcessingParameterField.Numeric, parentLayerParameterName='dataLayer', allowMultiple=False, defaultValue=None,optional=True))
         
-        self.addParameter(QgsProcessingParameterFeatureSink('OUTPUT', 'Joined layer', type=QgsProcessing.TypeVectorAnyGeometry, createByDefault=True, supportsAppend=True, defaultValue=None))
+        #self.addParameter(QgsProcessingParameterFeatureSink('OUTPUT', 'Joined layer', type=QgsProcessing.TypeVectorAnyGeometry, createByDefault=True, supportsAppend=True, defaultValue=None))
+        #self.addParameter(QgsProcessingParameterFeatureSink('OUTPUT', 'Joined layer', type=QgsProcessing.TypeVectorAnyGeometry, createByDefault=True, supportsAppend=True, defaultValue=None))
+       
+       # self.addParameter(QgsProcessingParameterBoolean('includeGaps', 'Include gaps',  defaultValue=False))
 
-
+        op = QgsProcessingParameterVectorDestination('OUTPUT', 'OUTPUT', type=QgsProcessing.TypeVectorAnyGeometry, createByDefault=True, defaultValue='TEMPORARY_OUTPUT',optional=True)
+        self.addParameter(op,createOutput=True)
 
     def prepareAlgorithm(self,parameters,context,feedback):
         self.networkLayer = self.parameterAsVectorLayer(parameters,'networkLayer',context)
@@ -44,7 +49,9 @@ class joinToNetworkAlgorithm(QgsProcessingAlgorithm):
                 
         fields = self.networkLayer.fields()
         fields.extend(self.dataLayer.fields())
-        self.sink,self.destId =  self.parameterAsSink(parameters,'OUTPUT',context,fields)
+        #self.sink,self.destId =  self.parameterAsSink(parameters,'OUTPUT',context,fields)
+        self.output = self.parameterAsOutputLayer(parameters,'OUTPUT',context)
+       
        
         f = self.parameterAsFields(parameters,'lengthField',context)
         if f:
@@ -53,6 +60,7 @@ class joinToNetworkAlgorithm(QgsProcessingAlgorithm):
             self.lengthField = None
         
         
+      #  self.gaps = self.parameterAsBoolean(parameters,'includeGaps',context)
         
         #self.joinedLayer = self.parameterAsVectorLayer(parameters,'JoinedLayer',context)
         return True
@@ -81,12 +89,13 @@ class joinToNetworkAlgorithm(QgsProcessingAlgorithm):
         }
         outputs['JoinAttributesByFieldValue'] = processing.run('native:joinattributestable', alg_params, context=context, feedback=feedback, is_child_algorithm=True)
 
+
         feedback.setCurrentStep(1)
         if feedback.isCanceled():
             return {}
 
 
-        #set geometry
+        #set geometry through "geometry by expression"
 
             #expression for geometry
         if self.lengthField is None:
@@ -103,35 +112,25 @@ class joinToNetworkAlgorithm(QgsProcessingAlgorithm):
             )'''.format(sch=self.startChainageField,ech=self.endChainageField,length=self.lengthField)
         
                 
-        # Geometry by expression
+        # 
         alg_params = {
             'EXPRESSION': e,
             'INPUT': outputs['JoinAttributesByFieldValue']['OUTPUT'],
             'OUTPUT_GEOMETRY': 1,  # Line
             'WITH_M': False,
             'WITH_Z': False,
-            'OUTPUT': QgsProcessing.TEMPORARY_OUTPUT
-            #'OUTPUT': self.destId
+            'OUTPUT': self.output
         }
-        #output and input can be path to file
         
         
         
-        #print(alg_params)
+        print(alg_params)
         outputs['GeometryByExpression'] = processing.run('native:geometrybyexpression', alg_params, context=context, feedback=feedback, is_child_algorithm=True)
-        #results['OUTPUT'] = outputs['GeometryByExpression']['OUTPUT']
-        
-        #print(outputs['GeometryByExpression']['OUTPUT'])
-        layer = context.getMapLayer(outputs['GeometryByExpression']['OUTPUT'])
-        self.sink.addFeatures(layer.getFeatures())
-        
-        #print(outputs['GeometryByExpression']['OUTPUT'])
-        
-        #results['OUTPUT'] = outputs['GeometryByExpression']['OUTPUT']#id of output layer
 
-        results['OUTPUT'] = self.destId
-        print('destId:',self.destId)
+        #context.addLayerToLoadOnCompletion(self.output,QgsProcessingContext.LayerDetails('Joined Layer', QgsProject.instance(), ''))
 
+
+        results['OUTPUT'] = self.output
         return results
 
 
