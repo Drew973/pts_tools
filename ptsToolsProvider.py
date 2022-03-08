@@ -39,6 +39,10 @@ from .concatenateFields_algorithm import concatenateFieldsAlgorithm
 from .distress_processor.distressProcessor import distressProcessorAlg
 from .distress_processor.process_distress_layer import processDistressLayer
 from .joinToNetwork import joinToNetworkAlgorithm
+from .curvature.extract_curved_alg import extractCurvedAlg
+from .curvature.estimate_curvature_alg import estimateCurvatureAlg
+
+
 
 class ptsToolsProvider(QgsProcessingProvider):
 
@@ -66,7 +70,8 @@ class ptsToolsProvider(QgsProcessingProvider):
         self.addAlgorithm(distressProcessorAlg())
         self.addAlgorithm(joinToNetworkAlgorithm())
         self.addAlgorithm(processDistressLayer())
-            
+        self.addAlgorithm(extractCurvedAlg())
+        self.addAlgorithm(estimateCurvatureAlg())
 
 
     def id(self):

@@ -26,6 +26,9 @@ import sqlite3
 from collections import OrderedDict
 
 
+splitCombinedField = 'splitCombined'
+
+
 class processDistressLayer(QgsProcessingAlgorithm):
 
     def initAlgorithm(self, config=None):
@@ -40,6 +43,8 @@ class processDistressLayer(QgsProcessingAlgorithm):
         op = QgsProcessingParameterVectorDestination('OUTPUT', 'OUTPUT', type=QgsProcessing.TypeVectorAnyGeometry, createByDefault=True, defaultValue='TEMPORARY_OUTPUT')
         self.addParameter(op,createOutput=True)
 
+       
+
 
     def prepareAlgorithm(self, parameters, context, feedback):
 
@@ -53,9 +58,12 @@ class processDistressLayer(QgsProcessingAlgorithm):
         self.splitSubsectionField = self.parameterAsFields(parameters,'splitSubsectionField',context)[0]
        
         self.output = self.parameterAsOutputLayer(parameters,'OUTPUT',context)
-
-        self.temp = gpkgDest(self.split,self.data)
        
+        self.dataCombinedField = 'combined'
+
+        self.fields = self.data.fields()
+        self.fields.extend(self.split.fields())
+        
         return True
 
 
@@ -82,92 +90,84 @@ class processDistressLayer(QgsProcessingAlgorithm):
 
     def processAlgorithm(self, parameters, context, model_feedback):
     
-        feedback = QgsProcessingMultiStepFeedback(2, model_feedback)
+        feedback = QgsProcessingMultiStepFeedback(4, model_feedback)
 
-        feedback.setCurrentStep(1)
-        self.importLayers(context,feedback)
+        feedback.setCurrentStep(0)
+        self.split = importSplit(self.split,context,feedback,[self.splitLabelField,self.splitSubsectionField])
         
         if feedback.isCanceled():
             return {}
-            
+        feedback.setCurrentStep(1)
+        
+        self.importData(context,feedback)
+        
+        if feedback.isCanceled():
+            return {}
         feedback.setCurrentStep(2)
         
-        
-        self.createIndexes()
         self.join(context,feedback) 
         
-        results = {'OUTPUT':self.output}
+        if feedback.isCanceled():
+            return {}
+        feedback.setCurrentStep(3)
+        
+        self.export(context,feedback)
         
         context.addLayerToLoadOnCompletion(self.output,QgsProcessingContext.LayerDetails('Joined Layer', QgsProject.instance(), ''))
-        return results
+        return {'OUTPUT':self.output}
 
 
-  #import layers into single geopackage if necessary
-    def importLayers(self, context, feedback):
+    def importData(self, context, feedback):
+        if self.data.dataProvider().fieldNameIndex(self.dataCombinedField)==-1:#field not found
 
-        layers = []#layers to import
-        keys = []
-        
-        
-        if gpkgPath(self.split) != self.temp:
-            layers.append(self.split)
-            keys.append('split')
-            
-        if gpkgPath(self.data) != self.temp:
-            layers.append(self.data)
-            keys.append('data')
-        
-        
-        if layers:
-            alg_params = {'LAYERS': layers,
-                      'OUTPUT': self.temp,
-                      'OVERWRITE': False,  # Important!
-                      'SAVE_STYLES': False,
-                      'SAVE_METADATA': False,
-                      'SELECTED_FEATURES_ONLY': False}
-                      
-              
-            r = processing.run("native:package", alg_params,is_child_algorithm=True,context=context,feedback=feedback)['OUTPUT_LAYERS']
+            e = 'concat("{f1}",{sep},"{f2}")'.format(f1=self.dataLabelField,f2=self.dataSubsectionField,sep="'_'")
        
-        if 'split' in keys:
-            i = keys.index('split')
-            self.split = r[i]
-          
-        if 'data' in keys:
-            i = keys.index('data')
-            self.data = r[i]
+            params = { 'FIELD_LENGTH' : 0, 
+            'FIELD_NAME' : self.dataCombinedField,
+            'FIELD_PRECISION' : 0,
+            'FIELD_TYPE' : 2,
+            'FORMULA' : e,
+            'INPUT' : self.data,
+            'OUTPUT' : 'TEMPORARY_OUTPUT' }
+
+            r = processing.run('native:fieldcalculator',params,is_child_algorithm=True,context=context,feedback=feedback)
             
-
-        self.splitTable = gpkgTable(self.split,feedback)
-        self.dataTable = gpkgTable(self.data,feedback)
+            self.data = r['OUTPUT']
 
 
-
-    #create indexes on used fields
-    def createIndexes(self):
+    def join(self, context, feedback):
         
-        c = 'create index if not exists "{name}" on "{table}"("{col}")'
-        
-        with sqlite3.connect(self.temp) as con:
-            con.execute(c.format(table=self.splitTable,col=self.splitLabelField,name='split1'))
-            con.execute(c.format(table=self.splitTable,col=self.splitSubsectionField,name='split2'))
-            con.execute(c.format(table=self.dataTable,col=self.dataLabelField,name='data1'))
-            con.execute(c.format(table=self.dataTable,col=self.dataSubsectionField,name='data2'))
-            
-            
-    #run join query on geopackage and export to output. gdal:executesql uses ogr2ogr.
-    def join(self,context,feedback):
-        #names for split and data?
-        q = 'select "{split}".*, "{data}".* from "{split}" left join "{data}" on "{split}"."{s1}"="{data}"."{d1}" and "{split}"."{s2}"="{data}"."{d2}"'
-        q = q.format(s1=self.splitLabelField,s2=self.splitSubsectionField,d1=self.dataLabelField,d2=self.dataSubsectionField,split=self.splitTable,data=self.dataTable)
-              
-        alg_params = { 'DIALECT' : 0,
-         'INPUT' : self.temp,
-         'OPTIONS' : '-unsetFid',#by default gdal tries to use column named fid as feature id,causing unique constraint to fail.
-         'OUTPUT' : self.output,
-         'SQL' : q }
+        params = { 'DISCARD_NONMATCHING' : False,
+         'FIELD' : splitCombinedField,
+         'FIELDS_TO_COPY' : [],
+         'FIELD_2' : self.dataCombinedField,
+         'INPUT' : self.split,
+         'INPUT_2' : self.data,
+         'METHOD' : 0,
+         'OUTPUT' : 'TEMPORARY_OUTPUT',
+         'PREFIX' : '' }
 
-        return processing.run('gdal:executesql',alg_params,is_child_algorithm=True,context=context,feedback=feedback)
+        self.joined = processing.run('native:joinattributestable',params,is_child_algorithm=True,context=context,feedback=feedback)['OUTPUT']
+
+
+        
+    def export(self, context, feedback):
+    
+        #toDrop = [name for name in self.joined.fields().names() if not name in self.fields.names()]
+       
+      #  with edit(self.joined):
+       #     self.joined.dataProvider().deleteAttributes([toDrop])
+      #  self.joined.updateFields()
+       
+     #  params = {
+     #  }
+       
+
+        params = { 'FIELDS' : self.fields.names(),
+        'INPUT' : self.joined,
+        'OUTPUT' : self.output }
+        
+        processing.run('native:retainfields',params,is_child_algorithm=True,context=context,feedback=feedback)
 
 
 
@@ -195,39 +195,22 @@ class processDistressLayer(QgsProcessingAlgorithm):
         </html></body>
         '''
         
-
-#if split is geopackage use that. 
-#if data is use that.
-#else make new geopackage.
-def gpkgDest(data,split):
-
-    if split.storageType()=='GPKG':
-        return gpkgPath(split)
-    
-    if data.storageType()=='GPKG':
-        return gpkgPath(data)
         
-    return processing.QgsProcessingUtils.generateTempFilename('distress.gpkg')
-  
-  
-def gpkgPath(layer):
-    return layer.dataProvider().dataSourceUri().split('|layername')[0]
-    
-    
-def gpkgTable(layer,feedback):
-    if isinstance(layer,str):
-        s = layer
-    else:  
-        s = layer.source()
+        
+def importSplit(split, context, feedback,fields):
+    if split.dataProvider().fieldNameIndex(splitCombinedField)==-1:#field not found
+
+        e = 'concat("{f1}",{sep},"{f2}")'.format(f1=fields[0],f2=fields[1],sep="'_'")
        
-    p = s.split('|layername=')
-     
-    if len(p)<2: 
-        feedback.reportError('table not found for layer '+str(layer))
-   
+        params = { 'FIELD_LENGTH' : 0, 
+            'FIELD_NAME' : splitCombinedField,
+            'FIELD_PRECISION' : 0,
+            'FIELD_TYPE' : 2,
+            'FORMULA' : e,
+            'INPUT' : split,
+            'OUTPUT' : 'TEMPORARY_OUTPUT' }
+
+        print(params)
+        return processing.run('native:fieldcalculator',params,is_child_algorithm=True,context=context,feedback=feedback)['OUTPUT']
     else:
-       return p[1]    
-    
-    
-
-
+        return split

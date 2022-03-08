@@ -17,7 +17,7 @@ def test1(split,data):
     'splitSubsectionField' : 'subsection_id',
     'splitLayer' : split }
 
-    processing.runAndLoadResults('PTS tools:process distress layer',params)
+    processing.runAndLoadResults('PTS tools:process_distress_layer',params)
 
 
 if __name__=='__console__':
