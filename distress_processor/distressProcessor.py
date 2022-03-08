@@ -15,6 +15,8 @@ import processing
 from . import getFiles
 #from . import fieldToTextMapper
 
+from . import process_distress_layer
+
 import os
 
 class distressProcessorAlg(QgsProcessingAlgorithm):
@@ -79,7 +81,15 @@ class distressProcessorAlg(QgsProcessingAlgorithm):
         feedback.setCurrentStep(0)
         
         self.importSplit(context,feedback)
-                
+        
+        self.split = process_distress_layer.importSplit(self.split,context,feedback,[self.splitLabelField,self.splitSubsectionField])
+        
+        if feedback.isCanceled():
+            return {}
+        feedback.setCurrentStep(1)        
+        
+        
+        
         for i,f in enumerate(self.csvs):
                       
             dest = outputName(f,self.outputFolder)
@@ -93,6 +103,7 @@ class distressProcessorAlg(QgsProcessingAlgorithm):
             ,'OUTPUT':dest
             }
             
+            print(p)
             feedback.setCurrentStep(i)
            # feedback.setProgress(i+1/len(self.csvs))
           

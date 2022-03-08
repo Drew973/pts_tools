@@ -1,0 +1,27 @@
+
+
+'''
+
+split by curvature:
+
+	feature based processing algorithm.
+
+	parameters:
+		input layer
+		threshold
+		interval. 5m default seems reasonable
+		lengthField: optional. scale chainages so section length matches this
+
+	output layer: same fields as input layer + start_chainage + end_chainage
+
+	extract parts of linestring where curvature >= threshold.
+
+	estimate curvatures at fixed interval. join to neiboring intervals if >= threshold
+
+
+
+	may need parts where curvature<threshold for some distance. user can filter by end_chainage-start_chainage for this.
+	user can filter by speed limit.
+
+'''
+
