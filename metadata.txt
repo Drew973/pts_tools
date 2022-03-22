@@ -6,7 +6,7 @@
 name=pts_tools
 qgisMinimumVersion=3.0
 description=PTS algorithms
-version=3.07
+version=3.08
 author=drew
 email=drew.bennett@ptsinternational.co.uk
 

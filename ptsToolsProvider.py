@@ -32,9 +32,9 @@ __revision__ = '$Format:%H$'
 
 from qgis.core import QgsProcessingProvider
 from .splitByChainage_algorithm import splitByChainageAlgorithm
-from .pointToChainage import pointToChainageAlgorithm
+from .point_to_chainage.pointToChainage import pointToChainageAlgorithm
 from .toExaminer_algorithm import toExaminerAlgorithm
-from .concatenateFields_algorithm import concatenateFieldsAlgorithm
+#from .concatenateFields_algorithm import concatenateFieldsAlgorithm
 
 from .distress_processor.distressProcessor import distressProcessorAlg
 from .distress_processor.process_distress_layer import processDistressLayer
@@ -42,7 +42,10 @@ from .joinToNetwork import joinToNetworkAlgorithm
 from .curvature.extract_curved_alg import extractCurvedAlg
 from .curvature.estimate_curvature_alg import estimateCurvatureAlg
 
+from .convert_route.convert_route import convertRoute
+from .convert_route.convert_route_folder import convertRouteFolder
 
+from .load_images.loadImages import loadRasters
 
 class ptsToolsProvider(QgsProcessingProvider):
 
@@ -72,6 +75,9 @@ class ptsToolsProvider(QgsProcessingProvider):
         self.addAlgorithm(processDistressLayer())
         self.addAlgorithm(extractCurvedAlg())
         self.addAlgorithm(estimateCurvatureAlg())
+        self.addAlgorithm(convertRoute())
+        self.addAlgorithm(convertRouteFolder())
+#        self.addAlgorithm(loadRasters())
 
 
     def id(self):

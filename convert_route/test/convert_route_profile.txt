@@ -1,0 +1,182 @@
+         1857 function calls in 0.252 seconds
+
+   Ordered by: cumulative time
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+        1    0.000    0.000    0.252    0.252 <string>:58(test)
+        3    0.000    0.000    0.252    0.084 <string>:42(testSameToSame)
+        3    0.001    0.000    0.248    0.083 C:\OSGeo4W/apps/qgis/./python/plugins\processing\tools\general.py:92(run)
+        3    0.000    0.000    0.247    0.082 C:\OSGeo4W/apps/qgis/./python/plugins\processing\core\Processing.py:131(runAlgorithm)
+        1    0.000    0.000    0.201    0.201 <string>:36(testRteToRte)
+        3    0.000    0.000    0.193    0.064 C:\OSGeo4W/apps/qgis/./python/plugins\processing\gui\AlgorithmExecutor.py:48(execute)
+        3    0.001    0.000    0.193    0.064 {built-in method run}
+        3    0.000    0.000    0.191    0.064 C:\Users/drew.bennett/AppData/Roaming/QGIS/QGIS3\profiles\default/python/plugins\pts_tools\convert_route\convert_route.py:95(processAlgorithm)
+        3    0.000    0.000    0.177    0.059 C:\Users/drew.bennett/AppData/Roaming/QGIS/QGIS3\profiles\default/python/plugins\pts_tools\convert_route\msb_model.py:261(save)
+        1    0.000    0.000    0.177    0.177 C:\Users/drew.bennett/AppData/Roaming/QGIS/QGIS3\profiles\default/python/plugins\pts_tools\convert_route\msb_model.py:251(saveRte)
+        1    0.000    0.000    0.177    0.177 C:\Users/drew.bennett/AppData/Roaming/QGIS/QGIS3\profiles\default/python/plugins\pts_tools\convert_route\msb_model.py:222(rteItems)
+        1    0.171    0.171    0.171    0.171 C:\Users/drew.bennett/AppData/Roaming/QGIS/QGIS3\profiles\default/python/plugins\pts_tools\convert_route\msb_model.py:227(<dictcomp>)
+        3    0.000    0.000    0.046    0.015 C:\Users/drew.bennett/AppData/Roaming/QGIS/QGIS3\profiles\default/python/plugins\pts_tools\convert_route\convert_route.py:74(checkParameterValues)
+        3    0.045    0.015    0.045    0.015 {function convertRoute.checkParameterValues at 0x000002D8466FAF70}
+        1    0.000    0.000    0.028    0.028 <string>:26(testSecToSec)
+        1    0.000    0.000    0.023    0.023 <string>:31(testSrToSr)
+       12    0.008    0.001    0.008    0.001 {method '__exit__' of '_io._IOBase' objects}
+       12    0.007    0.001    0.007    0.001 {built-in method io.open}
+        1    0.000    0.000    0.005    0.005 C:\Users/drew.bennett/AppData/Roaming/QGIS/QGIS3\profiles\default/python/plugins\pts_tools\convert_route\layer_functions.py:57(getFeatures)
+        1    0.005    0.005    0.005    0.005 {built-in method getFeatures}
+        3    0.002    0.001    0.005    0.002 C:\OSGeo4W/apps/qgis/./python/plugins\processing\tools\dataobjects.py:55(createContext)
+        3    0.003    0.001    0.003    0.001 {built-in method pushInfo}
+        3    0.000    0.000    0.002    0.001 C:\OSGeo4W/apps/qgis/./python/plugins\processing\tools\dataobjects.py:85(createExpressionContext)
+        3    0.000    0.000    0.002    0.001 C:\Users/drew.bennett/AppData/Roaming/QGIS/QGIS3\profiles\default/python/plugins\pts_tools\convert_route\convert_route.py:40(prepareAlgorithm)
+        3    0.000    0.000    0.001    0.000 C:\Users/drew.bennett/AppData/Roaming/QGIS/QGIS3\profiles\default/python/plugins\pts_tools\convert_route\msb_model.py:278(load)
+        3    0.001    0.000    0.001    0.000 {globalScope}
+       26    0.001    0.000    0.001    0.000 {built-in method parameterAsFields}
+       27    0.000    0.000    0.001    0.000 C:\Users/drew.bennett/AppData/Roaming/QGIS/QGIS3\profiles\default/python/plugins\pts_tools\convert_route\msb_model.py:55(addRow)
+        6    0.000    0.000    0.001    0.000 C:\Users/drew.bennett/AppData/Roaming/QGIS/QGIS3\profiles\default/python/plugins\pts_tools\convert_route\convert_route.py:14(initAlgorithm)
+        7    0.000    0.000    0.001    0.000 C:\Users/drew.bennett/AppData/Roaming/QGIS/QGIS3\profiles\default/python/plugins\pts_tools\rte\feature_to_rte_item.py:16(featureToRteItem)
+       54    0.000    0.000    0.000    0.000 C:\Users/drew.bennett/AppData/Roaming/QGIS/QGIS3\profiles\default/python/plugins\pts_tools\convert_route\msb_model.py:296(makeItem)
+        3    0.000    0.000    0.000    0.000 {built-in method createAlgorithmById}
+        3    0.000    0.000    0.000    0.000 {projectScope}
+        3    0.000    0.000    0.000    0.000 {mapSettingsScope}
+        4    0.000    0.000    0.000    0.000 {built-in method parameterAsVectorLayer}
+        1    0.000    0.000    0.000    0.000 C:\Users/drew.bennett/AppData/Roaming/QGIS/QGIS3\profiles\default/python/plugins\pts_tools\convert_route\msb_model.py:75(loadSec)
+        1    0.000    0.000    0.000    0.000 C:\Users/drew.bennett/AppData/Roaming/QGIS/QGIS3\profiles\default/python/plugins\pts_tools\convert_route\msb_model.py:100(loadRte)
+        7    0.000    0.000    0.000    0.000 C:\Users/drew.bennett/AppData/Roaming/QGIS/QGIS3\profiles\default/python/plugins\pts_tools\rte\feature_to_rte_item.py:43(featureToDict)
+        6    0.000    0.000    0.000    0.000 {built-in method parameterAsFile}
+        1    0.000    0.000    0.000    0.000 C:\Users/drew.bennett/AppData/Roaming/QGIS/QGIS3\profiles\default/python/plugins\pts_tools\convert_route\msb_model.py:147(loadSr)
+       54    0.000    0.000    0.000    0.000 {built-in method setData}
+        1    0.000    0.000    0.000    0.000 C:\Users/drew.bennett/AppData/Roaming/QGIS/QGIS3\profiles\default/python/plugins\pts_tools\rte\rte.py:122(write_rte)
+       72    0.000    0.000    0.000    0.000 {built-in method addParameter}
+        3    0.000    0.000    0.000    0.000 C:\OSGeo4W\apps\Python39\lib\genericpath.py:39(isdir)
+        3    0.000    0.000    0.000    0.000 {processingRegistry}
+        3    0.000    0.000    0.000    0.000 {built-in method nt.stat}
+        6    0.000    0.000    0.000    0.000 {method 'read' of '_io.TextIOWrapper' objects}
+        2    0.000    0.000    0.000    0.000 C:\Users/drew.bennett/AppData/Roaming/QGIS/QGIS3\profiles\default/python/plugins\pts_tools\convert_route\msb_model.py:183(sectionLabels)
+       27    0.000    0.000    0.000    0.000 C:\Users/drew.bennett/AppData/Roaming/QGIS/QGIS3\profiles\default/python/plugins\pts_tools\convert_route\msb_model.py:49(insertRow)
+        2    0.000    0.000    0.000    0.000 C:\Users/drew.bennett/AppData/Roaming/QGIS/QGIS3\profiles\default/python/plugins\pts_tools\convert_route\msb_model.py:184(<listcomp>)
+        3    0.000    0.000    0.000    0.000 {method 'readlines' of '_io._IOBase' objects}
+        3    0.000    0.000    0.000    0.000 C:\OSGeo4W/apps/qgis/./python/plugins\processing\core\ProcessingConfig.py:226(getSetting)
+        3    0.000    0.000    0.000    0.000 {built-in method value}
+        3    0.000    0.000    0.000    0.000 {built-in method validateInputCrs}
+        9    0.000    0.000    0.000    0.000 C:\OSGeo4W\apps\Python39\lib\ntpath.py:203(splitext)
+        3    0.000    0.000    0.000    0.000 {built-in method parameterAsFileOutput}
+       18    0.000    0.000    0.000    0.000 {built-in method data}
+        1    0.000    0.000    0.000    0.000 C:\Users/drew.bennett/AppData/Roaming/QGIS/QGIS3\profiles\default/python/plugins\pts_tools\convert_route\msb_model.py:172(saveSr)
+        3    0.000    0.000    0.000    0.000 {built-in method parameterAsBoolean}
+        9    0.000    0.000    0.000    0.000 C:\Users/drew.bennett/AppData/Roaming/QGIS/QGIS3\profiles\default/python/plugins\pts_tools\rte\rte.py:86(R2_1)
+       54    0.000    0.000    0.000    0.000 {built-in method setDropEnabled}
+        7    0.000    0.000    0.000    0.000 C:\Users/drew.bennett/AppData/Roaming/QGIS/QGIS3\profiles\default/python/plugins\pts_tools\rte\rte_item.py:56(R2_1)
+        1    0.000    0.000    0.000    0.000 C:\Users/drew.bennett/AppData/Roaming/QGIS/QGIS3\profiles\default/python/plugins\pts_tools\convert_route\msb_model.py:167(saveSec)
+      127    0.000    0.000    0.000    0.000 {method 'format' of 'str' objects}
+        3    0.000    0.000    0.000    0.000 C:\Users/drew.bennett/AppData/Roaming/QGIS/QGIS3\profiles\default/python/plugins\pts_tools\convert_route\msb_model.py:17(__init__)
+       27    0.000    0.000    0.000    0.000 {method 'emit' of 'PyQt5.QtCore.pyqtBoundSignal' objects}
+        4    0.000    0.000    0.000    0.000 C:\Users/drew.bennett/AppData/Roaming/QGIS/QGIS3\profiles\default/python/plugins\pts_tools\convert_route\msb_model.py:162(addDummy)
+        6    0.000    0.000    0.000    0.000 {built-in method mapSettings}
+        9    0.000    0.000    0.000    0.000 C:\OSGeo4W\apps\Python39\lib\genericpath.py:121(_splitext)
+        4    0.000    0.000    0.000    0.000 C:\OSGeo4W\apps\Python39\lib\ntpath.py:180(split)
+        7    0.000    0.000    0.000    0.000 C:\Users/drew.bennett/AppData/Roaming/QGIS/QGIS3\profiles\default/python/plugins\pts_tools\rte\rte_item.py:14(__init__)
+       45    0.000    0.000    0.000    0.000 C:\Users/drew.bennett/AppData/Roaming/QGIS/QGIS3\profiles\default/python/plugins\pts_tools\rte\rte.py:38(F)
+       10    0.000    0.000    0.000    0.000 C:\Users/drew.bennett/AppData/Roaming/QGIS/QGIS3\profiles\default/python/plugins\pts_tools\rte\read.py:104(isR3_1)
+       75    0.000    0.000    0.000    0.000 C:\Users/drew.bennett/AppData/Roaming/QGIS/QGIS3\profiles\default/python/plugins\pts_tools\rte\rte.py:7(A)
+       12    0.000    0.000    0.000    0.000 {built-in method setVariable}
+        3    0.000    0.000    0.000    0.000 {built-in method outputDefinitions}
+        3    0.000    0.000    0.000    0.000 {built-in method setProject}
+       10    0.000    0.000    0.000    0.000 C:\Users/drew.bennett/AppData/Roaming/QGIS/QGIS3\profiles\default/python/plugins\pts_tools\rte\read.py:74(readR3_1)
+        3    0.000    0.000    0.000    0.000 C:\OSGeo4W\apps\Python39\lib\ntpath.py:221(dirname)
+        7    0.000    0.000    0.000    0.000 C:\Users/drew.bennett/AppData/Roaming/QGIS/QGIS3\profiles\default/python/plugins\pts_tools\rte\rte_item.py:64(R4_1)
+        7    0.000    0.000    0.000    0.000 C:\Users/drew.bennett/AppData/Roaming/QGIS/QGIS3\profiles\default/python/plugins\pts_tools\rte\rte.py:105(R4_1)
+       14    0.000    0.000    0.000    0.000 {built-in method toString}
+       14    0.000    0.000    0.000    0.000 C:\OSGeo4W\apps\Python39\lib\codecs.py:319(decode)
+       27    0.000    0.000    0.000    0.000 {function msbModel.insertRow at 0x000002D8466FA4C0}
+        3    0.000    0.000    0.000    0.000 {built-in method fullExtent}
+        7    0.000    0.000    0.000    0.000 {built-in method transform}
+        7    0.000    0.000    0.000    0.000 {built-in method names}
+        3    0.000    0.000    0.000    0.000 C:\OSGeo4W/apps/qgis/./python/plugins\processing\core\Processing.py:207(tr)
+        9    0.000    0.000    0.000    0.000 C:\OSGeo4W\apps\Python39\lib\codecs.py:309(__init__)
+        7    0.000    0.000    0.000    0.000 C:\Users/drew.bennett/AppData/Roaming/QGIS/QGIS3\profiles\default/python/plugins\pts_tools\rte\feature_to_rte_item.py:55(startPoint)
+        3    0.000    0.000    0.000    0.000 {built-in method setHorizontalHeaderLabels}
+       68    0.000    0.000    0.000    0.000 {built-in method builtins.isinstance}
+        4    0.000    0.000    0.000    0.000 C:\OSGeo4W\apps\Python39\lib\ntpath.py:124(splitdrive)
+        9    0.000    0.000    0.000    0.000 C:\Users/drew.bennett/AppData/Roaming/QGIS/QGIS3\profiles\default/python/plugins\pts_tools\rte\read.py:35(readR2_1)
+       12    0.000    0.000    0.000    0.000 C:\OSGeo4W\apps\Python39\lib\_bootlocale.py:11(getpreferredencoding)
+        6    0.000    0.000    0.000    0.000 C:\Users/drew.bennett/AppData/Roaming/QGIS/QGIS3\profiles\default/python/plugins\pts_tools\convert_route\convert_route.py:125(createInstance)
+       14    0.000    0.000    0.000    0.000 {built-in method interpolate}
+        1    0.000    0.000    0.000    0.000 C:\OSGeo4W\apps\Python39\lib\ntpath.py:214(basename)
+      165    0.000    0.000    0.000    0.000 {method 'strip' of 'str' objects}
+       32    0.000    0.000    0.000    0.000 {built-in method rowCount}
+        7    0.000    0.000    0.000    0.000 C:\Users/drew.bennett/AppData/Roaming/QGIS/QGIS3\profiles\default/python/plugins\pts_tools\rte\feature_to_rte_item.py:61(endPoint)
+        9    0.000    0.000    0.000    0.000 C:\Users/drew.bennett/AppData/Roaming/QGIS/QGIS3\profiles\default/python/plugins\pts_tools\rte\read.py:11(__init__)
+        3    0.000    0.000    0.000    0.000 {translate}
+       29    0.000    0.000    0.000    0.000 {method 'write' of '_io.TextIOWrapper' objects}
+       18    0.000    0.000    0.000    0.000 {built-in method index}
+       27    0.000    0.000    0.000    0.000 {method 'rfind' of 'str' objects}
+        2    0.000    0.000    0.000    0.000 C:\Users/drew.bennett/AppData/Roaming/QGIS/QGIS3\profiles\default/python/plugins\pts_tools\rte\rte_item.py:97(R2_1)
+       36    0.000    0.000    0.000    0.000 {built-in method item}
+        1    0.000    0.000    0.000    0.000 C:\Users/drew.bennett/AppData/Roaming/QGIS/QGIS3\profiles\default/python/plugins\pts_tools\rte\rte.py:73(R1_1)
+        7    0.000    0.000    0.000    0.000 C:\OSGeo4W\apps\Python39\lib\enum.py:334(__call__)
+        7    0.000    0.000    0.000    0.000 C:\Users/drew.bennett/AppData/Roaming/QGIS/QGIS3\profiles\default/python/plugins\pts_tools\rte\read.py:16(readR4_1)
+       14    0.000    0.000    0.000    0.000 {built-in method _codecs.utf_8_decode}
+       18    0.000    0.000    0.000    0.000 {built-in method mapCanvas}
+       13    0.000    0.000    0.000    0.000 {instance}
+        3    0.000    0.000    0.000    0.000 C:\OSGeo4W/apps/qgis/./python\qgis\PyQt\QtCore.py:46(__eq__)
+       12    0.000    0.000    0.000    0.000 {built-in method appendScope}
+        9    0.000    0.000    0.000    0.000 C:\Users/drew.bennett/AppData/Roaming/QGIS/QGIS3\profiles\default/python/plugins\pts_tools\convert_route\msb_model.py:292(isDummy)
+        9    0.000    0.000    0.000    0.000 {built-in method builtins.max}
+        3    0.000    0.000    0.000    0.000 {built-in method setExpressionContext}
+       14    0.000    0.000    0.000    0.000 {built-in method asPoint}
+        3    0.000    0.000    0.000    0.000 <string>:44(<dictcomp>)
+        9    0.000    0.000    0.000    0.000 C:\Users/drew.bennett/AppData/Roaming/QGIS/QGIS3\profiles\default/python/plugins\pts_tools\convert_route\msb_model.py:191(revToBool)
+        9    0.000    0.000    0.000    0.000 C:\OSGeo4W\apps\Python39\lib\codecs.py:260(__init__)
+        7    0.000    0.000    0.000    0.000 {built-in method crs}
+        1    0.000    0.000    0.000    0.000 C:\OSGeo4W\apps\Python39\lib\cProfile.py:117(__exit__)
+       17    0.000    0.000    0.000    0.000 {method 'split' of 'str' objects}
+        1    0.000    0.000    0.000    0.000 C:\Users/drew.bennett/AppData/Roaming/QGIS/QGIS3\profiles\default/python/plugins\pts_tools\convert_route\layer_functions.py:58(<listcomp>)
+        4    0.000    0.000    0.000    0.000 C:\OSGeo4W\apps\Python39\lib\ntpath.py:34(_get_bothseps)
+       17    0.000    0.000    0.000    0.000 {built-in method nt.fspath}
+        3    0.000    0.000    0.000    0.000 {built-in method setInvalidGeometryCheck}
+        7    0.000    0.000    0.000    0.000 {built-in method fields}
+        9    0.000    0.000    0.000    0.000 C:\Users/drew.bennett/AppData/Roaming/QGIS/QGIS3\profiles\default/python/plugins\pts_tools\rte\read.py:56(getCharactors)
+        3    0.000    0.000    0.000    0.000 {built-in method name}
+       14    0.000    0.000    0.000    0.000 {method 'update' of 'dict' objects}
+        7    0.000    0.000    0.000    0.000 C:\OSGeo4W\apps\Python39\lib\enum.py:646(__new__)
+        1    0.000    0.000    0.000    0.000 C:\Users/drew.bennett/AppData/Roaming/QGIS/QGIS3\profiles\default/python/plugins\pts_tools\rte\rte_item.py:60(R3_1)
+        2    0.000    0.000    0.000    0.000 C:\Users/drew.bennett/AppData/Roaming/QGIS/QGIS3\profiles\default/python/plugins\pts_tools\rte\rte_item.py:83(make_dummy)
+        1    0.000    0.000    0.000    0.000 C:\Users/drew.bennett/AppData/Roaming/QGIS/QGIS3\profiles\default/python/plugins\pts_tools\rte\rte.py:124(<listcomp>)
+        1    0.000    0.000    0.000    0.000 {built-in method builtins.sorted}
+        7    0.000    0.000    0.000    0.000 {built-in method geometry}
+        1    0.000    0.000    0.000    0.000 C:\Users/drew.bennett/AppData/Roaming/QGIS/QGIS3\profiles\default/python/plugins\pts_tools\rte\rte.py:99(R3_1)
+       14    0.000    0.000    0.000    0.000 {built-in method y}
+        3    0.000    0.000    0.000    0.000 C:\OSGeo4W\apps\Python39\lib\codecs.py:186(__init__)
+       18    0.000    0.000    0.000    0.000 {built-in method builtins.len}
+       16    0.000    0.000    0.000    0.000 C:\Users/drew.bennett/AppData/Roaming/QGIS/QGIS3\profiles\default/python/plugins\pts_tools\rte\rte.py:52(check_direction)
+        3    0.000    0.000    0.000    0.000 {built-in method feedback}
+        3    0.000    0.000    0.000    0.000 {built-in method setDefaultEncoding}
+        3    0.000    0.000    0.000    0.000 {built-in method setFeedback}
+        7    0.000    0.000    0.000    0.000 {built-in method length}
+        3    0.000    0.000    0.000    0.000 {built-in method isNull}
+        1    0.000    0.000    0.000    0.000 C:\Users/drew.bennett/AppData/Roaming/QGIS/QGIS3\profiles\default/python/plugins\pts_tools\rte\rte.py:18(I)
+        3    0.000    0.000    0.000    0.000 {built-in method xMinimum}
+       18    0.000    0.000    0.000    0.000 {method 'append' of 'list' objects}
+        9    0.000    0.000    0.000    0.000 C:\Users/drew.bennett/AppData/Roaming/QGIS/QGIS3\profiles\default/python/plugins\pts_tools\convert_route\layer_functions.py:86(singleQuote)
+        4    0.000    0.000    0.000    0.000 {method 'replace' of 'str' objects}
+       14    0.000    0.000    0.000    0.000 {built-in method x}
+        3    0.000    0.000    0.000    0.000 {method 'index' of 'list' objects}
+        3    0.000    0.000    0.000    0.000 {built-in method isTemporal}
+       21    0.000    0.000    0.000    0.000 C:\Users/drew.bennett/AppData/Roaming/QGIS/QGIS3\profiles\default/python/plugins\pts_tools\rte\rte_item.py:77(is_dummy)
+        3    0.000    0.000    0.000    0.000 {method 'keys' of 'dict' objects}
+        4    0.000    0.000    0.000    0.000 {method 'rstrip' of 'str' objects}
+        1    0.000    0.000    0.000    0.000 C:\Users/drew.bennett/AppData/Roaming/QGIS/QGIS3\profiles\default/python/plugins\pts_tools\convert_route\layer_functions.py:90(doubleQuote)
+        3    0.000    0.000    0.000    0.000 {built-in method _stat.S_ISDIR}
+        9    0.000    0.000    0.000    0.000 C:\Users/drew.bennett/AppData/Roaming/QGIS/QGIS3\profiles\default/python/plugins\pts_tools\convert_route\msb_model.py:203(boolToRev)
+        2    0.000    0.000    0.000    0.000 C:\Users/drew.bennett/AppData/Roaming/QGIS/QGIS3\profiles\default/python/plugins\pts_tools\rte\rte_item.py:91(__init__)
+        2    0.000    0.000    0.000    0.000 {method 'join' of 'str' objects}
+        3    0.000    0.000    0.000    0.000 C:\Users/drew.bennett/AppData/Roaming/QGIS/QGIS3\profiles\default/python/plugins\pts_tools\ptsToolsProvider.py:83(id)
+        3    0.000    0.000    0.000    0.000 {built-in method yMinimum}
+        3    0.000    0.000    0.000    0.000 C:\Users/drew.bennett/AppData/Roaming/QGIS/QGIS3\profiles\default/python/plugins\pts_tools\convert_route\convert_route.py:109(name)
+        3    0.000    0.000    0.000    0.000 {built-in method xMaximum}
+        3    0.000    0.000    0.000    0.000 {built-in method yMaximum}
+        7    0.000    0.000    0.000    0.000 {method 'lower' of 'str' objects}
+        9    0.000    0.000    0.000    0.000 C:\Users/drew.bennett/AppData/Roaming/QGIS/QGIS3\profiles\default/python/plugins\pts_tools\rte\rte.py:144(<lambda>)
+        6    0.000    0.000    0.000    0.000 C:\Users/drew.bennett/AppData/Roaming/QGIS/QGIS3\profiles\default/python/plugins\pts_tools\rte\rte_item.py:100(is_dummy)
+        1    0.000    0.000    0.000    0.000 {method 'disable' of '_lsprof.Profiler' objects}
+
+

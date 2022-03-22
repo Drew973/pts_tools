@@ -10,20 +10,12 @@ from qgis.core import QgsProcessingAlgorithm
 from qgis.core import QgsProcessingMultiStepFeedback
 from qgis.core import QgsProcessingParameterField
 from qgis.core import QgsProcessingParameterVectorLayer
-from qgis.core import QgsProcessingParameterFeatureSink
-from qgis.core import QgsVectorLayer
-from qgis.core import QgsWkbTypes
 from qgis.core import QgsProcessingParameterVectorDestination
 from qgis.core import QgsProcessingContext
 from qgis.core import QgsProject
 
 
 import processing
-
-from osgeo import gdal
-import sqlite3
-
-from collections import OrderedDict
 
 
 splitCombinedField = 'splitCombined'
@@ -190,8 +182,7 @@ class processDistressLayer(QgsProcessingAlgorithm):
     def shortHelpString(self):
         return '''<html><body>
         <p>Left joins split layer to data layer on dataLabelField=splitLabelField and dataSubsectionField=splitSubsectionField.</p>
-        <p>Creates tempuary or uses existing geopackage with indexes on these fields for performance reasons.</p>
-        <p>If layers are in geopackage this may be edited with new table added and/or indexes created.</p>
+        <p>Left join means all features of split layer are included at least once (with null values where no matching data).</p>
         </html></body>
         '''
         
