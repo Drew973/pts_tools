@@ -8,7 +8,6 @@ __copyright__ = '(C) 2021 by drew'
 __revision__ = '$Format:%H$'
 
 
-import os
 import math
 
 from PyQt5.QtCore import QVariant
@@ -22,24 +21,8 @@ from qgis.core import (QgsProcessing, QgsFeatureSink, QgsProcessingAlgorithm,Qgs
     QgsSpatialIndex,QgsFeature,QgsFeatureRequest,QgsCoordinateTransform,QgsProject,QgsGeometry,QgsRectangle)
 
 
-#import logging# logging doesn't seem to work well with this
-#import sys
-
-
-
 
 class pointToChainageAlgorithm(QgsProcessingAlgorithm):
-
-
-    # Constants used to refer to parameters and outputs. They will be
-    # used when calling the algorithm from another algorithm, or when
-    # calling from the QGIS console.
-
-    #OUTPUT = 'OUTPUT'
-    #INPUT = 'INPUT'
-    #FIELD = None
-    #STEP = 'step'
-    
     
     def initAlgorithm(self, config):
         """
@@ -214,9 +197,26 @@ class pointToChainageAlgorithm(QgsProcessingAlgorithm):
         return pointToChainageAlgorithm()
 
 
-    def helpUrl(self):
-        help_path = os.path.join(os.path.dirname(__file__),'help','point_to_chainage.html')
-        return 'file:/'+os.path.abspath(help_path)
+
+
+    def shortHelpString(self):
+        return r'''<html><body>
+    	<p>Finds nearest section and chainage to points.Creates new layer:</p>
+    	<ul>
+    	<li>With same fields as input plus a text field named section and a double field named chainage.</li>
+    	<li>Containing all features of input.</li>
+    	<li>With null section and chainage where no section found.</li>
+    	</ul>
+    
+    	<h3>Parameters:</h3>
+    	<ul>
+    	<li>"Layer or data source with network" defaults to L:\SharedDocs\HAPMS shapefile\latest_network.shp</li>
+    	<li>Only sections within "Maximum distance" to points are considered. Decreasing this results in faster fitting.</li>
+    	<li>If "Section length field" is set chainages will be scaled so that point at end of section is this value.</li>
+    	</ul>
+		
+        </body></html>
+        '''
 
 
 '''

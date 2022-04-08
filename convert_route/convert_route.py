@@ -129,7 +129,7 @@ class convertRoute(QgsProcessingAlgorithm):
     def shortHelpString(self):
         return  r'''<html><body>
         <p>Converts routes between .sec,.sr  and .rte formats.</p>
-        <p>A network is required to read and write rte files.</p>
+        <p>A network is required to write rte files.</p>
         <p>A copy of the HAPMS network is at S:\Drew\hapms network\network_with_nodes</p>
         <p>Using this remotely can be slow. Copy to your pc for better performance. </p>
         

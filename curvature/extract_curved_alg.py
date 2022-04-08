@@ -9,8 +9,6 @@ __copyright__ = '(C) 2021 by drew'
 
 __revision__ = '$Format:%H$'
 
-import os
-
 
 from qgis.PyQt.QtCore import QCoreApplication
 from PyQt5.QtCore import QVariant
@@ -19,20 +17,16 @@ from PyQt5.QtCore import QVariant
 from qgis.core import (QgsProcessing,
                        QgsFeature,
                        QgsProcessingContext,
-                       QgsFields,
                        QgsField,
                        QgsProcessingFeedback,
                        QgsProcessingFeatureBasedAlgorithm,
-                       QgsProcessingParameterFeatureSource,
-                       QgsProcessingParameterFeatureSink,
                        QgsProcessingParameterField,
                        QgsProcessingParameterDistance,
                        )
 
 
-from . import section_interpolator
-
-from .. import substring
+from pts_tools.curvature import section_interpolator
+from pts_tools.shared_functions import substring
 
 
 #import logging# logging doesn't seem to work well with this
@@ -192,7 +186,8 @@ class extractCurvedAlg(QgsProcessingFeatureBasedAlgorithm):
 		
     def shortHelpString(self):
         return '''<html><body>
-        <p>Extracts curved parts of linestring geometry.</p>
+        <p>Estimates curvature at distances seperated by resolution along linestring.</p>
+        <p>Extracts parts with radius of curvature less than threshold.</p>
         <p>Works feature by feature.</p>
 
         '''

@@ -1,0 +1,78 @@
+<VRTDataset rasterXSize="1444" rasterYSize="1560">
+  <GeoTransform>  4.3055842591184808e+05,  4.0906374148554133e-03,  0.0000000000000000e+00,  4.8768266289669601e+05,  0.0000000000000000e+00, -4.0906374148554133e-03</GeoTransform>
+  <Metadata>
+    <MDI key="EXIF_DateTime">2022:03:03 12:58:19</MDI>
+    <MDI key="EXIF_DateTimeDigitized">2022:03:03 12:58:19</MDI>
+    <MDI key="EXIF_DateTimeOriginal">2022:03:03 12:58:19</MDI>
+    <MDI key="EXIF_GPSAltitude">(89.122)</MDI>
+    <MDI key="EXIF_GPSAltitudeRef">0x00</MDI>
+    <MDI key="EXIF_GPSLatitude">(54) (17) (2.06073)</MDI>
+    <MDI key="EXIF_GPSLatitudeRef">N</MDI>
+    <MDI key="EXIF_GPSLongitude">(1) (31) (55.6667)</MDI>
+    <MDI key="EXIF_GPSLongitudeRef">W</MDI>
+    <MDI key="EXIF_ImageDescription">Survey: MFV_01,Image Type: IntensityWithoutOverlay</MDI>
+    <MDI key="EXIF_Software">Hawkeye Processing Toolkit v8.3.0.3999</MDI>
+  </Metadata>
+  <Metadata domain="IMAGE_STRUCTURE">
+    <MDI key="COMPRESSION">LZW</MDI>
+    <MDI key="INTERLEAVE">PIXEL</MDI>
+  </Metadata>
+  <VRTRasterBand dataType="Byte" band="1">
+    <Metadata>
+      <MDI key="STATISTICS_MAXIMUM">254</MDI>
+      <MDI key="STATISTICS_MEAN">33.08239265928</MDI>
+      <MDI key="STATISTICS_MINIMUM">0</MDI>
+      <MDI key="STATISTICS_STDDEV">44.486734867579</MDI>
+    </Metadata>
+    <ColorInterp>Red</ColorInterp>
+    <SimpleSource>
+      <SourceFilename relativeToVRT="0">C:\Users\drew.bennett\AppData\Roaming\QGIS\QGIS3\profiles\default\python\plugins\pts_tools\reposition_image\test\origonal.tif</SourceFilename>
+      <SourceBand>1</SourceBand>
+      <SourceProperties RasterXSize="1444" RasterYSize="1560" DataType="Byte" BlockXSize="1444" BlockYSize="1" />
+      <SrcRect xOff="0" yOff="0" xSize="1444" ySize="1560" />
+      <DstRect xOff="0" yOff="0" xSize="1444" ySize="1560" />
+    </SimpleSource>
+  </VRTRasterBand>
+  <VRTRasterBand dataType="Byte" band="2">
+    <Metadata>
+      <MDI key="STATISTICS_MAXIMUM">254</MDI>
+      <MDI key="STATISTICS_MEAN">33.08239265928</MDI>
+      <MDI key="STATISTICS_MINIMUM">0</MDI>
+      <MDI key="STATISTICS_STDDEV">44.486734867579</MDI>
+    </Metadata>
+    <ColorInterp>Green</ColorInterp>
+    <SimpleSource>
+      <SourceFilename relativeToVRT="0">C:\Users\drew.bennett\AppData\Roaming\QGIS\QGIS3\profiles\default\python\plugins\pts_tools\reposition_image\test\origonal.tif</SourceFilename>
+      <SourceBand>2</SourceBand>
+      <SourceProperties RasterXSize="1444" RasterYSize="1560" DataType="Byte" BlockXSize="1444" BlockYSize="1" />
+      <SrcRect xOff="0" yOff="0" xSize="1444" ySize="1560" />
+      <DstRect xOff="0" yOff="0" xSize="1444" ySize="1560" />
+    </SimpleSource>
+  </VRTRasterBand>
+  <VRTRasterBand dataType="Byte" band="3">
+    <Metadata>
+      <MDI key="STATISTICS_MAXIMUM">254</MDI>
+      <MDI key="STATISTICS_MEAN">33.08239265928</MDI>
+      <MDI key="STATISTICS_MINIMUM">0</MDI>
+      <MDI key="STATISTICS_STDDEV">44.486734867579</MDI>
+    </Metadata>
+    <ColorInterp>Blue</ColorInterp>
+    <SimpleSource>
+      <SourceFilename relativeToVRT="0">C:\Users\drew.bennett\AppData\Roaming\QGIS\QGIS3\profiles\default\python\plugins\pts_tools\reposition_image\test\origonal.tif</SourceFilename>
+      <SourceBand>3</SourceBand>
+      <SourceProperties RasterXSize="1444" RasterYSize="1560" DataType="Byte" BlockXSize="1444" BlockYSize="1" />
+      <SrcRect xOff="0" yOff="0" xSize="1444" ySize="1560" />
+      <DstRect xOff="0" yOff="0" xSize="1444" ySize="1560" />
+    </SimpleSource>
+  </VRTRasterBand>
+  <VRTRasterBand dataType="Byte" band="4">
+    <ColorInterp>Alpha</ColorInterp>
+    <SimpleSource>
+      <SourceFilename relativeToVRT="0">C:\Users\drew.bennett\AppData\Roaming\QGIS\QGIS3\profiles\default\python\plugins\pts_tools\reposition_image\test\origonal.tif</SourceFilename>
+      <SourceBand>4</SourceBand>
+      <SourceProperties RasterXSize="1444" RasterYSize="1560" DataType="Byte" BlockXSize="1444" BlockYSize="1" />
+      <SrcRect xOff="0" yOff="0" xSize="1444" ySize="1560" />
+      <DstRect xOff="0" yOff="0" xSize="1444" ySize="1560" />
+    </SimpleSource>
+  </VRTRasterBand>
+</VRTDataset>

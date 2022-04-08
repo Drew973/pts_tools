@@ -9,8 +9,6 @@ __copyright__ = '(C) 2021 by drew'
 
 __revision__ = '$Format:%H$'
 
-import os
-
 
 from qgis.PyQt.QtCore import QCoreApplication
 from PyQt5.QtCore import QVariant
@@ -20,12 +18,9 @@ import numpy as np
 from qgis.core import (QgsProcessing,
                        QgsFeature,
                        QgsProcessingContext,
-                       QgsFields,
                        QgsField,
                        QgsProcessingFeedback,
                        QgsProcessingFeatureBasedAlgorithm,
-                       QgsProcessingParameterFeatureSource,
-                       QgsProcessingParameterFeatureSink,
                        QgsProcessingParameterField,
                        QgsProcessingParameterDistance,
                        QgsWkbTypes
@@ -33,9 +28,7 @@ from qgis.core import (QgsProcessing,
                        )
 
 
-from . import section_interpolator
-
-from .. import substring
+from pts_tools.curvature import section_interpolator
 
 
 #import logging# logging doesn't seem to work well with this

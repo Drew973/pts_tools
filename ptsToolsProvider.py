@@ -31,21 +31,21 @@ __copyright__ = '(C) 2021 by drew'
 __revision__ = '$Format:%H$'
 
 from qgis.core import QgsProcessingProvider
-from .splitByChainage_algorithm import splitByChainageAlgorithm
-from .point_to_chainage.pointToChainage import pointToChainageAlgorithm
-from .toExaminer_algorithm import toExaminerAlgorithm
+from pts_tools.split_by_chainage.splitByChainage_algorithm import splitByChainageAlgorithm
+from pts_tools.point_to_chainage.pointToChainage import pointToChainageAlgorithm
+from pts_tools.to_examiner.toExaminer_algorithm import toExaminerAlgorithm
 #from .concatenateFields_algorithm import concatenateFieldsAlgorithm
 
-from .distress_processor.distressProcessor import distressProcessorAlg
-from .distress_processor.process_distress_layer import processDistressLayer
-from .joinToNetwork import joinToNetworkAlgorithm
-from .curvature.extract_curved_alg import extractCurvedAlg
-from .curvature.estimate_curvature_alg import estimateCurvatureAlg
+from pts_tools.distress_processor.distressProcessor import distressProcessorAlg
+from pts_tools.distress_processor.process_distress_layer import processDistressLayer
+from pts_tools.join_to_network.joinToNetwork import joinToNetworkAlgorithm
+from pts_tools.curvature.extract_curved_alg import extractCurvedAlg
+from pts_tools.curvature.estimate_curvature_alg import estimateCurvatureAlg
 
-from .convert_route.convert_route import convertRoute
-from .convert_route.convert_route_folder import convertRouteFolder
+from pts_tools.convert_route.convert_route import convertRoute
+from pts_tools.convert_route.convert_route_folder import convertRouteFolder
 
-from .load_images.loadImages import loadRasters
+from pts_tools.reposition_image.reposition_image_alg import repositionImage
 
 class ptsToolsProvider(QgsProcessingProvider):
 
@@ -77,7 +77,7 @@ class ptsToolsProvider(QgsProcessingProvider):
         self.addAlgorithm(estimateCurvatureAlg())
         self.addAlgorithm(convertRoute())
         self.addAlgorithm(convertRouteFolder())
-#        self.addAlgorithm(loadRasters())
+        self.addAlgorithm(repositionImage())
 
 
     def id(self):

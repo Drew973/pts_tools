@@ -1,23 +1,21 @@
 from scipy import interpolate
 import numpy as np
 
-from qgis.core import QgsLineString,QgsGeometry,QgsPointXY
+from qgis.core import QgsLineString,QgsGeometry,QgsPointXY,QgsProject
 import math
 import sys
-from qgis.PyQt.QtCore import QVariant
 import matplotlib.pyplot as plt
 
 
 
 if __name__ =='__console__':
-    import sys
     folder = r'C:\Users\drew.bennett\AppData\Roaming\QGIS\QGIS3\profiles\default\python\plugins\pts_tools\extract_by_curvature'
     if not folder in sys.path:
         sys.path.append(folder)
     import clumpArray
     
 else:
-    from . import clumpArray
+    from pts_tools.curvature import clumpArray
 
     
 class sectionHandler:
@@ -57,7 +55,7 @@ class sectionHandler:
         
     #Interpolates geometry from Spline. Smoothing means this may be different to input geometry.
     def interpolatedGeom(self,spacing):
-        ch = np.append(numpy.arange(0,self.geomLength,spacing),self.length)
+        ch = np.append(np.arange(0,self.geomLength,spacing),self.length)
         return QgsGeometry(QgsLineString(self.xSpline(ch),self.ySpline(ch)))
         
         
