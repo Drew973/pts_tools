@@ -1,0 +1,1 @@
+bug in qgis where layers not rendered on map when low on memory.

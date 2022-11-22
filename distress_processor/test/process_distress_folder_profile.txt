@@ -1,0 +1,193 @@
+         1462 function calls (1456 primitive calls) in 6.196 seconds
+
+   Ordered by: cumulative time
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+        1    0.208    0.208    6.197    6.197 C:\OSGeo4W/apps/qgis/./python/plugins\processing\tools\general.py:119(runAndLoadResults)
+      5/1    0.000    0.000    5.989    5.989 C:\OSGeo4W/apps/qgis/./python/plugins\processing\core\Processing.py:131(runAlgorithm)
+      2/1    0.000    0.000    5.953    5.953 C:\OSGeo4W/apps/qgis/./python/plugins\processing\gui\AlgorithmExecutor.py:48(execute)
+      2/1    5.906    2.953    5.953    5.953 {built-in method run}
+        1    0.001    0.001    5.952    5.952 C:\Users/drew.bennett/AppData/Roaming/QGIS/QGIS3\profiles\default/python/plugins\pts_tools\distress_processor\distressProcessor.py:74(processAlgorithm)
+        4    0.000    0.000    5.926    1.482 C:\OSGeo4W/apps/qgis/./python/plugins\processing\tools\general.py:92(run)
+        1    0.000    0.000    5.919    5.919 C:\Users/drew.bennett/AppData/Roaming/QGIS/QGIS3\profiles\default/python/plugins\pts_tools\distress_processor\process_distress_layer.py:191(importSplit)
+        5    0.044    0.009    0.044    0.009 {built-in method checkParameterValues}
+        4    0.000    0.000    0.025    0.006 {built-in method builtins.print}
+        8    0.000    0.000    0.024    0.003 C:\OSGeo4W/apps/qgis/./python\console\console_output.py:44(write)
+        8    0.019    0.002    0.019    0.002 {built-in method repaint}
+        3    0.000    0.000    0.011    0.004 C:\Users/drew.bennett/AppData/Roaming/QGIS/QGIS3\profiles\default/python/plugins\pts_tools\distress_processor\process_distress_layer.py:64(checkParameterValues)
+        4    0.004    0.001    0.008    0.002 C:\OSGeo4W/apps/qgis/./python/plugins\processing\tools\dataobjects.py:55(createContext)
+        8    0.003    0.000    0.003    0.000 {built-in method append}
+        4    0.000    0.000    0.003    0.001 C:\OSGeo4W/apps/qgis/./python/plugins\processing\tools\dataobjects.py:85(createExpressionContext)
+        8    0.000    0.000    0.002    0.000 C:\OSGeo4W/apps/qgis/./python\console\console_output.py:77(move_cursor_to_end)
+        8    0.002    0.000    0.002    0.000 {built-in method ensureLineVisible}
+        5    0.001    0.000    0.002    0.000 {built-in method createAlgorithmById}
+        3    0.002    0.001    0.002    0.001 {built-in method reportError}
+        4    0.002    0.000    0.002    0.000 {globalScope}
+        4    0.001    0.000    0.001    0.000 {mapSettingsScope}
+        1    0.000    0.000    0.001    0.001 C:\Users/drew.bennett/AppData/Roaming/QGIS/QGIS3\profiles\default/python/plugins\pts_tools\distress_processor\distressProcessor.py:52(prepareAlgorithm)
+        1    0.000    0.000    0.000    0.000 {built-in method pushInfo}
+        8    0.000    0.000    0.000    0.000 {currentThread}
+        2    0.000    0.000    0.000    0.000 C:\Users/drew.bennett/AppData/Roaming/QGIS/QGIS3\profiles\default/python/plugins\pts_tools\distress_processor\distressProcessor.py:24(initAlgorithm)
+        4    0.000    0.000    0.000    0.000 {projectScope}
+        1    0.000    0.000    0.000    0.000 C:\Users/drew.bennett/AppData/Roaming/QGIS/QGIS3\profiles\default/python/plugins\pts_tools\distress_processor\distressProcessor.py:60(<listcomp>)
+        4    0.000    0.000    0.000    0.000 C:\Users/drew.bennett/AppData/Roaming/QGIS/QGIS3\profiles\default/python/plugins\pts_tools\distress_processor\getFiles.py:6(getFiles)
+        5    0.000    0.000    0.000    0.000 {processingRegistry}
+        4    0.000    0.000    0.000    0.000 {built-in method value}
+        4    0.000    0.000    0.000    0.000 C:\OSGeo4W/apps/qgis/./python/plugins\processing\core\ProcessingConfig.py:226(getSetting)
+        3    0.000    0.000    0.000    0.000 C:\Users/drew.bennett/AppData/Roaming/QGIS/QGIS3\profiles\default/python/plugins\pts_tools\distress_processor\process_distress_layer.py:26(initAlgorithm)
+        4    0.000    0.000    0.000    0.000 {built-in method parameterAsFields}
+        8    0.000    0.000    0.000    0.000 {instance}
+        3    0.000    0.000    0.000    0.000 C:\Users/drew.bennett/AppData/Roaming/QGIS/QGIS3\profiles\default/python/plugins\pts_tools\distress_processor\distressProcessor.py:181(outputName)
+        4    0.000    0.000    0.000    0.000 {built-in method setProject}
+        2    0.000    0.000    0.000    0.000 C:\OSGeo4W\apps\Python39\lib\os.py:344(_walk)
+       16    0.000    0.000    0.000    0.000 {built-in method setVariable}
+        8    0.000    0.000    0.000    0.000 {built-in method mapSettings}
+        8    0.000    0.000    0.000    0.000 {built-in method setCursorPosition}
+        1    0.000    0.000    0.000    0.000 {built-in method parameterAsVectorLayer}
+        2    0.000    0.000    0.000    0.000 {built-in method validateInputCrs}
+        3    0.000    0.000    0.000    0.000 C:\OSGeo4W\apps\Python39\lib\ntpath.py:214(basename)
+       37    0.000    0.000    0.000    0.000 {built-in method addParameter}
+      304    0.000    0.000    0.000    0.000 C:\OSGeo4W/apps/qgis/./python/plugins\grassprovider\Grass7Algorithm.py:151(name)
+        3    0.000    0.000    0.000    0.000 C:\OSGeo4W\apps\Python39\lib\ntpath.py:180(split)
+        1    0.000    0.000    0.000    0.000 {built-in method nt.scandir}
+        8    0.000    0.000    0.000    0.000 C:\OSGeo4W/apps/qgis/./python\console\console_output.py:84(get_end_pos)
+        6    0.000    0.000    0.000    0.000 C:\OSGeo4W\apps\Python39\lib\ntpath.py:77(join)
+       15    0.000    0.000    0.000    0.000 C:\OSGeo4W\apps\Python39\lib\ntpath.py:124(splitdrive)
+        2    0.000    0.000    0.000    0.000 {built-in method parameterAsFile}
+        7    0.000    0.000    0.000    0.000 C:\OSGeo4W\apps\Python39\lib\ntpath.py:203(splitext)
+        4    0.000    0.000    0.000    0.000 {built-in method fullExtent}
+      304    0.000    0.000    0.000    0.000 C:\OSGeo4W/apps/qgis/./python/plugins\grassprovider\Grass7AlgorithmProvider.py:123(id)
+        8    0.000    0.000    0.000    0.000 {built-in method text}
+        5    0.000    0.000    0.000    0.000 C:\OSGeo4W/apps/qgis/./python/plugins\processing\core\Processing.py:207(tr)
+       50    0.000    0.000    0.000    0.000 {built-in method builtins.isinstance}
+        6    0.000    0.000    0.000    0.000 {method 'format' of 'str' objects}
+        7    0.000    0.000    0.000    0.000 C:\OSGeo4W\apps\Python39\lib\genericpath.py:121(_splitext)
+        1    0.000    0.000    0.000    0.000 {built-in method dataProvider}
+        5    0.000    0.000    0.000    0.000 {built-in method builtins.next}
+        8    0.000    0.000    0.000    0.000 {built-in method ensureCursorVisible}
+        6    0.000    0.000    0.000    0.000 {translate}
+        1    0.000    0.000    0.000    0.000 C:\OSGeo4W/apps/qgis/./python/plugins\processing\gui\Postprocessing.py:43(handleAlgorithmResults)
+        1    0.000    0.000    0.000    0.000 {built-in method parameterAsBoolean}
+        4    0.000    0.000    0.000    0.000 C:\OSGeo4W/apps/qgis/./python\qgis\PyQt\QtCore.py:46(__eq__)
+       47    0.000    0.000    0.000    0.000 C:\Users/drew.bennett/AppData/Roaming/QGIS/QGIS3\profiles\default/python/plugins\pts_tools\ptsToolsProvider.py:88(id)
+       24    0.000    0.000    0.000    0.000 {built-in method mapCanvas}
+       16    0.000    0.000    0.000    0.000 {built-in method appendScope}
+        4    0.000    0.000    0.000    0.000 {built-in method setExpressionContext}
+        5    0.000    0.000    0.000    0.000 {built-in method setCurrentStep}
+        1    0.000    0.000    0.000    0.000 C:\OSGeo4W/apps/qgis/./python\console\console_editor.py:79(eventFilter)
+        1    0.000    0.000    0.000    0.000 C:\OSGeo4W\apps\Python39\lib\cProfile.py:117(__exit__)
+        8    0.000    0.000    0.000    0.000 {built-in method lines}
+        2    0.000    0.000    0.000    0.000 C:\Users/drew.bennett/AppData/Roaming/QGIS/QGIS3\profiles\default/python/plugins\pts_tools\distress_processor\distressProcessor.py:153(createInstance)
+       21    0.000    0.000    0.000    0.000 {method 'rfind' of 'str' objects}
+        4    0.000    0.000    0.000    0.000 {built-in method setInvalidGeometryCheck}
+        1    0.000    0.000    0.000    0.000 C:\OSGeo4W\apps\Python39\lib\os.py:282(walk)
+        1    0.000    0.000    0.000    0.000 {built-in method parameterDefinitions}
+       15    0.000    0.000    0.000    0.000 {method 'replace' of 'str' objects}
+       28    0.000    0.000    0.000    0.000 {built-in method builtins.len}
+        1    0.000    0.000    0.000    0.000 C:\Users/drew.bennett/AppData/Roaming/QGIS/QGIS3\profiles\default/python/plugins\pts_tools\distress_processor\distressProcessor.py:159(importSplit)
+        3    0.000    0.000    0.000    0.000 C:\Users/drew.bennett/AppData/Roaming/QGIS/QGIS3\profiles\default/python/plugins\pts_tools\distress_processor\process_distress_layer.py:178(createInstance)
+        3    0.000    0.000    0.000    0.000 C:\OSGeo4W\apps\Python39\lib\ntpath.py:34(_get_bothseps)
+        8    0.000    0.000    0.000    0.000 {built-in method name}
+        8    0.000    0.000    0.000    0.000 {built-in method thread}
+        5    0.000    0.000    0.000    0.000 {built-in method feedback}
+        4    0.000    0.000    0.000    0.000 {built-in method setFeedback}
+        7    0.000    0.000    0.000    0.000 {built-in method builtins.max}
+       32    0.000    0.000    0.000    0.000 {built-in method nt.fspath}
+        2    0.000    0.000    0.000    0.000 {built-in method setProgress}
+       56    0.000    0.000    0.000    0.000 C:\OSGeo4W/apps/qgis/./python/plugins\processing\algs\gdal\GdalAlgorithmProvider.py:131(id)
+        4    0.000    0.000    0.000    0.000 {built-in method isNull}
+        1    0.000    0.000    0.000    0.000 {built-in method fieldNameIndex}
+        4    0.000    0.000    0.000    0.000 {built-in method setDefaultEncoding}
+        4    0.000    0.000    0.000    0.000 {built-in method addOutput}
+        4    0.000    0.000    0.000    0.000 {built-in method xMinimum}
+        5    0.000    0.000    0.000    0.000 C:\Users/drew.bennett/AppData/Roaming/QGIS/QGIS3\profiles\default/python/plugins\pts_tools\curvature\estimate_curvature_alg.py:133(name)
+        4    0.000    0.000    0.000    0.000 {built-in method isCanceled}
+        4    0.000    0.000    0.000    0.000 {method 'keys' of 'dict' objects}
+        1    0.000    0.000    0.000    0.000 {built-in method type}
+        5    0.000    0.000    0.000    0.000 C:\Users/drew.bennett/AppData/Roaming/QGIS/QGIS3\profiles\default/python/plugins\pts_tools\convert_route\convert_route.py:109(name)
+        5    0.000    0.000    0.000    0.000 C:\Users/drew.bennett/AppData/Roaming/QGIS/QGIS3\profiles\default/python/plugins\pts_tools\curvature\extract_curved_alg.py:136(name)
+        4    0.000    0.000    0.000    0.000 {method 'index' of 'list' objects}
+        4    0.000    0.000    0.000    0.000 {built-in method isTemporal}
+        1    0.000    0.000    0.000    0.000 {built-in method storageType}
+        5    0.000    0.000    0.000    0.000 C:\Users/drew.bennett/AppData/Roaming/QGIS/QGIS3\profiles\default/python/plugins\pts_tools\convert_route\convert_route_folder.py:132(name)
+        5    0.000    0.000    0.000    0.000 C:\Users/drew.bennett/AppData/Roaming/QGIS/QGIS3\profiles\default/python/plugins\pts_tools\load_mfv_images\load_mfv_images_alg.py:58(name)
+        1    0.000    0.000    0.000    0.000 {built-in method layersToLoadOnCompletion}
+        4    0.000    0.000    0.000    0.000 {method 'is_dir' of 'nt.DirEntry' objects}
+        7    0.000    0.000    0.000    0.000 {method 'append' of 'list' objects}
+        5    0.000    0.000    0.000    0.000 C:\Users/drew.bennett/AppData/Roaming/QGIS/QGIS3\profiles\default/python/plugins\pts_tools\point_to_chainage\pointToChainage.py:154(name)
+        5    0.000    0.000    0.000    0.000 C:\Users/drew.bennett/AppData/Roaming/QGIS/QGIS3\profiles\default/python/plugins\pts_tools\join_to_network\joinToNetwork.py:137(name)
+        3    0.000    0.000    0.000    0.000 {method 'rstrip' of 'str' objects}
+        1    0.000    0.000    0.000    0.000 {eventFilter}
+        4    0.000    0.000    0.000    0.000 C:\Users/drew.bennett/AppData/Roaming/QGIS/QGIS3\profiles\default/python/plugins\pts_tools\distress_processor\process_distress_layer.py:166(name)
+        1    0.000    0.000    0.000    0.000 {built-in method setProgressText}
+        5    0.000    0.000    0.000    0.000 C:\Users/drew.bennett/AppData/Roaming/QGIS/QGIS3\profiles\default/python/plugins\pts_tools\distress_processor\distressProcessor.py:132(name)
+        4    0.000    0.000    0.000    0.000 {built-in method yMinimum}
+        1    0.000    0.000    0.000    0.000 C:\OSGeo4W/apps/qgis/./python/plugins\processing\algs\gdal\merge.py:114(name)
+        4    0.000    0.000    0.000    0.000 {built-in method xMaximum}
+        4    0.000    0.000    0.000    0.000 {built-in method yMaximum}
+        1    0.000    0.000    0.000    0.000 C:\OSGeo4W/apps/qgis/./python/plugins\processing\algs\gdal\buildvrt.py:160(name)
+        1    0.000    0.000    0.000    0.000 C:\OSGeo4W/apps/qgis/./python/plugins\processing\algs\gdal\Datasources2Vrt.py:55(name)
+        1    0.000    0.000    0.000    0.000 C:\OSGeo4W/apps/qgis/./python/plugins\processing\algs\gdal\proximity.py:129(name)
+        1    0.000    0.000    0.000    0.000 C:\OSGeo4W/apps/qgis/./python/plugins\processing\algs\gdal\tpi.py:71(name)
+        1    0.000    0.000    0.000    0.000 C:\OSGeo4W/apps/qgis/./python/plugins\processing\algs\gdal\ogr2ogrtopostgislist.py:180(name)
+        1    0.000    0.000    0.000    0.000 {method 'disable' of '_lsprof.Profiler' objects}
+        1    0.000    0.000    0.000    0.000 C:\OSGeo4W/apps/qgis/./python/plugins\processing\algs\gdal\aspect.py:92(name)
+        1    0.000    0.000    0.000    0.000 C:\OSGeo4W/apps/qgis/./python/plugins\processing\algs\gdal\gdalcalc.py:170(name)
+        1    0.000    0.000    0.000    0.000 C:\OSGeo4W/apps/qgis/./python/plugins\processing\algs\gdal\GridNearestNeighbor.py:123(name)
+        1    0.000    0.000    0.000    0.000 C:\OSGeo4W/apps/qgis/./python/plugins\processing\algs\gdal\fillnodata.py:99(name)
+        1    0.000    0.000    0.000    0.000 C:\OSGeo4W/apps/qgis/./python/plugins\processing\algs\gdal\GridInverseDistanceNearestNeighbor.py:135(name)
+        1    0.000    0.000    0.000    0.000 C:\OSGeo4W/apps/qgis/./python/plugins\processing\algs\gdal\ClipRasterByMask.py:144(name)
+        1    0.000    0.000    0.000    0.000 C:\OSGeo4W/apps/qgis/./python/plugins\processing\algs\gdal\ClipVectorByMask.py:63(name)
+        1    0.000    0.000    0.000    0.000 C:\OSGeo4W/apps/qgis/./python/plugins\processing\algs\gdal\OffsetCurve.py:69(name)
+        1    0.000    0.000    0.000    0.000 {built-in method sys.audit}
+        2    0.000    0.000    0.000    0.000 C:\OSGeo4W/apps/qgis/./python/plugins\processing\modeler\ModelerAlgorithmProvider.py:91(id)
+        1    0.000    0.000    0.000    0.000 C:\OSGeo4W/apps/qgis/./python/plugins\processing\algs\gdal\gdalinfo.py:78(name)
+        1    0.000    0.000    0.000    0.000 C:\OSGeo4W/apps/qgis/./python/plugins\processing\algs\gdal\gdal2tiles.py:141(name)
+        1    0.000    0.000    0.000    0.000 C:\OSGeo4W/apps/qgis/./python/plugins\processing\algs\gdal\GridAverage.py:129(name)
+        1    0.000    0.000    0.000    0.000 C:\OSGeo4W/apps/qgis/./python/plugins\processing\algs\gdal\nearblack.py:84(name)
+        1    0.000    0.000    0.000    0.000 C:\OSGeo4W/apps/qgis/./python/plugins\processing\algs\gdal\PointsAlongLines.py:73(name)
+        1    0.000    0.000    0.000    0.000 C:\Users/drew.bennett/AppData/Roaming/QGIS/QGIS3\profiles\default/python/plugins\pts_tools\reposition_image\reposition_image_alg.py:68(name)
+        1    0.000    0.000    0.000    0.000 C:\Users/drew.bennett/AppData/Roaming/QGIS/QGIS3\profiles\default/python/plugins\pts_tools\to_examiner\toExaminer_algorithm.py:167(name)
+        1    0.000    0.000    0.000    0.000 C:\OSGeo4W/apps/qgis/./python/plugins\processing\algs\gdal\AssignProjection.py:58(name)
+        1    0.000    0.000    0.000    0.000 C:\OSGeo4W/apps/qgis/./python/plugins\processing\algs\gdal\ClipRasterByExtent.py:102(name)
+        1    0.000    0.000    0.000    0.000 C:\OSGeo4W/apps/qgis/./python/plugins\processing\algs\gdal\GridDataMetrics.py:142(name)
+        1    0.000    0.000    0.000    0.000 C:\OSGeo4W/apps/qgis/./python/plugins\processing\algs\gdal\rearrange_bands.py:85(name)
+        1    0.000    0.000    0.000    0.000 C:\OSGeo4W/apps/qgis/./python/plugins\processing\algs\gdal\retile.py:151(name)
+        1    0.000    0.000    0.000    0.000 C:\OSGeo4W/apps/qgis/./python/plugins\processing\algs\gdal\rgb2pct.py:59(name)
+        1    0.000    0.000    0.000    0.000 C:\OSGeo4W/apps/qgis/./python/plugins\processing\algs\gdal\pansharp.py:94(name)
+        1    0.000    0.000    0.000    0.000 C:\OSGeo4W/apps/qgis/./python/plugins\processing\algs\gdal\viewshed.py:105(name)
+        1    0.000    0.000    0.000    0.000 C:\OSGeo4W/apps/qgis/./python/plugins\processing\algs\gdal\extractprojection.py:62(name)
+        1    0.000    0.000    0.000    0.000 C:\OSGeo4W/apps/qgis/./python/plugins\processing\algs\gdal\Buffer.py:86(name)
+        1    0.000    0.000    0.000    0.000 C:\OSGeo4W/apps/qgis/./python/plugins\processing\algs\gdal\ClipVectorByExtent.py:61(name)
+        1    0.000    0.000    0.000    0.000 C:\OSGeo4W/apps/qgis/./python/plugins\processing\algs\gdal\Dissolve.py:96(name)
+        1    0.000    0.000    0.000    0.000 C:\OSGeo4W/apps/qgis/./python/plugins\processing\algs\gdal\OgrToPostGis.py:176(name)
+        1    0.000    0.000    0.000    0.000 {method 'items' of 'dict' objects}
+        1    0.000    0.000    0.000    0.000 C:\OSGeo4W/apps/qgis/./python/plugins\processing\tools\general.py:113(post_process)
+        1    0.000    0.000    0.000    0.000 C:\OSGeo4W/apps/qgis/./python/plugins\processing\algs\gdal\GridInverseDistance.py:148(name)
+        1    0.000    0.000    0.000    0.000 C:\OSGeo4W/apps/qgis/./python/plugins\processing\algs\gdal\contour.py:123(name)
+        1    0.000    0.000    0.000    0.000 C:\OSGeo4W/apps/qgis/./python/plugins\processing\algs\gdal\ColorRelief.py:92(name)
+        1    0.000    0.000    0.000    0.000 C:\OSGeo4W/apps/qgis/./python/plugins\processing\algs\gdal\gdal2xyz.py:59(name)
+        1    0.000    0.000    0.000    0.000 C:\OSGeo4W/apps/qgis/./python/plugins\processing\algs\gdal\gdaltindex.py:101(name)
+        1    0.000    0.000    0.000    0.000 C:\OSGeo4W/apps/qgis/./python/plugins\processing\algs\gdal\pct2rgb.py:61(name)
+        1    0.000    0.000    0.000    0.000 C:\OSGeo4W/apps/qgis/./python/plugins\processing\algs\gdal\polygonize.py:78(name)
+        1    0.000    0.000    0.000    0.000 C:\OSGeo4W/apps/qgis/./python/plugins\processing\algs\gdal\translate.py:103(name)
+        1    0.000    0.000    0.000    0.000 C:\OSGeo4W/apps/qgis/./python/plugins\processing\algs\gdal\ogr2ogr.py:59(name)
+        1    0.000    0.000    0.000    0.000 C:\OSGeo4W/apps/qgis/./python/plugins\processing\algs\gdal\OneSideBuffer.py:95(name)
+        1    0.000    0.000    0.000    0.000 C:\Users/drew.bennett/AppData/Roaming/QGIS/QGIS3\profiles\default/python/plugins\pts_tools\split_by_chainage\splitByChainage_algorithm.py:134(name)
+        1    0.000    0.000    0.000    0.000 C:\OSGeo4W/apps/qgis/./python/plugins\processing\algs\gdal\GridLinear.py:111(name)
+        1    0.000    0.000    0.000    0.000 C:\OSGeo4W/apps/qgis/./python/plugins\processing\algs\gdal\hillshade.py:118(name)
+        1    0.000    0.000    0.000    0.000 C:\OSGeo4W/apps/qgis/./python/plugins\processing\algs\gdal\rasterize.py:153(name)
+        1    0.000    0.000    0.000    0.000 C:\OSGeo4W/apps/qgis/./python/plugins\processing\algs\gdal\roughness.py:73(name)
+        1    0.000    0.000    0.000    0.000 C:\OSGeo4W/apps/qgis/./python/plugins\processing\algs\gdal\slope.py:95(name)
+        1    0.000    0.000    0.000    0.000 C:\OSGeo4W/apps/qgis/./python/plugins\processing\algs\gdal\tri.py:71(name)
+        1    0.000    0.000    0.000    0.000 C:\OSGeo4W/apps/qgis/./python/plugins\processing\algs\gdal\warp.py:150(name)
+        1    0.000    0.000    0.000    0.000 C:\OSGeo4W/apps/qgis/./python/plugins\processing\algs\gdal\rasterize_over_fixed_value.py:81(name)
+        1    0.000    0.000    0.000    0.000 C:\OSGeo4W/apps/qgis/./python/plugins\processing\algs\gdal\ExecuteSql.py:70(name)
+        1    0.000    0.000    0.000    0.000 C:\OSGeo4W/apps/qgis/./python/plugins\processing\algs\gdal\ogrinfo.py:55(name)
+        1    0.000    0.000    0.000    0.000 C:\OSGeo4W/apps/qgis/./python/plugins\processing\algs\gdal\contour.py:228(name)
+        1    0.000    0.000    0.000    0.000 C:\OSGeo4W/apps/qgis/./python/plugins\processing\algs\gdal\gdaladdo.py:107(name)
+        1    0.000    0.000    0.000    0.000 C:\OSGeo4W/apps/qgis/./python/plugins\processing\algs\gdal\rasterize_over.py:84(name)
+        1    0.000    0.000    0.000    0.000 C:\OSGeo4W/apps/qgis/./python/plugins\processing\algs\gdal\sieve.py:81(name)
+        1    0.000    0.000    0.000    0.000 {method '__exit__' of 'nt.ScandirIterator' objects}
+
+

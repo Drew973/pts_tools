@@ -64,10 +64,10 @@ def getCharactors(line,start,end):
         
     return line[start-1:end]
     
-line = '123456789'
+#line = '123456789'
 #line = ''
 
-print(getCharactors(line,1,4))
+#print(getCharactors(line,1,4))
 
 
 #raise exception if start_x and start_y included and not floats. 
@@ -95,9 +95,9 @@ def readR3_1(line):
     except Exception as e:
         raise RTEReadError(line,'R3.1',e)
 
-line = '71661                350531.000 389891.246 '
+#line = '71661                350531.000 389891.246 '
 #line = '0600M62/416                   EBLane 1                    0.000   1323.000900000               346067.001 389229.381'
-print(readR3_1(line))
+#print(readR3_1(line))
 
 
 
@@ -111,10 +111,10 @@ def isR3_1(line):
     
     
 #line = '71661                350531.000 389891.246 '
-line = '71661 '
-line = '                                                         '
+#line = '71661 '
+#line = '                                                         '
 #line = '0600M62/416                   EBLane 1                    0.000   1323.000900000               346067.001 389229.381'
-print(isR3_1(line))    
+#print(isR3_1(line))    
     
     
     

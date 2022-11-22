@@ -124,7 +124,6 @@ class joinToNetworkAlgorithm(QgsProcessingAlgorithm):
         
         
         
-        print(alg_params)
         outputs['GeometryByExpression'] = processing.run('native:geometrybyexpression', alg_params, context=context, feedback=feedback, is_child_algorithm=True)
 
         #context.addLayerToLoadOnCompletion(self.output,QgsProcessingContext.LayerDetails('Joined Layer', QgsProject.instance(), ''))

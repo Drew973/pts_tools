@@ -3,8 +3,8 @@ from PyQt5 import QtGui
 
 from qgis.PyQt.QtCore import Qt,pyqtSignal
 
-from . import layer_functions
-from .. rte import rte,feature_to_rte_item,read
+from pts_tools.convert_route import layer_functions
+from pts_tools.rte import rte,feature_to_rte_item,read
 
 import os
 

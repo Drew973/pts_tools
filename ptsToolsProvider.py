@@ -46,6 +46,10 @@ from pts_tools.convert_route.convert_route import convertRoute
 from pts_tools.convert_route.convert_route_folder import convertRouteFolder
 
 from pts_tools.reposition_image.reposition_image_alg import repositionImage
+from pts_tools.load_mfv_images.load_mfv_images_alg import loadMfvImagesAlg
+
+from pts_tools.load_hsrr.load_hsrr import loadHsrr
+from pts_tools.load_cateyes.load_cateyes import loadCateyes
 
 class ptsToolsProvider(QgsProcessingProvider):
 
@@ -78,6 +82,11 @@ class ptsToolsProvider(QgsProcessingProvider):
         self.addAlgorithm(convertRoute())
         self.addAlgorithm(convertRouteFolder())
         self.addAlgorithm(repositionImage())
+        self.addAlgorithm(loadMfvImagesAlg())
+        self.addAlgorithm(loadHsrr())
+        self.addAlgorithm(loadCateyes())
+
+
 
 
     def id(self):

@@ -103,7 +103,6 @@ class convertRouteFolder(QgsProcessingAlgorithm):
 
     def processAlgorithm(self, parameters, context, feedback):
         
-        print(self.files)
         n = len(self.files)
         
         feedback.setProgress(0)

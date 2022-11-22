@@ -1,0 +1,138 @@
+         235309 function calls (235305 primitive calls) in 17.083 seconds
+
+   Ordered by: cumulative time
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+        1    0.000    0.000   17.083   17.083 C:\OSGeo4W/apps/qgis/./python/plugins\processing\tools\general.py:119(runAndLoadResults)
+        1    0.000    0.000   17.083   17.083 C:\OSGeo4W/apps/qgis/./python/plugins\processing\core\Processing.py:131(runAlgorithm)
+        1    0.000    0.000   17.046   17.046 C:\OSGeo4W/apps/qgis/./python/plugins\processing\gui\AlgorithmExecutor.py:48(execute)
+        1    0.010    0.010   17.046   17.046 {built-in method run}
+        1    0.018    0.018   17.011   17.011 C:\Users/drew.bennett/AppData/Roaming/QGIS/QGIS3\profiles\default/python/plugins\pts_tools\load_mfv_images\load_mfv_images_alg.py:31(processAlgorithm)
+      793    0.018    0.000   16.585    0.021 C:\Users/drew.bennett/AppData/Roaming/QGIS/QGIS3\profiles\default/python/plugins\pts_tools\load_mfv_images\details.py:87(load)
+      793   13.581    0.017   13.590    0.017 C:\Users/drew.bennett/AppData/Roaming/QGIS/QGIS3\profiles\default/python/plugins\pts_tools\load_mfv_images\details.py:103(getLayer)
+      793    1.567    0.002    1.567    0.002 {built-in method addMapLayer}
+      793    1.028    0.001    1.028    0.001 {built-in method addLayer}
+     6344    0.447    0.000    0.447    0.000 {built-in method children}
+      793    0.008    0.000    0.297    0.000 C:\Users/drew.bennett/AppData/Roaming/QGIS/QGIS3\profiles\default/python/plugins\pts_tools\load_mfv_images\group_functions.py:25(getGroup)
+     3172    0.015    0.000    0.286    0.000 C:\Users/drew.bennett/AppData/Roaming/QGIS/QGIS3\profiles\default/python/plugins\pts_tools\load_mfv_images\group_functions.py:14(findOrMake)
+      793    0.006    0.000    0.249    0.000 C:\Users/drew.bennett/AppData/Roaming/QGIS/QGIS3\profiles\default/python/plugins\pts_tools\load_mfv_images\group_functions.py:39(findGroup)
+     3172    0.014    0.000    0.241    0.000 C:\Users/drew.bennett/AppData/Roaming/QGIS/QGIS3\profiles\default/python/plugins\pts_tools\load_mfv_images\group_functions.py:32(findChild)
+      793    0.008    0.000    0.153    0.000 C:\Users/drew.bennett/AppData/Roaming/QGIS/QGIS3\profiles\default/python/plugins\pts_tools\load_mfv_images\details.py:11(__init__)
+     1586    0.008    0.000    0.060    0.000 C:\Users/drew.bennett/AppData/Roaming/QGIS/QGIS3\profiles\default/python/plugins\pts_tools\load_mfv_images\generate_details.py:61(generateRun)
+     3965    0.003    0.000    0.051    0.000 C:\OSGeo4W\apps\Python39\lib\ntpath.py:214(basename)
+     3965    0.027    0.000    0.048    0.000 C:\OSGeo4W\apps\Python39\lib\ntpath.py:180(split)
+      793    0.042    0.000    0.042    0.000 {built-in method findLayer}
+     1586    0.005    0.000    0.034    0.000 C:\Users/drew.bennett/AppData/Roaming/QGIS/QGIS3\profiles\default/python/plugins\pts_tools\load_mfv_images\generate_details.py:73(generateImageId)
+      793    0.002    0.000    0.034    0.000 C:\Users/drew.bennett/AppData/Roaming/QGIS/QGIS3\profiles\default/python/plugins\pts_tools\load_mfv_images\generate_details.py:55(generateLayerName)
+      793    0.033    0.000    0.033    0.000 {built-in method setItemVisibilityChecked}
+        1    0.032    0.032    0.032    0.032 {built-in method pushInfo}
+    37699    0.029    0.000    0.029    0.000 {built-in method name}
+     6346    0.007    0.000    0.028    0.000 C:\OSGeo4W\apps\Python39\lib\ntpath.py:203(splitext)
+        1    0.000    0.000    0.026    0.026 C:\Users/drew.bennett/AppData/Roaming/QGIS/QGIS3\profiles\default/python/plugins\pts_tools\load_mfv_images\load_mfv_images_alg.py:23(prepareAlgorithm)
+        1    0.000    0.000    0.026    0.026 C:\Users/drew.bennett/AppData/Roaming/QGIS/QGIS3\profiles\default/python/plugins\pts_tools\load_mfv_images\load_mfv_images_alg.py:26(<listcomp>)
+      794    0.002    0.000    0.026    0.000 C:\Users/drew.bennett/AppData/Roaming/QGIS/QGIS3\profiles\default/python/plugins\pts_tools\shared_functions\get_files.py:11(getFiles)
+       85    0.022    0.000    0.022    0.000 {built-in method addGroup}
+     3965    0.004    0.000    0.021    0.000 C:\OSGeo4W\apps\Python39\lib\re.py:198(search)
+     6346    0.011    0.000    0.020    0.000 C:\OSGeo4W\apps\Python39\lib\genericpath.py:121(_splitext)
+      793    0.001    0.000    0.019    0.000 C:\Users/drew.bennett/AppData/Roaming/QGIS/QGIS3\profiles\default/python/plugins\pts_tools\load_mfv_images\generate_details.py:32(generateGroups2)
+      793    0.003    0.000    0.018    0.000 C:\Users/drew.bennett/AppData/Roaming/QGIS/QGIS3\profiles\default/python/plugins\pts_tools\load_mfv_images\generate_details.py:112(listToGroupString)
+     5551    0.013    0.000    0.017    0.000 C:\OSGeo4W\apps\Python39\lib\ntpath.py:124(splitdrive)
+      793    0.002    0.000    0.016    0.000 C:\Users/drew.bennett/AppData/Roaming/QGIS/QGIS3\profiles\default/python/plugins\pts_tools\load_mfv_images\generate_details.py:92(generateType)
+      793    0.002    0.000    0.015    0.000 C:\OSGeo4W\apps\Python39\lib\json\__init__.py:183(dumps)
+      793    0.004    0.000    0.013    0.000 C:\OSGeo4W\apps\Python39\lib\json\encoder.py:182(encode)
+      8/4    0.002    0.000    0.013    0.003 C:\OSGeo4W\apps\Python39\lib\os.py:344(_walk)
+      793    0.001    0.000    0.012    0.000 C:\Users/drew.bennett/AppData/Roaming/QGIS/QGIS3\profiles\default/python/plugins\pts_tools\load_mfv_images\details.py:112(stringToList)
+     2386    0.011    0.000    0.011    0.000 {built-in method builtins.next}
+      793    0.002    0.000    0.010    0.000 C:\OSGeo4W\apps\Python39\lib\json\__init__.py:299(loads)
+     3965    0.010    0.000    0.010    0.000 {method 'search' of 're.Pattern' objects}
+      793    0.010    0.000    0.010    0.000 {built-in method setCrs}
+      793    0.009    0.000    0.009    0.000 C:\OSGeo4W\apps\Python39\lib\json\encoder.py:204(iterencode)
+     1586    0.009    0.000    0.009    0.000 {built-in method setExpanded}
+    30850    0.008    0.000    0.008    0.000 {built-in method builtins.isinstance}
+     3965    0.005    0.000    0.007    0.000 C:\OSGeo4W\apps\Python39\lib\re.py:289(_compile)
+      793    0.003    0.000    0.007    0.000 C:\OSGeo4W\apps\Python39\lib\json\decoder.py:332(decode)
+    19038    0.006    0.000    0.006    0.000 {method 'rfind' of 'str' objects}
+     2381    0.005    0.000    0.005    0.000 {instance}
+      793    0.001    0.000    0.004    0.000 C:\OSGeo4W\apps\Python39\lib\ntpath.py:77(join)
+     1587    0.004    0.000    0.004    0.000 {method 'format' of 'str' objects}
+     3965    0.002    0.000    0.003    0.000 C:\OSGeo4W\apps\Python39\lib\ntpath.py:34(_get_bothseps)
+        1    0.002    0.002    0.003    0.003 C:\OSGeo4W/apps/qgis/./python/plugins\processing\tools\dataobjects.py:55(createContext)
+     6346    0.003    0.000    0.003    0.000 {built-in method builtins.max}
+     1586    0.003    0.000    0.003    0.000 {built-in method layerTreeRoot}
+    16656    0.003    0.000    0.003    0.000 {built-in method nt.fspath}
+      793    0.002    0.000    0.002    0.000 C:\OSGeo4W\apps\Python39\lib\json\decoder.py:343(raw_decode)
+     5551    0.002    0.000    0.002    0.000 {method 'replace' of 'str' objects}
+    10311    0.002    0.000    0.002    0.000 {built-in method builtins.len}
+     3965    0.002    0.000    0.002    0.000 {method 'group' of 're.Match' objects}
+     1586    0.001    0.000    0.001    0.000 {method 'match' of 're.Pattern' objects}
+      793    0.001    0.000    0.001    0.000 C:\Users/drew.bennett/AppData/Roaming/QGIS/QGIS3\profiles\default/python/plugins\pts_tools\load_mfv_images\load_mfv_images_alg.py:86(imageIdToGroup)
+        1    0.000    0.000    0.001    0.001 C:\OSGeo4W/apps/qgis/./python/plugins\processing\tools\dataobjects.py:85(createExpressionContext)
+      794    0.001    0.000    0.001    0.000 {built-in method setProgress}
+     5557    0.001    0.000    0.001    0.000 {method 'append' of 'list' objects}
+     3965    0.001    0.000    0.001    0.000 {method 'rstrip' of 'str' objects}
+      793    0.001    0.000    0.001    0.000 {built-in method isCanceled}
+        1    0.001    0.001    0.001    0.001 {globalScope}
+      793    0.001    0.000    0.001    0.000 {method 'startswith' of 'str' objects}
+        2    0.000    0.000    0.000    0.000 {built-in method mapSettings}
+     2383    0.000    0.000    0.000    0.000 {method 'is_dir' of 'nt.DirEntry' objects}
+     1586    0.000    0.000    0.000    0.000 {method 'end' of 're.Match' objects}
+        1    0.000    0.000    0.000    0.000 {mapSettingsScope}
+        3    0.000    0.000    0.000    0.000 {built-in method nt.scandir}
+        1    0.000    0.000    0.000    0.000 {built-in method createAlgorithmById}
+        2    0.000    0.000    0.000    0.000 C:\Users/drew.bennett/AppData/Roaming/QGIS/QGIS3\profiles\default/python/plugins\pts_tools\load_mfv_images\load_mfv_images_alg.py:12(initAlgorithm)
+      793    0.000    0.000    0.000    0.000 {method 'join' of 'str' objects}
+        1    0.000    0.000    0.000    0.000 C:\OSGeo4W/apps/qgis/./python/plugins\processing\core\ProcessingConfig.py:226(getSetting)
+        1    0.000    0.000    0.000    0.000 {processingRegistry}
+        1    0.000    0.000    0.000    0.000 {built-in method parameterAsInt}
+        4    0.000    0.000    0.000    0.000 {built-in method setVariable}
+        1    0.000    0.000    0.000    0.000 {built-in method value}
+        1    0.000    0.000    0.000    0.000 C:\OSGeo4W/apps/qgis/./python/plugins\processing\gui\Postprocessing.py:43(handleAlgorithmResults)
+        1    0.000    0.000    0.000    0.000 C:\OSGeo4W/apps/qgis/./python\console\console_editor.py:79(eventFilter)
+        1    0.000    0.000    0.000    0.000 {built-in method setProject}
+        1    0.000    0.000    0.000    0.000 {projectScope}
+        1    0.000    0.000    0.000    0.000 {built-in method checkParameterValues}
+        1    0.000    0.000    0.000    0.000 C:\OSGeo4W/apps/qgis/./python/plugins\processing\core\Processing.py:207(tr)
+        2    0.000    0.000    0.000    0.000 {translate}
+        4    0.000    0.000    0.000    0.000 {built-in method addParameter}
+        1    0.000    0.000    0.000    0.000 {built-in method parameterAsFile}
+        1    0.000    0.000    0.000    0.000 {built-in method validateInputCrs}
+        1    0.000    0.000    0.000    0.000 {built-in method type}
+        1    0.000    0.000    0.000    0.000 C:\OSGeo4W\apps\Python39\lib\cProfile.py:117(__exit__)
+        1    0.000    0.000    0.000    0.000 C:\OSGeo4W/apps/qgis/./python\qgis\PyQt\QtCore.py:46(__eq__)
+        1    0.000    0.000    0.000    0.000 {built-in method parameterDefinitions}
+        1    0.000    0.000    0.000    0.000 C:\OSGeo4W\apps\Python39\lib\os.py:282(walk)
+        4    0.000    0.000    0.000    0.000 {built-in method appendScope}
+        1    0.000    0.000    0.000    0.000 {built-in method fullExtent}
+        2    0.000    0.000    0.000    0.000 C:\Users/drew.bennett/AppData/Roaming/QGIS/QGIS3\profiles\default/python/plugins\pts_tools\load_mfv_images\load_mfv_images_alg.py:74(createInstance)
+        6    0.000    0.000    0.000    0.000 {built-in method mapCanvas}
+        1    0.000    0.000    0.000    0.000 {built-in method setExpressionContext}
+        1    0.000    0.000    0.000    0.000 {eventFilter}
+        1    0.000    0.000    0.000    0.000 {built-in method layersToLoadOnCompletion}
+        1    0.000    0.000    0.000    0.000 {built-in method setProgressText}
+        2    0.000    0.000    0.000    0.000 {built-in method addOutput}
+        1    0.000    0.000    0.000    0.000 {built-in method setInvalidGeometryCheck}
+        1    0.000    0.000    0.000    0.000 {built-in method xMinimum}
+        1    0.000    0.000    0.000    0.000 {built-in method setDefaultEncoding}
+        1    0.000    0.000    0.000    0.000 {built-in method setFeedback}
+        1    0.000    0.000    0.000    0.000 {built-in method isTemporal}
+        1    0.000    0.000    0.000    0.000 {built-in method isNull}
+        1    0.000    0.000    0.000    0.000 {built-in method feedback}
+        3    0.000    0.000    0.000    0.000 {method '__exit__' of 'nt.ScandirIterator' objects}
+        1    0.000    0.000    0.000    0.000 C:\Users/drew.bennett/AppData/Roaming/QGIS/QGIS3\profiles\default/python/plugins\pts_tools\convert_route\convert_route_folder.py:132(name)
+        2    0.000    0.000    0.000    0.000 {method 'is_symlink' of 'nt.DirEntry' objects}
+        1    0.000    0.000    0.000    0.000 C:\Users/drew.bennett/AppData/Roaming/QGIS/QGIS3\profiles\default/python/plugins\pts_tools\curvature\estimate_curvature_alg.py:133(name)
+        6    0.000    0.000    0.000    0.000 C:\Users/drew.bennett/AppData/Roaming/QGIS/QGIS3\profiles\default/python/plugins\pts_tools\ptsToolsProvider.py:88(id)
+        1    0.000    0.000    0.000    0.000 {method 'index' of 'list' objects}
+        1    0.000    0.000    0.000    0.000 {method 'disable' of '_lsprof.Profiler' objects}
+        1    0.000    0.000    0.000    0.000 {method 'items' of 'dict' objects}
+        1    0.000    0.000    0.000    0.000 C:\Users/drew.bennett/AppData/Roaming/QGIS/QGIS3\profiles\default/python/plugins\pts_tools\convert_route\convert_route.py:109(name)
+        1    0.000    0.000    0.000    0.000 {built-in method yMaximum}
+        1    0.000    0.000    0.000    0.000 {method 'keys' of 'dict' objects}
+        1    0.000    0.000    0.000    0.000 C:\Users/drew.bennett/AppData/Roaming/QGIS/QGIS3\profiles\default/python/plugins\pts_tools\curvature\extract_curved_alg.py:136(name)
+        1    0.000    0.000    0.000    0.000 {built-in method xMaximum}
+        1    0.000    0.000    0.000    0.000 {built-in method yMinimum}
+        1    0.000    0.000    0.000    0.000 C:\Users/drew.bennett/AppData/Roaming/QGIS/QGIS3\profiles\default/python/plugins\pts_tools\load_mfv_images\load_mfv_images_alg.py:58(name)
+        1    0.000    0.000    0.000    0.000 C:\Users/drew.bennett/AppData/Roaming/QGIS/QGIS3\profiles\default/python/plugins\pts_tools\join_to_network\joinToNetwork.py:137(name)
+        1    0.000    0.000    0.000    0.000 {built-in method sys.audit}
+
+

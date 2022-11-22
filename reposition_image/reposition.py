@@ -16,7 +16,6 @@ def reposition2(layer,topLeft,topRight,bottomLeft,bottomRight):
     ds = gdal.Open(layerFile, gdal.GA_Update)
     if ds:
         #ds.SetGeoTransform(None)
-        print(ds)
         #set gcps
         gcps = []
         gcps.append(gdal.GCP(topLeft.x(),topLeft.y(), 0, 0, 0))
@@ -30,11 +29,13 @@ def reposition2(layer,topLeft,topRight,bottomLeft,bottomRight):
         ds.SetProjection('ESPG:27700')
         ds = None
 
-layer = QgsProject.instance().mapLayersByName('to_move')[0]
 
-points = [QgsPointXY(430548.990,487682.846),
-QgsPointXY(430548.654,487683.601),
-QgsPointXY(430548.235,487678.931),
-QgsPointXY(430553.521,487679.714)]
+if __name__== '__console__':
+    layer = QgsProject.instance().mapLayersByName('to_move')[0]
 
-reposition(layer,points[0],points[1],points[2],points[3])
+    points = [QgsPointXY(430548.990,487682.846),
+    QgsPointXY(430548.654,487683.601),
+    QgsPointXY(430548.235,487678.931),
+    QgsPointXY(430553.521,487679.714)]
+
+    reposition(layer,points[0],points[1],points[2],points[3])

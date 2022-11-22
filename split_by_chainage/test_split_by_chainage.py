@@ -10,12 +10,8 @@ def test1():
     QgsProject.instance().addMapLayer(r['OUTPUT'])
     
 
-if __name__ == '__console__':
-    #profiler = cProfile.Profile()
-    #profiler.enable()
-    #test1()
-    #profiler.disable()
-    
+
+def test():
     with cProfile.Profile() as profiler:
         test1()
         
@@ -27,3 +23,9 @@ if __name__ == '__console__':
         stats = pstats.Stats(profiler, stream=to)
         stats.sort_stats('cumtime')
         stats.print_stats()
+
+
+
+
+if __name__ == '__console__':
+    test()
