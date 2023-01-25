@@ -51,6 +51,12 @@ from pts_tools.load_mfv_images.load_mfv_images_alg import loadMfvImagesAlg
 from pts_tools.load_hsrr.load_hsrr import loadHsrr
 from pts_tools.load_cateyes.load_cateyes import loadCateyes
 
+from pts_tools.add_measure.add_measure_alg import addMeasureAlg
+from pts_tools.geom_from_lrs.geom_from_lrs_alg import geomFromLrsAlg
+
+
+
+
 class ptsToolsProvider(QgsProcessingProvider):
 
     def __init__(self):
@@ -85,6 +91,9 @@ class ptsToolsProvider(QgsProcessingProvider):
         self.addAlgorithm(loadMfvImagesAlg())
         self.addAlgorithm(loadHsrr())
         self.addAlgorithm(loadCateyes())
+        self.addAlgorithm(addMeasureAlg())
+        self.addAlgorithm(geomFromLrsAlg())
+
 
 
 

@@ -10,9 +10,6 @@ from qgis.core import QgsProcessingAlgorithm
 from qgis.core import QgsProcessingMultiStepFeedback
 from qgis.core import QgsProcessingParameterVectorLayer
 from qgis.core import QgsProcessingParameterField
-from qgis.core import QgsProcessingParameterFeatureSink
-from qgis.core import QgsProcessingOutputVectorLayer
-from qgis.core import QgsProcessingParameterBoolean
 from qgis.core import QgsProcessingParameterVectorDestination
 
 import processing

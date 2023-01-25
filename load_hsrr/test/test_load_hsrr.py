@@ -15,7 +15,7 @@ testFolder = os.path.join(folder,'test')
 
 
 def profile():
-    params = { 'inputFile' : os.path.join(testFolder), 
+    params = { 'inputFile' : os.path.join(testFolder,'A1M NB RE.xls'), 
     'OUTPUT' : 'TEMPORARY_OUTPUT',
     }
     

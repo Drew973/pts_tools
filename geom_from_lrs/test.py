@@ -55,16 +55,35 @@ class testAlg(unittest.TestCase):
     
     #test and profile split_by_chainage
     def testAddMeasure(self):
-        params = { 'INPUT' : shared_test.networkWithNodes,
+        
+        n = os.path.join(os.path.dirname(pts_tools.geom_from_lrs.__file__),
+        'a12Network.shp')
+        
+        f = 'delimitedtext://file:///{c}?type=csv&skipLines=1&trimFields=Yes&maxFields=10000&detectTypes=yes&geomType=none&subsetIndex=no&watchFile=no'
+        f = f.format(c = os.path.join(os.path.dirname(pts_tools.geom_from_lrs.__file__),'MFV2_044 Plotter.csv'))
+        
+        
+        params = { 'INPUT' : f,
         'OUTPUT' : 'TEMPORARY_OUTPUT',
-        'endMeasureField' : 'sec_length',
-        'start_measure_field' : '' }
+        'end_label_field' : 'end Section ID',
+        'end_measure_field' : 'end Chainge (m)',
+        'end_offset_field' : 'end offset',
+        'network' : n,
+        'network_label_field' : 'sect_label',
+        'start_label_field' : 'start Section ID',
+        'start_measure_field' : 'start Chainge (m)',
+        'start_offset_field' : 'start offset',
+       'make_rectangle' : True }
         
-        pp = profilePath(pts_tools.add_measure)
+        pp = profilePath(pts_tools.geom_from_lrs)
         
-        profileAlg(algId = 'PTS tools:add_measure',params = params,profile = pp)
+        profileAlg(algId = 'PTS tools:geometry_from_lrs',params = params,profile = pp)
         
 
 if __name__ == '__console__':
     suite = unittest.defaultTestLoader.loadTestsFromTestCase(testAlg)
     unittest.TextTestRunner().run(suite)
+    
+    
+    
+

@@ -1,70 +1,44 @@
 
-from qgis.core import (QgsProcessing,QgsProcessingAlgorithm,QgsProcessingParameterFeatureSink,
-                       QgsCoordinateTransform,QgsGeometry,QgsPointXY,QgsProject,QgsWkbTypes,
-                       QgsProcessingParameterFile,QgsFields,QgsField,QgsFeature,QgsCoordinateReferenceSystem)
-
-#from PyQt5.QtCore import QVariant
-import os
+from qgis.core import (QgsProcessingAlgorithm,QgsProcessingParameterFeatureSink, QgsWkbTypes,
+                       QgsProcessingParameterFile,QgsCoordinateReferenceSystem)
 
 
 from pts_tools.load_hsrr import parse_readings
 
 
+#import os
 
-def filterFiles(folder,ext):
-    res=[]
-    for root, dirs, files in os.walk(folder):
-        res+=[os.path.normpath(os.path.join(root,f)) for f in files if os.path.splitext(f)[-1]==ext]
-    return res
+#def filterFiles(folder,ext):
+ #   res=[]
+ #   for root, dirs, files in os.walk(folder):
+ #       res+=[os.path.normpath(os.path.join(root,f)) for f in files if os.path.splitext(f)[-1]==ext]
+ #   return res
 
 
 
 class loadHsrr(QgsProcessingAlgorithm):
 
     def initAlgorithm(self, config=None):
-        self.addParameter(QgsProcessingParameterFile('inputFile', 'File to load',fileFilter='xls(*.xls)',behavior= QgsProcessingParameterFile.Folder))
-       #self.addParameter(QgsProcessingParameterFeatureSink('OUTPUT',createByDefault=True,optional=True))
-        self.addParameter(QgsProcessingParameterFeatureSink('OUTPUT','',type=QgsProcessing.TypeVectorLine,createByDefault=True,optional=True))
+        self.addParameter(QgsProcessingParameterFile('inputFile', 'File to load',fileFilter='xls(*.xls)',behavior= QgsProcessingParameterFile.File))
+        self.addParameter(QgsProcessingParameterFeatureSink('OUTPUT'))
+      #  self.addParameter(QgsProcessingParameterFeatureSink('OUTPUT','',type=QgsProcessing.TypeVectorLine,createByDefault=True,optional=True))
 
 
 
     def prepareAlgorithm(self, parameters, context, feedback):
-
-        self.folder = self.parameterAsFile(parameters,'inputFile',context)
-        
-        self.files = filterFiles(self.folder,'.xls')
-        
-        '''
-        self.inputFile = self.parameterAsFile(parameters,'inputFile',context)
-       
-        self.fields = QgsFields()
-        self.fields.append(QgsField('start_ch',QVariant.Double))
-        self.fields.append(QgsField('end_ch',QVariant.Double))
-        self.fields.append(QgsField('raw_ch',QVariant.Double))
-        self.fields.append(QgsField('time',QVariant.DateTime))
-        self.fields.append(QgsField('rl',QVariant.Double))
-
-        inputCrs = QgsCoordinateReferenceSystem("EPSG:4326")
-        outputCrs = QgsCoordinateReferenceSystem("EPSG:27700")
-        self.transform = QgsCoordinateTransform(inputCrs,outputCrs,QgsProject.instance())
-        '''
-        
+        self.file = self.parameterAsFile(parameters,'inputFile',context)
         self.sink,self.destId =  self.parameterAsSink(parameters,'OUTPUT',context,parse_readings.fields,QgsWkbTypes.LineString,QgsCoordinateReferenceSystem("EPSG:27700"))
-
        # parameterAsLayer
-
         #self.outputFile = self.parameterAsFileOutput(parameters,'outputFile',context)
         return True
 
 
 
     def processAlgorithm(self, parameters, context, feedback):
-        
-        for i,file in enumerate(self.files):
-            self.sink.addFeatures(parse_readings.parseReadings(file))
-            feedback.setProgress(i*100/len(self.files))
-    
-        del self.sink
+        feedback.setProgress(0)
+        self.sink.addFeatures(parse_readings.parseReadings(self.file))
+        feedback.setProgress(100)
+       # del self.sink
         return {'OUTPUT':self.destId}
   
     

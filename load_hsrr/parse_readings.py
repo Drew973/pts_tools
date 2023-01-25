@@ -1,4 +1,5 @@
-from qgis.core import QgsFields,QgsField,QgsFeature,QgsCoordinateTransform,QgsCoordinateReferenceSystem,QgsProject,QgsGeometry,QgsPointXY
+from qgis.core import QgsFields,QgsField,QgsFeature,QgsCoordinateTransform,QgsCoordinateReferenceSystem,QgsProject
+from qgis.core import QgsGeometry,QgsPoint
 #from datetime import datetime
 from PyQt5.QtCore import QVariant
 
@@ -23,8 +24,8 @@ transform = QgsCoordinateTransform(QgsCoordinateReferenceSystem("EPSG:4326"),
                                    
 fields = QgsFields()
 fields.append(QgsField('run',QVariant.String))
-fields.append(QgsField('s_ch',QVariant.Double))
-fields.append(QgsField('e_ch',QVariant.Double))
+fields.append(QgsField('s_ch',  QVariant.Double, "double", 10, 2))
+fields.append(QgsField('e_ch',  QVariant.Double, "double", 10, 2))
 fields.append(QgsField('f_line',QVariant.Int))
 #fields.append(QgsField('time',QVariant.DateTime))
 fields.append(QgsField('time',QVariant.String))
@@ -34,20 +35,24 @@ fields.append(QgsField('rl',QVariant.Double))
 
 
 #row to QgsFeature. wkt column for loading to databases.
-def parseRow(row):
+def parseRow(row,ch):
    
     try:
         row = row.lower().strip().split('\t')
+      #  print(row)
         f = QgsFeature(fields)
        # f['time'] = datetime.strptime(row[1],r'%d/%m/%Y  %H:%M:%S')
         f['time'] = row[1]
         f['rl'] = row[2]
-        g = QgsGeometry.fromPolylineXY([ QgsPointXY(float(row[12]),float(row[13])),QgsPointXY(float(row[14]),float(row[15]))])
+        #g = QgsGeometry.fromPolylineXY([ QgsPointXY(float(row[12]),float(row[13])),QgsPointXY(float(row[14]),float(row[15]))])
+        
+        g = QgsGeometry.fromPolyline([QgsPoint(float(row[12]),float(row[13]),m=ch),
+                                      QgsPoint(float(row[14]),float(row[15]),m=ch+0.1)])
+
         g.transform(transform)
         f.setGeometry(g)
         return f
         
-    
     except Exception as e:
         return e
         
@@ -58,20 +63,18 @@ def parseRow(row):
 '''
 def parseReadings(readings):
     with open(readings,'r',encoding='utf-8',errors='ignore') as f:
-        
         i = 1
         ch = 0
-        last = None
-        
+       # last = None
         for line in f.readlines():
-            r = parseRow(line)
-           
+            r = parseRow(line,ch=ch)
+          #  print(r)
             if isinstance(r,QgsFeature):
                     
                 #add extra to chainage after gap between geometry. want 1 chainage:1 point.
-                if isinstance(last,QgsFeature):
-                    if last.geometry().distance(r.geometry())>100:
-                        ch += 0.1
+               # if isinstance(last,QgsFeature):
+                #    if last.geometry().distance(r.geometry())>100:
+                  #      ch += 0.1
                     
                 r['run'] = readings
                 r['s_ch'] = ch
@@ -85,11 +88,6 @@ def parseReadings(readings):
                 
             i += 1
             ch += 0.1
-            last = r
+           # last = r
         
         
-        
-
-
-
-
