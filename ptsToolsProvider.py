@@ -46,13 +46,16 @@ from pts_tools.convert_route.convert_route import convertRoute
 from pts_tools.convert_route.convert_route_folder import convertRouteFolder
 
 from pts_tools.reposition_image.reposition_image_alg import repositionImage
-from pts_tools.load_mfv_images.load_mfv_images_alg import loadMfvImagesAlg
+#from pts_tools.load_mfv_images.load_mfv_images_alg import loadMfvImagesAlg
 
 from pts_tools.load_hsrr.load_hsrr import loadHsrr
 from pts_tools.load_cateyes.load_cateyes import loadCateyes
 
 from pts_tools.add_measure.add_measure_alg import addMeasureAlg
-from pts_tools.geom_from_lrs.geom_from_lrs_alg import geomFromLrsAlg
+#from pts_tools.line_from_lrs.line_from_lrs_alg import lineFromLrsAlg
+
+#from pts_tools.load_vcs.load_vcs_alg import loadVcsAlg
+from pts_tools.polygon_from_lrs.polygon_from_lrs_alg import polygonFromLrsAlg
 
 
 
@@ -88,11 +91,14 @@ class ptsToolsProvider(QgsProcessingProvider):
         self.addAlgorithm(convertRoute())
         self.addAlgorithm(convertRouteFolder())
         self.addAlgorithm(repositionImage())
-        self.addAlgorithm(loadMfvImagesAlg())
+      #  self.addAlgorithm(loadMfvImagesAlg())
         self.addAlgorithm(loadHsrr())
         self.addAlgorithm(loadCateyes())
         self.addAlgorithm(addMeasureAlg())
-        self.addAlgorithm(geomFromLrsAlg())
+     #   self.addAlgorithm(lineFromLrsAlg())
+     #   self.addAlgorithm(loadVcsAlg())
+        self.addAlgorithm(polygonFromLrsAlg())
+
 
 
 
