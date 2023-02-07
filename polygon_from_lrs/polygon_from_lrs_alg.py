@@ -54,7 +54,7 @@ class polygonFromLrsAlg(QgsProcessingAlgorithm):
         #delimited text fields treated as str until loaded into QGIS.
         
          self.addParameter(QgsProcessingParameterFeatureSource('INPUT', 'Layer with data', types=[QgsProcessing.TypeVector], defaultValue=None))
-         self.addParameter(QgsProcessingParameterField(startLabelField, 'Field with start id',parentLayerParameterName='INPUT',defaultValue='start Section ID'))
+         self.addParameter(QgsProcessingParameterField(startLabelField, 'Field with section id',parentLayerParameterName='INPUT',defaultValue='start Section ID'))
        #  self.addParameter(QgsProcessingParameterField(startMeasureField, 'Field with start measure', type=QgsProcessingParameterField.Numeric, parentLayerParameterName='INPUT'))
          self.addParameter(QgsProcessingParameterField(startMeasureField, 'Field with start measure', parentLayerParameterName='INPUT',defaultValue  ='start chainage (m)'))
          self.addParameter(QgsProcessingParameterField(startOffsetField, 'Field with start offset', parentLayerParameterName='INPUT',defaultValue  ='start offset (m)'))
@@ -149,20 +149,12 @@ class polygonFromLrsAlg(QgsProcessingAlgorithm):
     def processAlgorithm(self,parameters,context,feedback):
         
         count = self.inputLayer.featureCount()
-        
-        r = QgsFeatureRequest()
-        r = r.addOrderBy('"{}"'.format(self.startLabelField))
+        r = QgsFeatureRequest().addOrderBy('"{}"'.format(self.startLabelField))
         i = 1
-
-        
         lastLab = None
         geom = QgsGeometry()
 
-
-
-        #order by label. only need to look up geom once this way.
-        for f in self.inputLayer.getFeatures(r):
-            
+        for f in self.inputLayer.getFeatures(r):        #order by label. only need to look up geom once this way.
             
           #  print(f[self.startLabelField])
             lab = f[self.startLabelField]
@@ -174,7 +166,7 @@ class polygonFromLrsAlg(QgsProcessingAlgorithm):
                     
                     
                 except Exception as e:
-                    print(e)
+                   # print(e)
                     feedback.reportError(str(e),fatalError = False)
                     geom = QgsGeometry()
                 lastLab = lab
@@ -190,13 +182,10 @@ class polygonFromLrsAlg(QgsProcessingAlgorithm):
                     points = []
                     shortened = betweenMeasures(geom,s,e)
                     shortened = QgsGeometry().fromPolylineXY(shortened.asPolyline())
-                    
-                    
-                   # print('shortened',shortened)
-                    
+
+                    # print('shortened',shortened)
                     so = float(f[self.startOffsetField])
                     eo = float(f[self.endOffsetField])
-                    
                   #  print('start offset',so)
                     
                     left = shortened.offsetCurve(distance=so,
@@ -205,9 +194,7 @@ class polygonFromLrsAlg(QgsProcessingAlgorithm):
                                                  miterLimit=1)
                     
                     #print('left',left)
-                    
                     points += [v for v in left.vertices()]
-                    
                     
                     right = shortened.offsetCurve(distance=eo,
                                           segments=8,
@@ -219,7 +206,6 @@ class polygonFromLrsAlg(QgsProcessingAlgorithm):
                     if points:
                         points.append(points[0])
                         
-                        
                         points = [QgsPointXY(pt.x(),pt.y()) for pt in points]
                         
                         #QgsGeometry.fromPolyline(points)
@@ -230,7 +216,7 @@ class polygonFromLrsAlg(QgsProcessingAlgorithm):
                         self.sink.addFeature(newFeat)
               
                 except Exception as e:
-                        print(e)
+                        #print(e)
                         feedback.reportError(str(e),fatalError = False)
                 
             

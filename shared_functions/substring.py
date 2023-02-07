@@ -1,5 +1,5 @@
 
-from qgis.core import QgsPoint,QgsGeometry
+from qgis.core import QgsGeometry
 
 #how does qgis not have this?!
 #is in expression generator but how to use?

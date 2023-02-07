@@ -1,160 +1,158 @@
-         7601 function calls in 0.044 seconds
+         7600 function calls in 0.073 seconds
 
    Ordered by: cumulative time
 
    ncalls  tottime  percall  cumtime  percall filename:lineno(function)
-        1    0.004    0.004    0.047    0.047 C:\OSGeo4W/apps/qgis/./python/plugins\processing\tools\general.py:119(runAndLoadResults)
-        1    0.000    0.000    0.043    0.043 C:\OSGeo4W/apps/qgis/./python/plugins\processing\core\Processing.py:131(runAlgorithm)
-        1    0.000    0.000    0.024    0.024 C:\OSGeo4W/apps/qgis/./python/plugins\processing\gui\AlgorithmExecutor.py:48(execute)
-        1    0.000    0.000    0.024    0.024 {built-in method run}
-        1    0.003    0.003    0.022    0.022 C:\Users/drew.bennett/AppData/Roaming/QGIS/QGIS3\profiles\default/python/plugins\pts_tools\polygon_from_lrs\polygon_from_lrs_alg.py:149(processAlgorithm)
-        1    0.000    0.000    0.009    0.009 C:\OSGeo4W/apps/qgis/./python/plugins\processing\gui\Postprocessing.py:43(handleAlgorithmResults)
-        1    0.008    0.008    0.008    0.008 {built-in method addMapLayer}
-        1    0.008    0.008    0.008    0.008 {built-in method checkParameterValues}
+        1    0.006    0.006    0.076    0.076 C:\OSGeo4W/apps/qgis/./python/plugins\processing\tools\general.py:119(runAndLoadResults)
+        1    0.000    0.000    0.070    0.070 C:\OSGeo4W/apps/qgis/./python/plugins\processing\core\Processing.py:131(runAlgorithm)
+        1    0.000    0.000    0.035    0.035 C:\OSGeo4W/apps/qgis/./python/plugins\processing\gui\AlgorithmExecutor.py:48(execute)
+        1    0.000    0.000    0.035    0.035 {built-in method run}
+        1    0.003    0.003    0.033    0.033 C:\Users/drew.bennett/AppData/Roaming/QGIS/QGIS3\profiles\default/python/plugins\pts_tools\polygon_from_lrs\polygon_from_lrs_alg.py:149(processAlgorithm)
+        1    0.025    0.025    0.025    0.025 {built-in method checkParameterValues}
+        2    0.000    0.000    0.011    0.006 C:\Users/drew.bennett/AppData/Roaming/QGIS/QGIS3\profiles\default/python/plugins\pts_tools\polygon_from_lrs\polygon_from_lrs_alg.py:127(networkGeom)
+        2    0.011    0.005    0.011    0.005 {built-in method getFeatures}
+        1    0.000    0.000    0.007    0.007 C:\OSGeo4W/apps/qgis/./python/plugins\processing\gui\Postprocessing.py:43(handleAlgorithmResults)
+        1    0.005    0.005    0.007    0.007 {built-in method addMapLayer}
       124    0.006    0.000    0.006    0.000 {built-in method offsetCurve}
        62    0.001    0.000    0.003    0.000 C:\Users/drew.bennett/AppData/Roaming/QGIS/QGIS3\profiles\default/python/plugins\pts_tools\shared_functions\geometry_functions.py:113(betweenMeasures)
+        1    0.001    0.001    0.002    0.002 C:\OSGeo4W/apps/qgis/./python/plugins\processing\tools\dataobjects.py:55(createContext)
        41    0.002    0.000    0.002    0.000 {built-in method attributes}
         1    0.000    0.000    0.002    0.002 C:\Users/drew.bennett/AppData/Roaming/QGIS/QGIS3\profiles\default/python/plugins\pts_tools\polygon_from_lrs\polygon_from_lrs_alg.py:76(prepareAlgorithm)
        41    0.002    0.000    0.002    0.000 {built-in method setAttributes}
-        1    0.001    0.001    0.002    0.002 C:\OSGeo4W/apps/qgis/./python/plugins\processing\tools\dataobjects.py:55(createContext)
         1    0.001    0.001    0.001    0.001 {built-in method parameterAsSink}
-      124    0.001    0.000    0.001    0.000 C:\Users/drew.bennett/AppData/Roaming/QGIS/QGIS3\profiles\default/python/plugins\pts_tools\shared_functions\geometry_functions.py:104(interpolateBetweenPoints)
-        2    0.000    0.000    0.001    0.001 C:\Users/drew.bennett/AppData/Roaming/QGIS/QGIS3\profiles\default/python/plugins\pts_tools\polygon_from_lrs\polygon_from_lrs_alg.py:127(networkGeom)
         1    0.000    0.000    0.001    0.001 C:\OSGeo4W/apps/qgis/./python/plugins\processing\gui\ProcessingToolbox.py:136(layer_changed)
         1    0.000    0.000    0.001    0.001 {built-in method setInPlaceLayer}
+      124    0.001    0.000    0.001    0.000 C:\Users/drew.bennett/AppData/Roaming/QGIS/QGIS3\profiles\default/python/plugins\pts_tools\shared_functions\geometry_functions.py:104(interpolateBetweenPoints)
         1    0.000    0.000    0.001    0.001 C:\OSGeo4W/apps/qgis/./python/plugins\processing\tools\dataobjects.py:85(createExpressionContext)
-        1    0.000    0.000    0.000    0.000 {built-in method pushInfo}
-        2    0.000    0.000    0.000    0.000 {built-in method getFeatures}
-        2    0.000    0.000    0.000    0.000 C:\Users/drew.bennett/AppData/Roaming/QGIS/QGIS3\profiles\default/python/plugins\pts_tools\polygon_from_lrs\polygon_from_lrs_alg.py:132(<listcomp>)
+        1    0.001    0.001    0.001    0.001 {built-in method pushInfo}
+        2    0.001    0.000    0.001    0.000 C:\OSGeo4W/apps/qgis/./python/plugins\processing\algs\qgis\SelectByAttribute.py:74(flags)
+        1    0.000    0.000    0.000    0.000 {globalScope}
         1    0.000    0.000    0.000    0.000 {built-in method featureCount}
+        2    0.000    0.000    0.000    0.000 C:\Users/drew.bennett/AppData/Roaming/QGIS/QGIS3\profiles\default/python/plugins\pts_tools\polygon_from_lrs\polygon_from_lrs_alg.py:132(<listcomp>)
      3915    0.000    0.000    0.000    0.000 {built-in method m}
       248    0.000    0.000    0.000    0.000 {built-in method numpy.array}
+      130    0.000    0.000    0.000    0.000 C:\OSGeo4W/apps/qgis/./python/plugins\sagaprovider\SagaAlgorithm.py:106(flags)
        41    0.000    0.000    0.000    0.000 {fromPolygonXY}
-        1    0.000    0.000    0.000    0.000 {globalScope}
-       41    0.000    0.000    0.000    0.000 C:\Users/drew.bennett/AppData/Roaming/QGIS/QGIS3\profiles\default/python/plugins\pts_tools\polygon_from_lrs\polygon_from_lrs_alg.py:223(<listcomp>)
-        1    0.000    0.000    0.000    0.000 {built-in method setOutputLayerName}
-       62    0.000    0.000    0.000    0.000 {built-in method asPolyline}
+       41    0.000    0.000    0.000    0.000 C:\Users/drew.bennett/AppData/Roaming/QGIS/QGIS3\profiles\default/python/plugins\pts_tools\polygon_from_lrs\polygon_from_lrs_alg.py:210(<listcomp>)
         6    0.000    0.000    0.000    0.000 C:\Users/drew.bennett/AppData/Roaming/QGIS/QGIS3\profiles\default/python/plugins\pts_tools\polygon_from_lrs\polygon_from_lrs_alg.py:116(field)
         6    0.000    0.000    0.000    0.000 {built-in method parameterAsFields}
-       41    0.000    0.000    0.000    0.000 {built-in method addFeature}
-      130    0.000    0.000    0.000    0.000 C:\OSGeo4W/apps/qgis/./python/plugins\sagaprovider\SagaAlgorithm.py:106(flags)
-      186    0.000    0.000    0.000    0.000 {built-in method vertices}
-        2    0.000    0.000    0.000    0.000 C:\Users/drew.bennett/AppData/Roaming/QGIS/QGIS3\profiles\default/python/plugins\pts_tools\polygon_from_lrs\polygon_from_lrs_alg.py:52(initAlgorithm)
+        1    0.000    0.000    0.000    0.000 {built-in method setOutputLayerName}
         1    0.000    0.000    0.000    0.000 {built-in method createAlgorithmById}
-       62    0.000    0.000    0.000    0.000 C:\Users/drew.bennett/AppData/Roaming/QGIS/QGIS3\profiles\default/python/plugins\pts_tools\polygon_from_lrs\polygon_from_lrs_alg.py:209(<listcomp>)
-       62    0.000    0.000    0.000    0.000 {fromPolyline}
-       62    0.000    0.000    0.000    0.000 C:\Users/drew.bennett/AppData/Roaming/QGIS/QGIS3\profiles\default/python/plugins\pts_tools\polygon_from_lrs\polygon_from_lrs_alg.py:217(<listcomp>)
+       41    0.000    0.000    0.000    0.000 {built-in method addFeature}
+        2    0.000    0.000    0.000    0.000 C:\Users/drew.bennett/AppData/Roaming/QGIS/QGIS3\profiles\default/python/plugins\pts_tools\polygon_from_lrs\polygon_from_lrs_alg.py:52(initAlgorithm)
+       62    0.000    0.000    0.000    0.000 {built-in method asPolyline}
+       62    0.000    0.000    0.000    0.000 C:\Users/drew.bennett/AppData/Roaming/QGIS/QGIS3\profiles\default/python/plugins\pts_tools\polygon_from_lrs\polygon_from_lrs_alg.py:197(<listcomp>)
         1    0.000    0.000    0.000    0.000 {mapSettingsScope}
-        1    0.000    0.000    0.000    0.000 {projectScope}
+       62    0.000    0.000    0.000    0.000 C:\Users/drew.bennett/AppData/Roaming/QGIS/QGIS3\profiles\default/python/plugins\pts_tools\polygon_from_lrs\polygon_from_lrs_alg.py:204(<listcomp>)
+      186    0.000    0.000    0.000    0.000 {built-in method vertices}
+       62    0.000    0.000    0.000    0.000 {fromPolyline}
         3    0.000    0.000    0.000    0.000 C:\OSGeo4W/apps/qgis/./python/plugins\processing\core\ProcessingConfig.py:226(getSetting)
         1    0.000    0.000    0.000    0.000 C:\Users/drew.bennett/AppData/Roaming/QGIS/QGIS3\profiles\default/python/plugins\FreehandRasterGeoreferencer\freehandrastergeoreferencer.py:227(currentLayerChanged)
         1    0.000    0.000    0.000    0.000 C:\Users/drew.bennett/AppData/Roaming/QGIS/QGIS3\profiles\default/python/plugins\FreehandRasterGeoreferencer\freehandrastergeoreferencer.py:230(checkCurrentLayerIsPluginLayer)
-        1    0.000    0.000    0.000    0.000 {built-in method parameterAsVectorLayer}
+      170    0.000    0.000    0.000    0.000 {function Grass7Algorithm.flags at 0x000001DBE2A68790}
        62    0.000    0.000    0.000    0.000 {built-in method fromPolylineXY}
+        1    0.000    0.000    0.000    0.000 {built-in method parameterAsVectorLayer}
+        7    0.000    0.000    0.000    0.000 C:\OSGeo4W/apps/qgis/./python\console\console_editor.py:79(eventFilter)
       125    0.000    0.000    0.000    0.000 C:\OSGeo4W\apps\Python39\lib\types.py:171(__get__)
-        1    0.000    0.000    0.000    0.000 {built-in method validateInputCrs}
-        1    0.000    0.000    0.000    0.000 {processingRegistry}
-      170    0.000    0.000    0.000    0.000 {function Grass7Algorithm.flags at 0x00000190F1A84670}
-        1    0.000    0.000    0.000    0.000 {mapLayerFromString}
       482    0.000    0.000    0.000    0.000 {built-in method x}
+        1    0.000    0.000    0.000    0.000 {built-in method validateInputCrs}
+        1    0.000    0.000    0.000    0.000 {built-in method value}
       482    0.000    0.000    0.000    0.000 {built-in method y}
         1    0.000    0.000    0.000    0.000 C:\Users/drew.bennett/AppData/Roaming/QGIS/QGIS3\profiles\default/python/plugins\FreehandRasterGeoreferencer\freehandrastergeoreferencer.py:389(spinBoxRotateValueSetValue)
-        1    0.000    0.000    0.000    0.000 {built-in method value}
-        1    0.000    0.000    0.000    0.000 {built-in method parameterAsSource}
-        3    0.000    0.000    0.000    0.000 {instance}
+        1    0.000    0.000    0.000    0.000 {mapLayerFromString}
+        2    0.000    0.000    0.000    0.000 {built-in method mapSettings}
        12    0.000    0.000    0.000    0.000 C:\OSGeo4W/apps/qgis/./python/plugins\grassprovider\Grass7Algorithm.py:172(flags)
-       41    0.000    0.000    0.000    0.000 {built-in method fields}
-       63    0.000    0.000    0.000    0.000 {built-in method setProgress}
+        1    0.000    0.000    0.000    0.000 {processingRegistry}
+        1    0.000    0.000    0.000    0.000 {built-in method parameterAsSource}
        18    0.000    0.000    0.000    0.000 {built-in method addParameter}
+       63    0.000    0.000    0.000    0.000 {built-in method setProgress}
+        1    0.000    0.000    0.000    0.000 {built-in method setProject}
         1    0.000    0.000    0.000    0.000 {built-in method temporaryLayerStore}
       248    0.000    0.000    0.000    0.000 {built-in method z}
        62    0.000    0.000    0.000    0.000 {built-in method isEmpty}
-        2    0.000    0.000    0.000    0.000 {built-in method mapSettings}
-        6    0.000    0.000    0.000    0.000 C:\OSGeo4W/apps/qgis/./python\console\console_editor.py:79(eventFilter)
-        1    0.000    0.000    0.000    0.000 {method 'connect' of 'PyQt5.QtCore.pyqtBoundSignal' objects}
+       41    0.000    0.000    0.000    0.000 {built-in method fields}
         1    0.000    0.000    0.000    0.000 C:\OSGeo4W/apps/qgis/./python/plugins\processing\ProcessingPlugin.py:189(<lambda>)
-        1    0.000    0.000    0.000    0.000 {built-in method setProject}
-      174    0.000    0.000    0.000    0.000 {method 'append' of 'list' objects}
+        1    0.000    0.000    0.000    0.000 {method 'connect' of 'PyQt5.QtCore.pyqtBoundSignal' objects}
+        1    0.000    0.000    0.000    0.000 {projectScope}
        41    0.000    0.000    0.000    0.000 {built-in method setGeometry}
-        4    0.000    0.000    0.000    0.000 {built-in method setVariable}
-        6    0.000    0.000    0.000    0.000 C:\OSGeo4W\apps\Python39\lib\enum.py:334(__call__)
-        1    0.000    0.000    0.000    0.000 {built-in method invalidateLocatorResults}
-      125    0.000    0.000    0.000    0.000 C:\OSGeo4W\apps\Python39\lib\enum.py:768(value)
-        2    0.000    0.000    0.000    0.000 {built-in method setFilterExpression}
         6    0.000    0.000    0.000    0.000 {method 'format' of 'str' objects}
-        1    0.000    0.000    0.000    0.000 {built-in method fullExtent}
-        3    0.000    0.000    0.000    0.000 C:\OSGeo4W/apps/qgis/./python\qgis\PyQt\QtCore.py:46(__eq__)
+        2    0.000    0.000    0.000    0.000 {built-in method setFilterExpression}
+        1    0.000    0.000    0.000    0.000 {built-in method invalidateLocatorResults}
+        6    0.000    0.000    0.000    0.000 C:\OSGeo4W\apps\Python39\lib\enum.py:334(__call__)
+        4    0.000    0.000    0.000    0.000 {built-in method setVariable}
+      174    0.000    0.000    0.000    0.000 {method 'append' of 'list' objects}
+      125    0.000    0.000    0.000    0.000 C:\OSGeo4W\apps\Python39\lib\enum.py:768(value)
+        1    0.000    0.000    0.000    0.000 C:\OSGeo4W/apps/qgis/./python/plugins\processing\ProcessingPlugin.py:285(sync_in_place_button_state)
        18    0.000    0.000    0.000    0.000 {built-in method builtins.isinstance}
+        1    0.000    0.000    0.000    0.000 {built-in method addOrderBy}
+        3    0.000    0.000    0.000    0.000 C:\OSGeo4W/apps/qgis/./python\qgis\PyQt\QtCore.py:46(__eq__)
+        1    0.000    0.000    0.000    0.000 {built-in method fullExtent}
         1    0.000    0.000    0.000    0.000 {built-in method id}
         1    0.000    0.000    0.000    0.000 {built-in method setValue}
-        1    0.000    0.000    0.000    0.000 {built-in method addOrderBy}
-        2    0.000    0.000    0.000    0.000 {translate}
-        1    0.000    0.000    0.000    0.000 C:\OSGeo4W/apps/qgis/./python/plugins\processing\core\Processing.py:207(tr)
-        1    0.000    0.000    0.000    0.000 {built-in method outputDefinitions}
+        2    0.000    0.000    0.000    0.000 C:\Users/drew.bennett/AppData/Roaming/QGIS/QGIS3\profiles\default/python/plugins\pts_tools\polygon_from_lrs\polygon_from_lrs_alg.py:239(createInstance)
+        7    0.000    0.000    0.000    0.000 {built-in method type}
         6    0.000    0.000    0.000    0.000 C:\OSGeo4W\apps\Python39\lib\enum.py:646(__new__)
-        1    0.000    0.000    0.000    0.000 C:\OSGeo4W/apps/qgis/./python/plugins\processing\ProcessingPlugin.py:285(sync_in_place_button_state)
+        2    0.000    0.000    0.000    0.000 {translate}
         1    0.000    0.000    0.000    0.000 {method 'disconnect' of 'PyQt5.QtCore.pyqtBoundSignal' objects}
-        1    0.000    0.000    0.000    0.000 {built-in method takeMapLayer}
+        2    0.000    0.000    0.000    0.000 C:\OSGeo4W/apps/qgis/./python/plugins\processing\algs\qgis\SelectByExpression.py:50(flags)
+        1    0.000    0.000    0.000    0.000 {built-in method outputDefinitions}
+        1    0.000    0.000    0.000    0.000 C:\OSGeo4W/apps/qgis/./python/plugins\processing\core\Processing.py:207(tr)
         2    0.000    0.000    0.000    0.000 {built-in method layersToLoadOnCompletion}
-        6    0.000    0.000    0.000    0.000 {built-in method type}
         2    0.000    0.000    0.000    0.000 C:\OSGeo4W/apps/qgis/./python/plugins\processing\algs\qgis\SetRasterStyle.py:49(flags)
-        2    0.000    0.000    0.000    0.000 C:\Users/drew.bennett/AppData/Roaming/QGIS/QGIS3\profiles\default/python/plugins\pts_tools\polygon_from_lrs\polygon_from_lrs_alg.py:252(createInstance)
+        1    0.000    0.000    0.000    0.000 {built-in method takeMapLayer}
+        1    0.000    0.000    0.000    0.000 {built-in method parameterDefinitions}
+        2    0.000    0.000    0.000    0.000 C:\OSGeo4W/apps/qgis/./python/plugins\processing\algs\gdal\gdal2xyz.py:74(flags)
         2    0.000    0.000    0.000    0.000 C:\OSGeo4W/apps/qgis/./python/plugins\processing\algs\qgis\SetVectorStyle.py:45(flags)
         2    0.000    0.000    0.000    0.000 C:\OSGeo4W/apps/qgis/./python/plugins\processing\algs\qgis\PostGISExecuteAndLoadSQL.py:57(flags)
+        2    0.000    0.000    0.000    0.000 {built-in method geometry}
+        5    0.000    0.000    0.000    0.000 {built-in method appendScope}
+        2    0.000    0.000    0.000    0.000 C:\OSGeo4W/apps/qgis/./python/plugins\processing\algs\qgis\RandomSelectionWithinSubsets.py:68(flags)
+        7    0.000    0.000    0.000    0.000 {eventFilter}
+        1    0.000    0.000    0.000    0.000 {built-in method activeLayer}
         2    0.000    0.000    0.000    0.000 C:\OSGeo4W/apps/qgis/./python/plugins\processing\algs\qgis\VariableDistanceBuffer.py:71(flags)
+        3    0.000    0.000    0.000    0.000 {instance}
         2    0.000    0.000    0.000    0.000 C:\OSGeo4W/apps/qgis/./python/plugins\processing\algs\qgis\EliminateSelection.py:70(flags)
         2    0.000    0.000    0.000    0.000 C:\OSGeo4W/apps/qgis/./python/plugins\processing\algs\qgis\TilesXYZ.py:444(flags)
-        5    0.000    0.000    0.000    0.000 {built-in method appendScope}
-        1    0.000    0.000    0.000    0.000 {built-in method activeLayer}
-        2    0.000    0.000    0.000    0.000 C:\OSGeo4W/apps/qgis/./python/plugins\processing\algs\qgis\SelectByAttribute.py:74(flags)
+        2    0.000    0.000    0.000    0.000 C:\OSGeo4W/apps/qgis/./python/plugins\processing\algs\qgis\RandomSelection.py:62(flags)
+        2    0.000    0.000    0.000    0.000 C:\OSGeo4W/apps/qgis/./python/plugins\processing\algs\qgis\DefineProjection.py:72(flags)
+        1    0.000    0.000    0.000    0.000 {built-in method wkbType}
         2    0.000    0.000    0.000    0.000 C:\OSGeo4W/apps/qgis/./python/plugins\processing\algs\qgis\ImportIntoSpatialite.py:86(flags)
         6    0.000    0.000    0.000    0.000 {built-in method mapCanvas}
-        2    0.000    0.000    0.000    0.000 C:\OSGeo4W/apps/qgis/./python/plugins\processing\algs\qgis\SelectByExpression.py:50(flags)
-        2    0.000    0.000    0.000    0.000 C:\OSGeo4W/apps/qgis/./python/plugins\processing\algs\qgis\RandomSelection.py:62(flags)
-        2    0.000    0.000    0.000    0.000 {built-in method geometry}
-        2    0.000    0.000    0.000    0.000 C:\OSGeo4W/apps/qgis/./python/plugins\processing\algs\qgis\RandomSelectionWithinSubsets.py:68(flags)
-        1    0.000    0.000    0.000    0.000 {built-in method parameterDefinitions}
-        1    0.000    0.000    0.000    0.000 {built-in method wkbType}
-        6    0.000    0.000    0.000    0.000 {eventFilter}
-        2    0.000    0.000    0.000    0.000 C:\OSGeo4W/apps/qgis/./python/plugins\processing\algs\gdal\gdal2xyz.py:74(flags)
-        1    0.000    0.000    0.000    0.000 {built-in method setExpressionContext}
-        2    0.000    0.000    0.000    0.000 C:\OSGeo4W/apps/qgis/./python/plugins\processing\algs\qgis\DefineProjection.py:72(flags)
+       10    0.000    0.000    0.000    0.000 {built-in method builtins.len}
         2    0.000    0.000    0.000    0.000 C:\OSGeo4W/apps/qgis/./python/plugins\processing\algs\qgis\ExecuteSQL.py:81(flags)
         2    0.000    0.000    0.000    0.000 C:\OSGeo4W/apps/qgis/./python/plugins\processing\algs\qgis\RectanglesOvalsDiamondsVariable.py:63(flags)
-       10    0.000    0.000    0.000    0.000 {built-in method builtins.len}
-        2    0.000    0.000    0.000    0.000 {built-in method geometryType}
-        3    0.000    0.000    0.000    0.000 {built-in method isNull}
-        1    0.000    0.000    0.000    0.000 {built-in method crs}
-        2    0.000    0.000    0.000    0.000 {built-in method setEnabled}
+        1    0.000    0.000    0.000    0.000 {built-in method setExpressionContext}
         1    0.000    0.000    0.000    0.000 {built-in method setInvalidGeometryCheck}
-        1    0.000    0.000    0.000    0.000 {built-in method setProgressText}
-       13    0.000    0.000    0.000    0.000 C:\Users/drew.bennett/AppData/Roaming/QGIS/QGIS3\profiles\default/python/plugins\pts_tools\ptsToolsProvider.py:107(id)
+        1    0.000    0.000    0.000    0.000 {built-in method crs}
+        2    0.000    0.000    0.000    0.000 {built-in method geometryType}
+       11    0.000    0.000    0.000    0.000 C:\Users/drew.bennett/AppData/Roaming/QGIS/QGIS3\profiles\default/python/plugins\pts_tools\ptsToolsProvider.py:107(id)
+        2    0.000    0.000    0.000    0.000 {built-in method setEnabled}
+        3    0.000    0.000    0.000    0.000 {built-in method isNull}
         1    0.000    0.000    0.000    0.000 C:\OSGeo4W/apps/qgis/./python/plugins\processing\gui\RenderingStyles.py:64(getStyle)
+        1    0.000    0.000    0.000    0.000 {built-in method setFeedback}
+        1    0.000    0.000    0.000    0.000 {built-in method setProgressText}
+        1    0.000    0.000    0.000    0.000 {built-in method isEnabled}
         1    0.000    0.000    0.000    0.000 {built-in method postProcessor}
-        1    0.000    0.000    0.000    0.000 {built-in method name}
-        1    0.000    0.000    0.000    0.000 {method 'disable' of '_lsprof.Profiler' objects}
-        2    0.000    0.000    0.000    0.000 C:\Users/drew.bennett/AppData/Roaming/QGIS/QGIS3\profiles\default/python/plugins\pts_tools\polygon_from_lrs\polygon_from_lrs_alg.py:248(name)
+        1    0.000    0.000    0.000    0.000 {hasM}
         3    0.000    0.000    0.000    0.000 {method 'keys' of 'dict' objects}
         1    0.000    0.000    0.000    0.000 {built-in method setDefaultEncoding}
-        1    0.000    0.000    0.000    0.000 {hasM}
-        1    0.000    0.000    0.000    0.000 {built-in method isEnabled}
-        1    0.000    0.000    0.000    0.000 {built-in method setFeedback}
-        1    0.000    0.000    0.000    0.000 {built-in method xMinimum}
-        1    0.000    0.000    0.000    0.000 {method 'index' of 'list' objects}
-        1    0.000    0.000    0.000    0.000 C:\Users/drew.bennett/AppData/Roaming/QGIS/QGIS3\profiles\default/python/plugins\pts_tools\line_from_lrs\line_from_lrs_alg.py:167(name)
+        1    0.000    0.000    0.000    0.000 {built-in method name}
+        1    0.000    0.000    0.000    0.000 {method 'disable' of '_lsprof.Profiler' objects}
+        1    0.000    0.000    0.000    0.000 {built-in method feedback}
+        2    0.000    0.000    0.000    0.000 C:\Users/drew.bennett/AppData/Roaming/QGIS/QGIS3\profiles\default/python/plugins\pts_tools\polygon_from_lrs\polygon_from_lrs_alg.py:235(name)
+        1    0.000    0.000    0.000    0.000 C:\Users/drew.bennett/AppData/Roaming/QGIS/QGIS3\profiles\default/python/plugins\pts_tools\convert_route\convert_route.py:109(name)
         1    0.000    0.000    0.000    0.000 C:\Users/drew.bennett/AppData/Roaming/QGIS/QGIS3\profiles\default/python/plugins\pts_tools\curvature\extract_curved_alg.py:136(name)
         1    0.000    0.000    0.000    0.000 C:\Users/drew.bennett/AppData/Roaming/QGIS/QGIS3\profiles\default/python/plugins\pts_tools\add_measure\add_measure_alg.py:82(name)
+        1    0.000    0.000    0.000    0.000 C:\Users/drew.bennett/AppData/Roaming/QGIS/QGIS3\profiles\default/python/plugins\pts_tools\join_to_network\joinToNetwork.py:134(name)
+        1    0.000    0.000    0.000    0.000 C:\Users/drew.bennett/AppData/Roaming/QGIS/QGIS3\profiles\default/python/plugins\pts_tools\curvature\estimate_curvature_alg.py:133(name)
+        1    0.000    0.000    0.000    0.000 {built-in method xMinimum}
         1    0.000    0.000    0.000    0.000 {built-in method isTemporal}
+        1    0.000    0.000    0.000    0.000 {method 'index' of 'list' objects}
         1    0.000    0.000    0.000    0.000 C:\Users/drew.bennett/AppData/Roaming/QGIS/QGIS3\profiles\default/python/plugins\pts_tools\point_to_chainage\pointToChainage.py:154(name)
+        1    0.000    0.000    0.000    0.000 C:\Users/drew.bennett/AppData/Roaming/QGIS/QGIS3\profiles\default/python/plugins\pts_tools\load_hsrr\load_hsrr.py:59(name)
+        1    0.000    0.000    0.000    0.000 {method 'items' of 'dict' objects}
         1    0.000    0.000    0.000    0.000 C:\Users/drew.bennett/AppData/Roaming/QGIS/QGIS3\profiles\default/python/plugins\pts_tools\convert_route\convert_route_folder.py:132(name)
         1    0.000    0.000    0.000    0.000 C:\Users/drew.bennett/AppData/Roaming/QGIS/QGIS3\profiles\default/python/plugins\pts_tools\load_cateyes\load_cateyes.py:85(name)
-        1    0.000    0.000    0.000    0.000 C:\Users/drew.bennett/AppData/Roaming/QGIS/QGIS3\profiles\default/python/plugins\pts_tools\load_vcs\load_vcs_alg.py:182(name)
-        1    0.000    0.000    0.000    0.000 C:\Users/drew.bennett/AppData/Roaming/QGIS/QGIS3\profiles\default/python/plugins\pts_tools\convert_route\convert_route.py:109(name)
-        1    0.000    0.000    0.000    0.000 C:\Users/drew.bennett/AppData/Roaming/QGIS/QGIS3\profiles\default/python/plugins\pts_tools\join_to_network\joinToNetwork.py:134(name)
-        1    0.000    0.000    0.000    0.000 {built-in method feedback}
-        1    0.000    0.000    0.000    0.000 C:\Users/drew.bennett/AppData/Roaming/QGIS/QGIS3\profiles\default/python/plugins\pts_tools\load_hsrr\load_hsrr.py:59(name)
-        1    0.000    0.000    0.000    0.000 C:\Users/drew.bennett/AppData/Roaming/QGIS/QGIS3\profiles\default/python/plugins\pts_tools\curvature\estimate_curvature_alg.py:133(name)
-        1    0.000    0.000    0.000    0.000 {method 'items' of 'dict' objects}
         1    0.000    0.000    0.000    0.000 {built-in method isCanceled}
         1    0.000    0.000    0.000    0.000 {built-in method xMaximum}
         1    0.000    0.000    0.000    0.000 {built-in method yMaximum}
