@@ -1,5 +1,12 @@
 # -*- coding: utf-8 -*-
 """
+Created on Tue Feb  7 12:32:00 2023
+
+@author: Drew.Bennett
+"""
+
+# -*- coding: utf-8 -*-
+"""
 Created on Fri Feb  3 08:02:43 2023
 
 
@@ -28,38 +35,31 @@ TODO:
 
 from qgis.core import (QgsProcessingAlgorithm,QgsProcessingParameterField,QgsFeature,
                        QgsProcessingParameterFeatureSource,QgsProcessing,QgsFeatureRequest,QgsWkbTypes,
-                       QgsProcessingParameterFeatureSink,QgsGeometry,QgsPointXY
+                       QgsProcessingParameterFeatureSink,QgsGeometry
                        )
 
-from pts_tools.shared_functions.geometry_functions import betweenMeasures
+from pts_tools.shared_functions.geometry_functions import interpolatePoint
 
 
 
 networkLabelField = 'network_label_field'
 network = 'network'
-startLabelField = 'start_label_field'
-startMeasureField = 'start_measure_field'
-startOffsetField = 'start_offset_field'
-#endLabelField = 'end_label_field'
-endMeasureField = 'end_measure_field'
-endOffsetField = 'end_offset_field'
-widthField = 'width'
+startLabelField = 'label_field'
+startMeasureField = 'measure_field'
+startOffsetField = 'offset_field'
 
 
 
-class polygonFromLrsAlg(QgsProcessingAlgorithm):
+class pointFromLrsAlg(QgsProcessingAlgorithm):
       
     def initAlgorithm(self, config=None):
         
         #delimited text fields treated as str until loaded into QGIS.
         
          self.addParameter(QgsProcessingParameterFeatureSource('INPUT', 'Layer with data', types=[QgsProcessing.TypeVector], defaultValue=None))
-         self.addParameter(QgsProcessingParameterField(startLabelField, 'Field with section id',parentLayerParameterName='INPUT',defaultValue='start Section ID'))
-       #  self.addParameter(QgsProcessingParameterField(startMeasureField, 'Field with start measure', type=QgsProcessingParameterField.Numeric, parentLayerParameterName='INPUT'))
-         self.addParameter(QgsProcessingParameterField(startMeasureField, 'Field with start measure', parentLayerParameterName='INPUT',defaultValue  ='start chainage (m)'))
-         self.addParameter(QgsProcessingParameterField(startOffsetField, 'Field with start offset', parentLayerParameterName='INPUT',defaultValue  ='start offset (m)'))
-         self.addParameter(QgsProcessingParameterField(endMeasureField, 'Field with end measure', parentLayerParameterName='INPUT',defaultValue  ='end chainage (m)'))
-         self.addParameter(QgsProcessingParameterField(endOffsetField, 'Field with end offset', parentLayerParameterName='INPUT',defaultValue  ='end offset (m)'))
+         self.addParameter(QgsProcessingParameterField(startLabelField, 'Field with section id',parentLayerParameterName='INPUT',defaultValue='section'))
+         self.addParameter(QgsProcessingParameterField(startMeasureField, 'Field with measure', parentLayerParameterName='INPUT',defaultValue = 'chainage'))
+         self.addParameter(QgsProcessingParameterField(startOffsetField, 'Field with offset', parentLayerParameterName='INPUT',defaultValue = '',optional=True))
          
          self.addParameter(
              QgsProcessingParameterFeatureSource(
@@ -87,29 +87,20 @@ class polygonFromLrsAlg(QgsProcessingAlgorithm):
             self.startLabelField = self.field(startLabelField,parameters,context)
             self.startMeasureField = self.field(startMeasureField,parameters,context)
             self.startOffsetField = self.field(startOffsetField,parameters,context)
-    
-          #  self.endLabelField = self.field(endLabelField,parameters,context)
-            self.endMeasureField = self.field(endMeasureField,parameters,context)
-            self.endOffsetField = self.field(endOffsetField,parameters,context)
-    
+        
             self.networkLabelField = self.field(networkLabelField,parameters,context)
                         
             self.sink,self.sinkId = self.parameterAsSink(parameters,'OUTPUT',context,
             fields = self.inputLayer.fields(),
             crs = self.networkLayer.crs(),
-            geometryType = QgsWkbTypes.Polygon)
+            geometryType = QgsWkbTypes.Point)
             return True
 
 
         except Exception as e:
             print(e)
             return False
-            #self.sink,self.sinkId = (1,2)
        
-       
-     #  self.output = self.parameterAsOutputLayer(parameters,'OUTPUT',context)
-        
-#parameterAsSink
     
     
     #parameterAsFields returns [] if field not set by user.
@@ -119,10 +110,6 @@ class polygonFromLrsAlg(QgsProcessingAlgorithm):
             return p[0]  
     
     
-  #  #crap documentation for this. QgsProcessing enum seems to be working.
- #   def inputLayerTypes(self):
- #       return [QgsProcessing.TypeVector]
-        
     
     def networkGeom(self,label):
         if isinstance(label,str):
@@ -164,9 +151,8 @@ class polygonFromLrsAlg(QgsProcessingAlgorithm):
                 try:
                     geom = self.networkGeom(lab)
                     
-                    
                 except Exception as e:
-                   # print(e)
+                    print(e)
                     feedback.reportError(str(e),fatalError = False)
                     geom = QgsGeometry()
                 lastLab = lab
@@ -176,47 +162,18 @@ class polygonFromLrsAlg(QgsProcessingAlgorithm):
             if not geom.isEmpty():
                 try:
                     s = float(f[self.startMeasureField])
-                    e = float(f[self.endMeasureField])
-                   # print('s',s,'e',e)
-                    
-                    points = []
-                    shortened = betweenMeasures(geom,s,e)
-                    shortened = QgsGeometry().fromPolylineXY(shortened.asPolyline())
+                    if self.startOffsetField:
+                        offset = float(f[self.startOffsetField])
+                    else:
+                        offset = 0
 
-                    # print('shortened',shortened)
-                    so = float(f[self.startOffsetField])
-                    eo = float(f[self.endOffsetField])
-                  #  print('start offset',so)
-                    
-                    left = shortened.offsetCurve(distance=so,
-                                                 segments=8,
-                                                 joinStyle=QgsGeometry.JoinStyleRound,
-                                                 miterLimit=1)
-                    
-                    #print('left',left)
-                    points += [v for v in left.vertices()]
-                    
-                    right = shortened.offsetCurve(distance=eo,
-                                          segments=8,
-                                          joinStyle=QgsGeometry.JoinStyleRound,
-                                          miterLimit=1)
-                    
-                    points += reversed([v for v in right.vertices()])
-                    
-                    if points:
-                        points.append(points[0])
-                        
-                        points = [QgsPointXY(pt.x(),pt.y()) for pt in points]
-                        
-                        #QgsGeometry.fromPolyline(points)
-                    
-                        newFeat = QgsFeature(f.fields())
-                        newFeat.setAttributes(f.attributes())
-                        newFeat.setGeometry(QgsGeometry.fromPolygonXY([points]))
-                        self.sink.addFeature(newFeat)
+                    newFeat = QgsFeature(f.fields())
+                    newFeat.setAttributes(f.attributes())
+                    newFeat.setGeometry(interpolatePoint(geom,s,offset))
+                    self.sink.addFeature(newFeat)
               
                 except Exception as e:
-                        #print(e)
+                        print(e)
                         feedback.reportError(str(e),fatalError = False)
                 
             
@@ -228,24 +185,24 @@ class polygonFromLrsAlg(QgsProcessingAlgorithm):
     
     
     def displayName(self):
-        return 'Polygon from LRS'
+        return 'Point from LRS'
     
     
     def name(self):
-        return 'polygon_from_lrs'
+        return 'point_from_lrs'
     
     
     def createInstance(self):
-        return polygonFromLrsAlg()
+        return pointFromLrsAlg()
     
 
     def shortHelpString(self):
         return '''<html>
         <body>
        
-        <p>Creates polygon layer from input and linear reference system.</p>
+        <p>Creates point layer from input and linear reference system.</p>
+        <p>LRS layer needs to have linestringM geometry. M values can be added with PTS tools:add_measure.</p>
         <p>Negative offset is to right.</p>
-        <p>LRS layer needs to have linestringM geometry. M(measure) values can be added with PTS tools:add_measure.</p>
 
         </body>
         </html>

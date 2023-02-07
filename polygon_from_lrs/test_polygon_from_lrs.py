@@ -48,10 +48,6 @@ class testAlg(unittest.TestCase):
         
     #test and profile split_by_chainage
     def testInvalidNetwork(self):
-        
-        folder = os.path.dirname(load_vcs_alg.__file__)
-        shared_test.networkWithMeasure
-        
         params = { 'INPUT' : shared_test.testDistresses,
           'OUTPUT' : 'TEMPORARY_OUTPUT',
           'end_measure_field' : 'end Chainage (m)',
@@ -62,8 +58,6 @@ class testAlg(unittest.TestCase):
           'start_measure_field' : 'start Chainage (m)',
           'start_offset_field' : 'start offset',
          }
-        
-        #pp = os.path.join(folder,'load_vcs.prof')
         with self.assertRaises(QgsProcessingException):
             r = processing.runAndLoadResults('PTS tools:polygon_from_lrs',params)
 

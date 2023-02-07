@@ -56,7 +56,7 @@ from pts_tools.add_measure.add_measure_alg import addMeasureAlg
 
 #from pts_tools.load_vcs.load_vcs_alg import loadVcsAlg
 from pts_tools.polygon_from_lrs.polygon_from_lrs_alg import polygonFromLrsAlg
-
+from pts_tools.point_from_lrs.point_from_lrs_alg import pointFromLrsAlg
 
 
 
@@ -98,6 +98,8 @@ class ptsToolsProvider(QgsProcessingProvider):
      #   self.addAlgorithm(lineFromLrsAlg())
      #   self.addAlgorithm(loadVcsAlg())
         self.addAlgorithm(polygonFromLrsAlg())
+        self.addAlgorithm(pointFromLrsAlg())
+
 
 
 
