@@ -13,11 +13,11 @@ import processing
 
 import unittest
 import os
-from qgis.core import QgsProcessingException
+from qgis.core import QgsProcessingException,QgsProject
 
 #run and profile algorithms.
 #haven't added them all yet.
-class testAlg(unittest.TestCase):
+class testPointFromLrs(unittest.TestCase):
     
     def setUp(self):
         pass
@@ -37,11 +37,11 @@ class testAlg(unittest.TestCase):
         'offset_field' : '' }
         
         pp = os.path.join(folder,'point_from_lrs.prof')
-        r = test_alg.profileAlg(algId = 'PTS tools:point_from_lrs',params = params,profile = pp)
+        r = test_alg.profileAlg(algId = 'pts:pointfromlrs',params = params,profile = pp)
         layer = QgsProject.instance().mapLayer(r['OUTPUT'])
         self.assertTrue(layer.featureCount()>0)
         
         
 if __name__ == '__console__':
-    suite = unittest.defaultTestLoader.loadTestsFromTestCase(testAlg)
+    suite = unittest.defaultTestLoader.loadTestsFromTestCase(testPointFromLrs)
     unittest.TextTestRunner().run(suite)

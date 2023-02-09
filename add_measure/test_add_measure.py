@@ -4,27 +4,19 @@ import unittest
 import os
 
 
-from pts_tools.shared_test import test_alg
+from pts_tools import shared_test
 
-import os
+from pts_tools.shared_test.test_alg import profileAlg
+
 from pts_tools import add_measure
-
+from qgis.core import QgsProject
  
 
-def profile():
+
         
-    params = { 'INPUT' : test_alg.networkWithNodes,
-        'OUTPUT' : 'TEMPORARY_OUTPUT',
-        'endMeasureField' : 'sec_length',
-        'start_measure_field' : '' }
-
-    
-    f = os.path.join(os.path.dirname(add_measure.__file__),'add_measure.prof')
-    test_alg.testAlg('PTS tools:add_measure',params,f)
-    os.path.dirname(add_measure.__file__)
 
 
-class testEstimateCurvature(unittest.TestCase):
+class testAddMeasure(unittest.TestCase):
     
     def setUp(self):
         pass
@@ -32,15 +24,26 @@ class testEstimateCurvature(unittest.TestCase):
     
     #test and profile split_by_chainage
     def testProfile(self):
-        profile()
+        
+        pp = profilePath(add_measure)
+
+        params = { 'INPUT' : shared_test.networkWithNodes,
+            'OUTPUT' : 'TEMPORARY_OUTPUT',
+            'endMeasureField' : 'sec_length',
+            'start_measure_field' : '' }
+
+        r = profileAlg('pts:addmeasure',params,pp)
+        layer = QgsProject.instance().mapLayer(r['OUTPUT'])
+       #self.assertTrue(layer.featureCount()>0)
+        self.assertEqual(layer.featureCount(),21796)
+
     
-#generate filepath for profile
-def profileFile(module):
+    
+#generate filepath for profile given module.
+def profilePath(module):
     return os.path.normpath(os.path.join(os.path.dirname(module.__file__),'profile.prof'))
     
     
-
-
 if __name__ == '__console__':
-    suite = unittest.defaultTestLoader.loadTestsFromTestCase(testEstimateCurvature)
+    suite = unittest.defaultTestLoader.loadTestsFromTestCase(testAddMeasure)
     unittest.TextTestRunner().run(suite)

@@ -141,7 +141,7 @@ class extractCurvedAlg(QgsProcessingFeatureBasedAlgorithm):
         lowercase alphanumeric characters only and no spaces or other
         formatting characters.
         """
-        return 'extract_curved'
+        return 'extractcurved'
 
 
     def displayName(self):
@@ -158,7 +158,8 @@ class extractCurvedAlg(QgsProcessingFeatureBasedAlgorithm):
         Returns the name of the group this algorithm belongs to. This string
         should be localised.
         """
-        return self.tr(self.groupId())
+        return 'Curvature'
+
 
 
     def groupId(self):
@@ -169,7 +170,7 @@ class extractCurvedAlg(QgsProcessingFeatureBasedAlgorithm):
         contain lowercase alphanumeric characters only and no spaces or other
         formatting characters.
         """
-        return ''
+        return 'curvature'
 
 
     def tr(self, string):

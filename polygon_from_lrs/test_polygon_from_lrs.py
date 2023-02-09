@@ -17,7 +17,7 @@ from qgis.core import QgsProcessingException
 
 #run and profile algorithms.
 #haven't added them all yet.
-class testAlg(unittest.TestCase):
+class testPolygonFromLrs(unittest.TestCase):
     
     def setUp(self):
         pass
@@ -42,7 +42,7 @@ class testAlg(unittest.TestCase):
         
         pp = os.path.join(folder,'poly_from_lrs.prof')
         
-        test_alg.profileAlg(algId = 'PTS tools:polygon_from_lrs',params = params,profile = pp)
+        test_alg.profileAlg(algId = 'pts:polygonfromlrs',params = params,profile = pp)
         
         
         
@@ -59,8 +59,8 @@ class testAlg(unittest.TestCase):
           'start_offset_field' : 'start offset',
          }
         with self.assertRaises(QgsProcessingException):
-            r = processing.runAndLoadResults('PTS tools:polygon_from_lrs',params)
+            r = processing.runAndLoadResults('pts:polygonfromlrs',params)
 
 if __name__ == '__console__':
-    suite = unittest.defaultTestLoader.loadTestsFromTestCase(testAlg)
+    suite = unittest.defaultTestLoader.loadTestsFromTestCase(testPolygonFromLrs)
     unittest.TextTestRunner().run(suite)

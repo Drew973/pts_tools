@@ -226,13 +226,19 @@ class polygonFromLrsAlg(QgsProcessingAlgorithm):
         return {'OUTPUT':self.sinkId}
         
     
+    def groupId(self):
+        return 'geometryfromlrs'    
+        
+    
+    def group(self):
+        return 'Geometry from LRS'    
     
     def displayName(self):
         return 'Polygon from LRS'
     
     
     def name(self):
-        return 'polygon_from_lrs'
+        return 'polygonfromlrs'
     
     
     def createInstance(self):

@@ -91,7 +91,8 @@ class estimateCurvatureAlg(QgsProcessingFeatureBasedAlgorithm):
             return p[0]
 
 
-    def processFeature(self, feature: QgsFeature, context: QgsProcessingContext, feedback: QgsProcessingFeedback):   
+   # def processFeature(self, feature: QgsFeature, context: QgsProcessingContext, feedback: QgsProcessingFeedback):   
+    def processFeature(self, feature, context, feedback):   
 
         i = section_interpolator.sectionHandler(feature.geometry())
         
@@ -138,7 +139,7 @@ class estimateCurvatureAlg(QgsProcessingFeatureBasedAlgorithm):
         lowercase alphanumeric characters only and no spaces or other
         formatting characters.
         """
-        return 'estimate_curvature'
+        return 'estimatecurvature'
 
 
     def displayName(self):
@@ -155,7 +156,7 @@ class estimateCurvatureAlg(QgsProcessingFeatureBasedAlgorithm):
         Returns the name of the group this algorithm belongs to. This string
         should be localised.
         """
-        return self.tr(self.groupId())
+        return 'Curvature'
 
 
     def groupId(self):
@@ -166,7 +167,7 @@ class estimateCurvatureAlg(QgsProcessingFeatureBasedAlgorithm):
         contain lowercase alphanumeric characters only and no spaces or other
         formatting characters.
         """
-        return ''
+        return 'curvature'
 
 
     def tr(self, string):

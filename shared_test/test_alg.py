@@ -30,6 +30,6 @@ def profileAlg(algId,params,profile=None):
 
 
 #generate filepath for profile given module.
-def profilePath(module):
-    return os.path.normpath(os.path.join(os.path.dirname(module.__file__),'profile.prof'))
+def profilePath(module,name='profile.prof'):
+    return os.path.normpath(os.path.join(os.path.dirname(module.__file__),name))
     

@@ -189,9 +189,18 @@ class pointFromLrsAlg(QgsProcessingAlgorithm):
     
     
     def name(self):
-        return 'point_from_lrs'
+       # return 'point_from_lrs'
+        return 'pointfromlrs'
+
     
+    def groupId(self):
+        return 'geometryfromlrs'    
+        
     
+    def group(self):
+        return 'Geometry from LRS'
+        
+        
     def createInstance(self):
         return pointFromLrsAlg()
     

@@ -38,7 +38,7 @@ from pts_tools.to_examiner.toExaminer_algorithm import toExaminerAlgorithm
 
 from pts_tools.distress_processor.distressProcessor import distressProcessorAlg
 from pts_tools.distress_processor.process_distress_layer import processDistressLayer
-from pts_tools.join_to_network.joinToNetwork import joinToNetworkAlgorithm
+#from pts_tools.join_to_network.joinToNetwork import joinToNetworkAlgorithm
 from pts_tools.curvature.extract_curved_alg import extractCurvedAlg
 from pts_tools.curvature.estimate_curvature_alg import estimateCurvatureAlg
 
@@ -52,11 +52,11 @@ from pts_tools.load_hsrr.load_hsrr import loadHsrr
 from pts_tools.load_cateyes.load_cateyes import loadCateyes
 
 from pts_tools.add_measure.add_measure_alg import addMeasureAlg
-#from pts_tools.line_from_lrs.line_from_lrs_alg import lineFromLrsAlg
 
 #from pts_tools.load_vcs.load_vcs_alg import loadVcsAlg
 from pts_tools.polygon_from_lrs.polygon_from_lrs_alg import polygonFromLrsAlg
 from pts_tools.point_from_lrs.point_from_lrs_alg import pointFromLrsAlg
+from pts_tools.line_from_lrs.line_from_lrs_alg import lineFromLrsAlg
 
 
 
@@ -84,7 +84,7 @@ class ptsToolsProvider(QgsProcessingProvider):
         self.addAlgorithm(toExaminerAlgorithm())
     #    self.addAlgorithm(concatenateFieldsAlgorithm())
         self.addAlgorithm(distressProcessorAlg())
-        self.addAlgorithm(joinToNetworkAlgorithm())
+      #  self.addAlgorithm(joinToNetworkAlgorithm())
         self.addAlgorithm(processDistressLayer())
         self.addAlgorithm(extractCurvedAlg())
         self.addAlgorithm(estimateCurvatureAlg())
@@ -95,7 +95,7 @@ class ptsToolsProvider(QgsProcessingProvider):
         self.addAlgorithm(loadHsrr())
         self.addAlgorithm(loadCateyes())
         self.addAlgorithm(addMeasureAlg())
-     #   self.addAlgorithm(lineFromLrsAlg())
+        self.addAlgorithm(lineFromLrsAlg())
      #   self.addAlgorithm(loadVcsAlg())
         self.addAlgorithm(polygonFromLrsAlg())
         self.addAlgorithm(pointFromLrsAlg())
@@ -112,7 +112,8 @@ class ptsToolsProvider(QgsProcessingProvider):
         string should be a unique, short, character only string, eg "qgis" or
         "gdal". This string should not be localised.
         """
-        return 'PTS tools'
+       # return 'PTS tools'
+        return 'pts'
 
 
     #def helpId(self):

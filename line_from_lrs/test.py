@@ -11,7 +11,7 @@ import cProfile, pstats
 import os
 
 from pts_tools import shared_test
-
+from qgis.core import QgsProject
 
 #profile = file to save profile to
 def profileAlg(algId,params,profile=None):
@@ -47,7 +47,7 @@ import pts_tools
 
 #run and profile algorithms.
 #haven't added them all yet.
-class testAlg(unittest.TestCase):
+class testLineFromLrs(unittest.TestCase):
     
     def setUp(self):
         pass
@@ -56,32 +56,26 @@ class testAlg(unittest.TestCase):
     #test and profile split_by_chainage
     def testAddMeasure(self):
         
-        n = os.path.join(os.path.dirname(pts_tools.geom_from_lrs.__file__),
-        'a12Network.shp')
         
-        f = 'delimitedtext://file:///{c}?type=csv&skipLines=1&trimFields=Yes&maxFields=10000&detectTypes=yes&geomType=none&subsetIndex=no&watchFile=no'
-        f = f.format(c = os.path.join(os.path.dirname(pts_tools.geom_from_lrs.__file__),'MFV2_044 Plotter.csv'))
+        params = { 'INPUT' : shared_test.testDistresses,
+          'OUTPUT' : 'TEMPORARY_OUTPUT',
+          'end_measure_field' : 'end Chainage (m)',
+          'end_offset_field' : 'end offset',
+          'network' : shared_test.networkDbWithMeasure,
+          'network_label_field' : 'sect_label',
+          'label_field' : 'start Section ID',
+          'start_measure_field' : 'start Chainage (m)',
+          'offset_field' : 'start offset',
+         }
         
+        pp = profilePath(pts_tools.line_from_lrs)
         
-        params = { 'INPUT' : f,
-        'OUTPUT' : 'TEMPORARY_OUTPUT',
-        'end_label_field' : 'end Section ID',
-        'end_measure_field' : 'end Chainge (m)',
-        'end_offset_field' : 'end offset',
-        'network' : n,
-        'network_label_field' : 'sect_label',
-        'start_label_field' : 'start Section ID',
-        'start_measure_field' : 'start Chainge (m)',
-        'start_offset_field' : 'start offset',
-       'make_rectangle' : True }
-        
-        pp = profilePath(pts_tools.geom_from_lrs)
-        
-        profileAlg(algId = 'PTS tools:geometry_from_lrs',params = params,profile = pp)
-        
+        r = profileAlg(algId = 'pts:linefromlrs',params = params,profile = pp)
+        layer = QgsProject.instance().mapLayer(r['OUTPUT'])
+        self.assertTrue(layer.featureCount()>0)
 
 if __name__ == '__console__':
-    suite = unittest.defaultTestLoader.loadTestsFromTestCase(testAlg)
+    suite = unittest.defaultTestLoader.loadTestsFromTestCase(testLineFromLrs)
     unittest.TextTestRunner().run(suite)
     
     
