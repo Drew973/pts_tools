@@ -20,7 +20,7 @@ import traceback
 #['CL2', 20.0, '', 0.5, 0.5, 0.25, 'IW', '', 'R', '', -348.0, '', '', '', '', '', '', '']
 
 
-def parseExcel(filePath):
+def parseExcel(filePath,feedback):
     try:
         import python_calamine
         names = python_calamine.get_sheet_names(filePath)
@@ -30,6 +30,10 @@ def parseExcel(filePath):
         #errorLog = r'C:\Users\drew.bennett\AppData\Roaming\QGIS\QGIS3\profiles\default\python\plugins\pts_tools\vcs\errors.txt'
         #log = open(errorLog,'w')
         for sheetNumber,sheetName in enumerate(names):
+            
+            feedback.setProgress(100*sheetNumber/len(names))
+            if feedback.isCanceled():
+                return
             
             if 'VCS' in sheetName.upper():
                 d = python_calamine.get_sheet_data(filePath,sheetNumber)#list of lists                
@@ -59,7 +63,7 @@ def parseExcel(filePath):
        # log.close()
             
     except ImportError:
-        m = 'This tool requires the calamine library. Install it by entering "py3_env" then "pip install python-calamine" into osgeo4w shell and restarting QGIS'
+        m = 'Could not import Calamine. If you just installed it try restarting QGIS.'
         #print(m)
         raise ImportError(m)
     

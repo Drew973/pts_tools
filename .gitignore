@@ -1,3 +1,5 @@
 *.pyc
 __pycache__/
 *.prof
+*.gpkg-shm
+*.gpkg-wal

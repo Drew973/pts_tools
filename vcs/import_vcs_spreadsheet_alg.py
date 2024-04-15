@@ -14,7 +14,7 @@ from qgis.core import (QgsProcessingAlgorithm,QgsProcessingParameterField,QgsPro
 from pts_tools.vcs.defect import fields
 from pts_tools.shared import splinestring
 from pts_tools.vcs import parse_excel
-
+from pts_tools.vcs.check_calamine import checkCalamine
 
 
 class importVcsSpreadsheetAlg(QgsProcessingAlgorithm):
@@ -29,6 +29,9 @@ class importVcsSpreadsheetAlg(QgsProcessingAlgorithm):
 
 
     def prepareAlgorithm(self,parameters,context,feedback):
+        
+        checkCalamine()
+        
         
         self.input = self.parameterAsFile(parameters,'input',context)
         
@@ -96,7 +99,7 @@ class importVcsSpreadsheetAlg(QgsProcessingAlgorithm):
         
        
         
-        for d in parse_excel.parseExcel(self.input):
+        for d in parse_excel.parseExcel(self.input,feedback = feedback):
             networkGeom = self.lookupNetworkGeom(d.sec)
             mog = d.moGeom().densifyByDistance(5)
             xyGeom = networkGeom.moGeomToXY(mog)
@@ -145,6 +148,7 @@ class importVcsSpreadsheetAlg(QgsProcessingAlgorithm):
         <p>-LRS geometry is left edge of road</p>
         <p>-Lanes are 3.65m wide</p>
         <p>-Hard shoulder is 3.3m wide.</p>
+        <p>-Road follows smooth curve between known points.</p>
         <p>Left edge of feature depends on lane and wheelpath. Right edge is width from this.</p>
 
 
