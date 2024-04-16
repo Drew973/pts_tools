@@ -12,10 +12,10 @@ python_calamine documentation horribly out of date.
 
 #0 indexed
 #replace with json config file?
-T = {'lane':0,'startChain':1,'endChain':2,'width':4,'defectType':6,'wheelTrack':8,'photo':9,'minRow':20,'maxRow' : 42,'secRow':8,'secCol':5}
+T = {'lane':0,'startChain':1,'endChain':2,'width':4,'defectType':6,'severity':7,'wheelTrack':8,'photo':9,'minRow':20,'maxRow' : 42,'secRow':8,'secCol':5}
 
 from pts_tools.vcs.defect import defect
-import traceback
+#import traceback
 
 #['CL2', 20.0, '', 0.5, 0.5, 0.25, 'IW', '', 'R', '', -348.0, '', '', '', '', '', '', '']
 
@@ -51,6 +51,7 @@ def parseExcel(filePath,feedback):
                                       wheelTrack = row[T['wheelTrack']],
                                       photo = row[T['photo']],
                                       defectType = row[T['defectType']],
+                                      severity = row[T['severity']],#can be float
                                       sec = sec
                                       )
                         

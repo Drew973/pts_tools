@@ -5,12 +5,12 @@
 [general]
 name=pts_tools
 qgisMinimumVersion=3.0
-description=PTS algorithms
+description=PTS processing algorithms
 version=3.12
 author=drew
 email=drew.bennett@ptsinternational.co.uk
 
-about=plugin to split vector layer by chainage
+about=Adds pts tools to processing toolbox
 
 tracker=http://bugs
 repository=http://repo

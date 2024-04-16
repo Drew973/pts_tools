@@ -153,9 +153,7 @@ class importVcsSpreadsheetAlg(QgsProcessingAlgorithm):
 
 
         <p>LRS layer needs to have linestringM geometry. M values can be added with PTS tools:add_measure.
-        Indexing id field may improve performance.</p>
-        
-        <p>Requires 3rd party "Calamine" library. Install it by entering "py3_env" then "pip install python-calamine" into osgeo4w shell and restarting QGIS</p>
+        Indexing id field can improve performance.</p>
 
         </body>
         </html>

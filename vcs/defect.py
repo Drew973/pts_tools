@@ -11,7 +11,7 @@ from qgis.core import QgsGeometry,QgsRectangle,QgsFields,QgsField,QgsFeature
 from PyQt5.QtCore import QVariant
 
 
-from enum import Flag,Enum
+from enum import Flag,Enum,auto
 
 
 class lanesFlag(Flag):
@@ -128,6 +128,23 @@ def right(lanes,wheelTrack):
     return -l - wheelTrack.right() * w
     
 
+#charactors from A-Z
+def AZ(string):
+    n = ''
+    for c in string.upper():
+        if c.isalpha():
+            n += c
+    return n
+
+
+#charactors from A-Z and numbers
+def AZN(string):
+    n = ''
+    for c in string.upper():
+        if c.isalpha() or c.isnumeric():
+            n += c
+    return n
+    
 
 fields = QgsFields()
 fields.append(QgsField('sec',QVariant.String))
@@ -137,13 +154,54 @@ fields.append(QgsField('width',QVariant.Double))
 fields.append(QgsField('startChain',QVariant.Int))
 fields.append(QgsField('endChain',QVariant.Double))
 fields.append(QgsField('defectType',QVariant.String))
+fields.append(QgsField('severity',QVariant.String))
 fields.append(QgsField('photo',QVariant.String))
 
 
-class defect:
+
+class featureType(Enum):
+    
+    LP = auto()
+    CJ = auto()
+    BJ = auto()
+    N = auto()
+    IW = auto()
+    CR = auto()
+    TC = auto()
+    CZ = auto()
+    FT = auto()
+    PA = auto()
+    POT = auto()
+    TF = auto()
+    SD = auto()
+    MP = auto()
+    DEP = auto()
+    OJ = auto()
+    TSSC = auto()
+    HRA = auto()
+    HFSC = auto()
     
     
-    def __init__(self,sec,lane,wheelTrack,startChain,defectType,photo,width = None,endChain=None):
+    @staticmethod
+    def featureTypeFromString(t):
+        return featureType[AZ(t)]
+
+
+    def __str__(self):
+        return self.name
+
+
+
+#validSeverity = ['','1','2','N','M','W']
+def severityFromString(s):
+    a = AZN(s)#better not to validate?
+    return a
+    
+
+    
+class defect:    
+    
+    def __init__(self,sec,lane,wheelTrack,startChain,defectType,severity,photo,width = None,endChain=None):
         
         self.sec = str(sec)
         
@@ -167,7 +225,12 @@ class defect:
         else:
             self.endChain = float(endChain)
         
-        self.defectType = str(defectType)
+        self.defectType = featureType.featureTypeFromString(defectType)
+        
+        if isinstance(severity,float):
+            severity = int(severity)
+        self.severity = severityFromString(str(severity))
+        
         self.photo = str(photo)
         
         
@@ -186,7 +249,8 @@ class defect:
         f['wheelTrack'] = str(self.wheelTrack)
         f['startChain'] = self.startChain
         f['endChain'] = self.endChain
-        f['defectType'] = self.defectType
+        f['defectType'] = str(self.defectType)
+        f['severity'] = str(self.severity)
         f['width'] = self.width
         f['photo'] = self.photo
         return f
