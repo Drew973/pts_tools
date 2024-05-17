@@ -15,7 +15,7 @@ python_calamine documentation horribly out of date.
 T = {'lane':0,'startChain':1,'endChain':2,'width':4,'defectType':6,'severity':7,'wheelTrack':8,'photo':9,'minRow':20,'maxRow' : 42,'secRow':8,'secCol':5}
 
 from pts_tools.vcs.defect import defect
-#import traceback
+import traceback
 
 #['CL2', 20.0, '', 0.5, 0.5, 0.25, 'IW', '', 'R', '', -348.0, '', '', '', '', '', '', '']
 
@@ -27,8 +27,8 @@ def parseExcel(filePath,feedback):
         #print('names',names)
         
         
-        #errorLog = r'C:\Users\drew.bennett\AppData\Roaming\QGIS\QGIS3\profiles\default\python\plugins\pts_tools\vcs\errors.txt'
-        #log = open(errorLog,'w')
+        errorLog = r'C:\Users\drew.bennett\AppData\Roaming\QGIS\QGIS3\profiles\default\python\plugins\pts_tools\vcs\errors.txt'
+        log = open(errorLog,'w')
         for sheetNumber,sheetName in enumerate(names):
             
             feedback.setProgress(100*sheetNumber/len(names))
@@ -56,10 +56,10 @@ def parseExcel(filePath,feedback):
                                       )
                         
                     except Exception as e:
-                        pass
-                        #log.write(sheetName +' '+ str(row))
+                       # pass
+                        log.write(sheetName +' '+ str(row))
                    #     print(sheetName,row)
-                        #traceback.print_exc(file = log)
+                        traceback.print_exc(file = log)
                        #]pass
        # log.close()
             

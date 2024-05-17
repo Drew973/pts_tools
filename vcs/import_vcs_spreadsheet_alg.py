@@ -4,6 +4,9 @@ Created on Fri Feb  3 08:02:43 2023
 @author: Drew.Bennett
 
 TODO:
+get number of lanes. Assume each lane has at least 1 feature (should at least have surface)
+    
+
 """
 import os
 
@@ -11,10 +14,10 @@ from qgis.core import (QgsProcessingAlgorithm,QgsProcessingParameterField,QgsPro
                        QgsProcessingParameterFeatureSource,QgsProcessing,QgsFeatureRequest,QgsWkbTypes,QgsProcessingParameterFile)
 
 
-from pts_tools.vcs.defect import fields
+from pts_tools.vcs.defect import fields,lanesClass
 from pts_tools.shared import splinestring
 from pts_tools.vcs import parse_excel
-from pts_tools.vcs.check_calamine import checkCalamine
+from pts_tools.vcs.check_imports import checkCalamine
 
 
 class importVcsSpreadsheetAlg(QgsProcessingAlgorithm):
@@ -56,7 +59,7 @@ class importVcsSpreadsheetAlg(QgsProcessingAlgorithm):
     
         
     #lookup geometry from network layer
-    def networkGeom(self,label):
+    def lookupNetworkGeom(self,label):
     #    if isinstance(label,str):
      #       label = "'{lab}'".format(lab=label)
         req = QgsFeatureRequest()
@@ -70,23 +73,10 @@ class importVcsSpreadsheetAlg(QgsProcessingAlgorithm):
             return splinestring.fromQgsGeometry(nf[0])
        
         if len(nf)>1:
-            return KeyError('multiple network features with {f} = {lab}'.format(f=self.networkLabelField,lab =label ))
+            raise KeyError('multiple network features with {f} = {lab}'.format(f=self.networkLabelField,lab =label ))
             
         if len(nf)==0:
-            return KeyError('no network features with {f} = {lab}'.format(f=self.networkLabelField,lab =label ))
-
-
-    #see if label in self.lrs.
-    #if not trys to find it and adds it or error
-    #returns splinestring or raises error
-    def lookupNetworkGeom(self,label):
-        if not label in self.lrs:
-            self.lrs[label] = self.networkGeom(label)
-        g = self.lrs[label]
-        if isinstance(g,Exception):
-            raise g
-        else:
-            return g
+            raise KeyError('no network features with {f} = {lab}'.format(f=self.networkLabelField,lab =label ))
 
 
     def processAlgorithm(self, parameters, context, feedback):
@@ -97,17 +87,45 @@ class importVcsSpreadsheetAlg(QgsProcessingAlgorithm):
                                            crs = self.networkLayer.crs(),
                                            geometryType = QgsWkbTypes.Polygon)#(QgsFeatureSink,str)
         
-       
-        
+        #{section:[defect]}
+        sections = {}
         for d in parse_excel.parseExcel(self.input,feedback = feedback):
-            networkGeom = self.lookupNetworkGeom(d.sec)
-            mog = d.moGeom().densifyByDistance(5)
-            xyGeom = networkGeom.moGeomToXY(mog)
-            f = d.toFeature()
-            f.setGeometry(xyGeom)
-            self.sink.addFeature(f)
+            if d.sec in sections:
+                sections[d.sec].append(d)#add to defects
+            else:
+                sections[d.sec] = [d]#add new entry
+            
+        #print('sections',sections)
+        for k,v in sections.items():
+            try:
+                networkGeom = self.lookupNetworkGeom(k)
+                
+                lanes = lanesClass()
+                for d in v:
+                    lanes |= d.lanes
+                        
+                print('lanes',lanes)
+                
+                invalid = lanes.invalidRoad()
+                if invalid:
+                    raise ValueError(invalid)
+                    
+
+                for d in v:
+                    mog = d.moGeom(roadLanes = lanes).densifyByDistance(5)
+                    xyGeom = networkGeom.moGeomToXY(mog)
+                    f = d.toFeature()
+                    f.setGeometry(xyGeom)
+                    self.sink.addFeature(f)
+                     
+            except KeyError as e:
+                feedback.reportError(str(e))
+                
+                
+                
         return {'OUTPUT':self.outputId}
         
+    
     def postProcessAlgorithm(self, context, feedback):
         layer = QgsProcessingUtils.mapLayerFromString(self.outputId, context)
         if layer is not None:
@@ -145,7 +163,7 @@ class importVcsSpreadsheetAlg(QgsProcessingAlgorithm):
        
         <p>Creates new polygon layer from VCS spreadsheet and linear reference system.</p>
         <p>Transverse position is a crude approximation bases on the following assumptions:</p>
-        <p>-LRS geometry is left edge of road</p>
+        <p>-Section has same lanes throughout length, all or which appear in spreadsheet.<p>
         <p>-Lanes are 3.65m wide</p>
         <p>-Hard shoulder is 3.3m wide.</p>
         <p>-Road follows smooth curve between known points.</p>
