@@ -9,7 +9,7 @@ python_calamine documentation horribly out of date.
 
 """
 
-
+#template
 #0 indexed
 #replace with json config file?
 T = {'lane':0,'startChain':1,'endChain':2,'width':4,'defectType':6,'severity':7,'wheelTrack':8,'photo':9,'minRow':20,'maxRow' : 42,'secRow':8,'secCol':5}

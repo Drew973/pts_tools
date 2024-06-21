@@ -3,18 +3,30 @@
 Created on Thu May 16 13:27:12 2024
 
 @author: Drew.Bennett
-"""
 
-'''
 valid patern is : 
     HS
     CL1
     CR1
-'''
+    
+offset from centerline (between CL_N and CR1) depends how many lanes in road.
+"""
 
 
 import re
 import numpy as np
+
+from collections import OrderedDict
+
+defaultRoadLanes = OrderedDict([('HS', 3.3), ('CL1', 3.65), ('CL2', 3.65), ('CL3', 3.65)])
+
+
+def left(lanes,roadLanes = defaultRoadLanes):
+    pass
+    
+
+
+
 lanePattern = re.compile(r'(HS|CL\d+|CR\d+)')
 
 
@@ -30,6 +42,9 @@ class lanes:
         return ','.join(self.data)
         
     
+    def names(self):
+        return self.data
+    
     def __repr__(self):
         return 'lanes:' + str(self.data)
         
@@ -41,11 +56,11 @@ class lanes:
         return min(self.data)
         
     
-    
+    #lanes like CL1. does not include HS
     def CL(self):
         return [a for a in self.data if a[0:2] == 'CL']
     
-    
+    #lanes like CR1
     def CR(self):
         return [a for a in self.data if a[0:2] == 'CR']    
     
@@ -93,10 +108,21 @@ class lanes:
             d = sorted(roadLanes.CR())
             return - laneWidth * d.index(lm)    
     
+    
+    @staticmethod
+    def roadEdges(roadLanes):
+        return [lanes.fromString(s).leftOffset(roadLanes = roadLanes) for s in roadLanes.names()] + [0.0]
+
+    
     #'bitwise' or
     def __or__(self,other):
         return lanes(data = np.append(self.data,other.data))
         
+    
+    @staticmethod
+    def overlap(a,b):
+        return lanes(data = [d for d in a.data if d in b.data])
+            
         
         
     

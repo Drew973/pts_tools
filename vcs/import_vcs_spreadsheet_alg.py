@@ -104,18 +104,14 @@ class importVcsSpreadsheetAlg(QgsProcessingAlgorithm):
                 for d in v:
                     lanes |= d.lanes
                         
-                print('lanes',lanes)
+               # print('lanes',lanes)
                 
                 invalid = lanes.invalidRoad()
                 if invalid:
                     raise ValueError(invalid)
                     
-
                 for d in v:
-                    mog = d.moGeom(roadLanes = lanes).densifyByDistance(5)
-                    xyGeom = networkGeom.moGeomToXY(mog)
-                    f = d.toFeature()
-                    f.setGeometry(xyGeom)
+                    f = d.toFeature(roadLanes = lanes , networkGeom = networkGeom)
                     self.sink.addFeature(f)
                      
             except KeyError as e:

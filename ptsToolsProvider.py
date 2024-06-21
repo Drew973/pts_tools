@@ -57,10 +57,11 @@ from pts_tools.add_measure.add_measure_alg import addMeasureAlg
 from pts_tools.polygon_from_lrs.polygon_from_lrs_alg import polygonFromLrsAlg
 from pts_tools.point_from_lrs.point_from_lrs_alg import pointFromLrsAlg
 from pts_tools.line_from_lrs.line_from_lrs_alg import lineFromLrsAlg
-from pts_tools.vcs.vcs_to_gis_alg import vcsToGisAlg
+#from pts_tools.vcs.vcs_to_gis_alg import vcsToGisAlg
 
 from pts_tools.vcs.import_vcs_spreadsheet_alg import importVcsSpreadsheetAlg
-
+from pts_tools.vcs.export_vcs_schematic_alg import exportVcsSchematicAlg
+from pts_tools.load_zm3.load_zm3_folder_alg import loadZm3FolderAlg
 
 
 class ptsToolsProvider(QgsProcessingProvider):
@@ -104,8 +105,8 @@ class ptsToolsProvider(QgsProcessingProvider):
         self.addAlgorithm(pointFromLrsAlg())
     #    self.addAlgorithm(vcsToGisAlg())
         self.addAlgorithm(importVcsSpreadsheetAlg())
-
-
+       # self.addAlgorithm(exportVcsSchematicAlg())
+        self.addAlgorithm(loadZm3FolderAlg())
 
 
     def id(self):
